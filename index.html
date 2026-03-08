@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FastUplink - Coming Soon</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+background:black;
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
+text-align:center;
+color:white;
+flex-direction:column;
+}
+
+/* اللوجو */
+.logo{
+max-width:850px;
+width:100%;
+margin-bottom:40px;
+}
+
+/* النص */
+.coming{
+font-size:60px;
+font-weight:bold;
+letter-spacing:4px;
+animation:blink 1.5s infinite;
+}
+
+/* الوميض */
+@keyframes blink{
+0%{opacity:1}
+50%{opacity:0.3}
+100%{opacity:1}
+}
+
+/* موبايل */
+@media (max-width:768px){
+
+.logo{
+width:90%;
+max-width:320px;
+}
+
+.coming{
+font-size:40px;
+}
+
+}
+
+/* موبايل صغير */
+@media (max-width:480px){
+
+.coming{
+font-size:32px;
+letter-spacing:2px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<img src="bg.webp" class="logo" alt="FastUplink Logo">
+
+<div class="coming">
+Coming Soon
+</div>
+
+<script>
+
+// تأثير وميض إضافي للنص
+const text = document.querySelector(".coming");
+
+setInterval(()=>{
+text.style.textShadow =
+`0 0 10px #00bfff,
+0 0 20px #00bfff,
+0 0 40px #ff8c00`;
+},1000);
+
+</script>
+
+</body>
+</html>
