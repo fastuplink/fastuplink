@@ -1495,11 +1495,13 @@ img { max-width: 100%; height: auto; }
         function slideMove(dir) {
             currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + dir));
             updateSlider();
+            resetAutoPlay();
         }
 
         function goToSlide(n) {
             currentSlide = n;
             updateSlider();
+            resetAutoPlay();
         }
 
         // Scroll wheel support
@@ -1532,9 +1534,24 @@ img { max-width: 100%; height: auto; }
 
         // Keyboard support
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') slideMove(1);
-            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') slideMove(-1);
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { slideMove(1); resetAutoPlay(); }
+            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { slideMove(-1); resetAutoPlay(); }
         });
+
+        // Auto-play every 3 seconds
+        let autoPlay = setInterval(() => {
+            currentSlide = currentSlide === totalSlides - 1 ? 0 : currentSlide + 1;
+            updateSlider();
+        }, 3000);
+
+        // لما المستخدم يتفاعل يدوياً، نعيد العداد من الأول
+        function resetAutoPlay() {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(() => {
+                currentSlide = currentSlide === totalSlides - 1 ? 0 : currentSlide + 1;
+                updateSlider();
+            }, 3000);
+        }
 
         // Init
         updateSlider();
