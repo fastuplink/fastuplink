@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fastuplink.com/sitemap.xml

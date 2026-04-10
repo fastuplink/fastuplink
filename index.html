@@ -1,100 +1,1879 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FastUplink - Coming Soon</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>fastuplink</title>
+    <meta name="description" content="Fast Uplink | Innovative solutions and standout services for our clients.">
+<meta name="keywords" content="fastuplink, تكنولوجيا المعلومات, فاست أب لينك, business, مصر, website">
+<meta name="author" content="fastuplink, تكنولوجيا المعلومات, فاست أب لينك">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://fastuplink.com/">
+    <style>
+/* جعل الصور متجاوبة  */
+img { max-width: 100%; height: auto; }
 
-<style>
+    <title>fastuplink - تحسين الاستجابة</title>
+  /* الأساسيات  */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+        overflow-x: hidden;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: Arial, Helvetica, sans-serif;
+    /* شاشة التحميل  */
+    #preloader {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    /* الفقاعات  */
+    .bubble {
+        position: absolute;
+        bottom: -100px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        animation: rise 6s infinite ease-in;
+        backdrop-filter: blur(10px);
+    }
+
+    @keyframes rise {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+
+/* المحتوى */
+.site-content {
+    opacity: 0;
+    transform: translateY(25vw); /* نزول النص بنسبة من عرض الشاشة */
+    padding-top: 20vw; /* نزول نسبي مع حجم الشاشة */
+    padding: 2vw; /* مسافة داخلية متناسبة */
+    padding-bottom: 0;
+    text-align: center;
+    margin-top: 3vw; /* زيادة بسيطة عن البار العلوي */
+    margin-bottom: 0;
+    font-size: 8vw; /* حجم النص يتناسب مع عرض الشاشة */
+    font-family: 'Bebas Neue', sans-serif; /* خط عصري */
+    color: white;
+    letter-spacing: 1vw; /* مسافة بين الحروف متناسبة */
+    text-shadow: 0 0 1vw rgb(248, 223, 78); /* ظل ناعم متناسب */
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-body{
-background:black;
-display:flex;
-align-items:center;
-justify-content:center;
-height:100vh;
-text-align:center;
-color:white;
-flex-direction:column;
+.site-content h1 {
+    margin: 0;
+    line-height: 1;
+}
+@media (max-width: 480px) {
+    .site-content {
+        padding-top: 50vw; /* نزول أكتر على الموبايل */
+        font-size: 10vw; /* حجم أصغر أو أكبر حسب التصميم */
+    }
+}
+    .site-content.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+        /* أنماط الاستجابة الإضافية  */
+        @media (max-width: 400px) {
+            .logo-frame img {
+                width: 100% !important;
+                height: auto !important;
+                max-width: 350px;
+            }
+            
+            .gallery-item {
+                flex: 0 1 calc(50% - 10px) !important;
+            }
+            
+            .gallery-item img {
+                height: 150px !important;
+            }
+            
+            .modal-content, .contact-modal-content {
+                width: 95% !important;
+                padding: 15px !important;
+            }
+        }
+        
+        @media (max-width: 340px) {
+            .social-icons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .top-bar {
+                padding: 8px 10px !important;
+            }
+            
+            .gallery-item {
+                flex: 0 1 100% !important;
+            }
+        }
+        
+        /* تحسين الأداء للهواتف  */
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        /* منع تأثيرات الhover على الأجهزة التي لا تدعمها  */
+        @media (hover: none) {
+            .logo-frame:hover,
+            .content-box:hover,
+            .about-section:hover,
+            .image-gallery:hover,
+            .gallery-item:hover {
+                transform: none !important;
+            }
+            
+            .start-button:hover,
+            .top-bar .start-button:hover,
+            .social-icon:hover {
+                transform: none !important;
+                background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%) !important;
+            }
+        }
+        /* استيراد خط عربي من جوجل فونتس  */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+        
+        /* إعادة تعيين الهوامش والحشوات الافتراضية  */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* تنسيق عام للصفحة مع خلفية متدرجة  */
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            min-height: 100svh;
+            overflow-x: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* خلفية الصفحة الرئيسية مع صورة مشوشة وتغطية شبه شفافة  */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('100.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(2px);
+            z-index: -2;
+        }
+        
+        /* طبقة شبه شفافة فوق الخلفية لتخفيف الإضاءة  */
+        .background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        /* البار العلوي الجديد  */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* أيقونات وسائل التواصل الاجتماعي في البار العلوي  */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        /* زر ابدأ رحلتك في البار العلوي  */
+        .top-bar .start-button {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: inherit;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* تأثير لمعان عند المرور على زر البدء في البار  */
+        .top-bar .start-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        /* تأثيرات عند المرور على زر البدء في البار  */
+        .top-bar .start-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+        }
+        
+        .top-bar .start-button:hover::before {
+            left: 100%;
+        }
+        
+        /* تصميم كل أيقونة اجتماعية  */
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* تأثير عند المرور على الأيقونات  */
+        .social-icon:hover {
+            transform: scale(1.2);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* تنسيق أيقونات SVG داخل الأزرار  */
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+        
+        /* نافذة عرض الموقع - مخفية بشكل افتراضي  */
+        .location-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* محتوى النافذة المنبثقة  */
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        /* عنوان النافذة المنبثقة  */
+        .modal-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        /* عنوان الشركة داخل النافذة المنبثقة  */
+        .modal-address {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-right: 4px solid #ffd700;
+        }
+        
+        /* زر إغلاق النافذة المنبثقة  */
+        .modal-close {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        /* تأثير عند المرور على زر الإغلاق  */
+        .modal-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* رسوم متحركة لظهور النافذة المنبثقة  */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* الحاوية الرئيسية للمحتوى  */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: auto;
+            padding: 6px 20px 20px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* توحيد عرض الثلاث براويز أسفل WELCOME */
+        .container > .logo-frame,
+        .container > .content-box,
+        .container > .about-section {
+            width: min(900px, calc(100% - 40px));
+            box-sizing: border-box;
+            height: auto;
+        }
+        
+        /* إطار الشعار  */
+        .logo-frame {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        /* تأثير عند المرور على إطار الشعار  */
+        .logo-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* تصميم الشعار  */
+ .logo-frame img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
-/* اللوجو */
-.logo{
-max-width:850px;
-width:100%;
-margin-bottom:40px;
+/* في الكمبيوتر  */
+.logo-frame img {
+    width: 100%;
+    height: auto;
 }
 
-/* النص */
-.coming{
-font-size:60px;
-font-weight:bold;
-letter-spacing:4px;
-animation:blink 1.5s infinite;
+/* في الشاشات الصغيرة (الموبايل)  */
+@media (max-width: 768px) {
+    .logo-frame img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+        
+        /* تأثير عند المرور على الشعار  */
+        .logo-frame:hover img {
+            transform: rotateZ('angle');
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 1.4);
+        }
+        
+        /* صندوق المحتوى الرئيسي  */
+        .content-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 50px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+        
+        /* تأثير عند المرور على صندوق المحتوى  */
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* النص الرئيسي في الصفحة  */
+        .main-text {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.4;
+        }
+        
+        /* زر بدء الرحلة  */
+        .start-button {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: inherit;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* تأثير لمعان عند المرور على الزر  */
+        .start-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        /* تأثيرات عند المرور على زر البدء  */
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+        }
+        
+        .start-button:hover::before {
+            left: 100%;
+        }
+        
+        .start-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        /* قسم عن الشركة  */
+        .about-section {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            max-width: 900px;
+            margin: 0 20px 60px 20px;
+        }
+        
+        /* تأثير عند المرور على قسم عن الشركة  */
+        .about-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 5.15);
+        }
+        
+        /* عنوان قسم عن الشركة  */
+        .about-title {
+            font-size: 3.6rem;
+            font-weight: 600;
+            color: hwb(106 47% 6%);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* نص قسم عن الشركة  */
+        .about-text {
+            font-size: 1.5rem;
+            color: white;
+            line-height: 1.8;
+            text-align: justify;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* رسوم متحركة للعناصر تظهر من الأسفل  */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* جسيمات عائمة للتأثير البصري  */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* تحديد مواقع وأحجام وتأخيرات الجسيمات العائمة  */
+        .particle:nth-child(1) { width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 15px; height: 15px; top: 60%; left: 85%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 8px; height: 8px; top: 80%; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 12px; height: 12px; top: 40%; left: 90%; animation-delay: 3s; }
+        .particle:nth-child(5) { width: 6px; height: 6px; top: 70%; left: 60%; animation-delay: 4s; }
+        
+        /* رسوم متحركة للجسيمات العائمة  */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* تصميم متجاوب للشاشات المتوسطة (أجهزة لوحية)  */
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 10px 20px;
+            }
+            
+            .top-bar .start-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            
+            .content-box {
+                padding: 30px 25px;
+                margin: 0 10px 20px 10px;
+            }
+            
+            .main-text {
+                font-size: 1.4rem;
+                margin-bottom: 25px;
+            }
+            
+            .start-button {
+                padding: 12px 28px;
+                font-size: 1.1rem;
+            }
+            
+            .logo-frame img {
+                width: 100%;
+                height: auto;
+            }
+            
+            .logo-frame {
+                padding: 25px;
+            }
+            
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .social-icon svg {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .about-section {
+                padding: 25px 30px;
+            }
+            
+            .about-title {
+                font-size: 1.4rem;
+            }
+            
+            .about-text {
+                font-size: 1rem;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.3rem;
+            }
+            
+            .modal-address {
+                font-size: 1rem;
+            }
+        }
+        
+        /* تصميم متجاوب للشاشات الصغيرة (هواتف)  */
+        @media (max-width: 480px) {
+            .top-bar {
+                padding: 8px 15px;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .top-bar .start-button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .social-icons {
+                gap: 10px;
+            }
+            
+            .social-icon {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .social-icon svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .main-text {
+                font-size: 1.2rem;
+            }
+            
+            .start-button {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            
+            .content-box {
+                padding: 25px 20px;
+            }
+            
+            .about-section {
+                padding: 20px 25px;
+            }
+            
+            .about-title {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .about-text {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+            
+            .logo-frame img {
+                width: 100%;
+                height: auto;
+            }
+            
+            .modal-content {
+                padding: 15px;
+            }
+            
+            .modal-title {
+                font-size: 1.1rem;
+            }
+            
+            .modal-address {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+
+        /* ===== معرض الصور - القسم الرئيسي =====  */
+        .image-gallery {
+            /* خلفية شفافة مع تأثير زجاجي  */
+            background: rgba(255, 255, 255, 0.15);
+            /* تأثير ضبابي خلف العنصر  */
+            backdrop-filter: blur(20px);
+            /* حدود شفافة  */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* زوايا مدورة  */
+            border-radius: 20px;
+            /* مساحة داخلية  */
+            padding: 40px;
+            /* محاذاة النص للمنتصف  */
+            text-align: center;
+            /* ظل خفيف  */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            /* انتقال سلس لجميع الخصائص  */
+            transition: all 0.3s ease;
+            /* رسوم متحركة للظهور من الأسفل  */
+            animation: fadeInUp 1s ease-out 0.6s both;
+            /* أقصى عرض  */
+            max-width: 1200px;
+            /* هوامش: أعلى 80px، يمين 20px، أسفل 50px، يسار 20px  */
+            margin: 80px 20px 50px 20px;
+        }
+        
+        /* تأثير عند المرور على معرض الصور  */
+        .image-gallery:hover {
+            /* رفع العنصر 5 بكسل للأعلى  */
+            transform: translateY(-10px);
+            /* ظل أكبر وأعمق عند المرور  */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* عنوان معرض الصور  */
+        .gallery-title {
+            /* حجم الخط  */
+            font-size: 2.8rem;
+            /* سمك الخط  */
+            font-weight: 600;
+            /* لون ذهبي  */
+            color: #ffd700;
+            /* مسافة من الأسفل  */
+            margin-bottom: 50px;
+            /* ظل للنص  */
+            text-shadow: 0 2px 8px rgb(65, 66, 18);
+        }
+        
+        /* حاوية الصور - تنسيق التخطيط  */
+        .gallery-container {
+            /* عرض مرن  */
+            display: flex;
+            /* السماح بالتفاف العناصر للأسطر التالية  */
+            flex-wrap: wrap;
+            /* مسافة بين الصور  */
+            gap: 20px;
+            /* توسيط العناصر أفقياً  */
+            justify-content: center;
+            /* توسيط العناصر عمودياً  */
+            align-items: center;
+        }
+        
+        /* كل عنصر صورة فردي  */
+        .gallery-item {
+            /* عرض مرن: 16.666% (6 صور في الصف) مع خصم المسافة  */
+            flex: 0 1 calc(16.666% - 17px);
+            /* أقل عرض ممكن  */
+            min-width: 150px;
+            /* انتقال سلس مع منحنى طبيعي  */
+            transform: rotateZ('angle');
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 1.0);
+            /* إخفاء الأجزاء التي تخرج من الإطار  */
+            overflow: hidden;
+            /* زوايا مدورة  */
+            border-radius: 15px;
+            /* موضع نسبي للطبقات  */
+            position: relative;
+        }
+        
+        /* تنسيق الصور داخل العناصر  */
+        .gallery-item img {
+            /* عرض كامل للعنصر  */
+            width: 100%;
+            /* ارتفاع ثابت - مستطيل بالطول  */
+            height: 220px;
+            /* تغطية كاملة مع الحفاظ على النسب  */
+            object-fit: cover;
+            /* زوايا مدورة  */
+            border-radius: 15px;
+            /* ظل خفيف  */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            /* انتقال سلس مع منحنى طبيعي  */
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            /* مؤشر يد عند المرور  */
+            cursor: pointer;
+            /* سطوع أقل قليلاً في الحالة العادية  */
+            filter: brightness(0.9);
+        }
+        
+        /* تأثير عند المرور على عنصر الصورة  */
+        .gallery-item:hover {
+            /* رفع العنصر 10 بكسل للأعلى  */
+            transform: translateY(-10px);
+            /* جعل العنصر يظهر فوق العناصر الأخرى  */
+            z-index: 10;
+        }
+        
+        /* تأثير على الصورة عند المرور على العنصر  */
+        .gallery-item:hover img {
+            /* تكبير الصورة 1.25 مرة  */
+            transform: scale(1.25);
+            /* ظل أكبر وأعمق  */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            /* زيادة السطوع  */
+            filter: brightness(1.1);
+        }
+        
+        /* طبقة ذهبية شفافة تظهر عند المرور  */
+        .gallery-item::before {
+            /* محتوى فارغ  */
+            content: '';
+            /* موضع مطلق  */
+            position: absolute;
+            /* تغطية كاملة للعنصر  */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* خلفية متدرجة ذهبية بزاوية 45 درجة  */
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), transparent);
+            /* شفافية كاملة في البداية  */
+            opacity: 0;
+            /* انتقال سلس للشفافية  */
+            transition: opacity 0.5s ease;
+            /* زوايا مدورة  */
+            border-radius: 15px;
+            /* طبقة فوق الصورة  */
+            z-index: 1;
+            /* لا تستجيب للنقر  */
+            pointer-events: none;
+        }
+        
+        /* إظهار الطبقة الذهبية عند المرور  */
+        .gallery-item:hover::before {
+            /* شفافية كاملة  */
+            opacity: 1;
+        }
+
+        /* نافذة الرسالة المنبثقة الجديدة  */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-modal-content {
+            background: white;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            animation: modalFadeIn 0.4s ease-out;
+        }
+        
+        .contact-modal-header {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .contact-modal-title {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .contact-modal-close {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #333;
+            cursor: pointer;
+        }
+        
+        .contact-modal-body {
+            padding: 25px;
+            text-align: right;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            border-right: 4px solid #ffd700;
+        }
+        
+        .contact-item i {
+            margin-left: 10px;
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+        
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .contact-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn.call {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .contact-btn.whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    
+/* ==============================
+   تحسينات التوافق مع الموبايل
+   ==============================  */
+
+/* شاشات التابلت والموبايل  */
+@media (max-width: 768px) {
+    .logo-frame img {
+        width: 90%;
+        height: auto;
+    }
+    .content-box {
+        padding: 20px;
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    }
 }
 
-/* الوميض */
-@keyframes blink{
-0%{opacity:1}
-50%{opacity:0.3}
-100%{opacity:1}
+/* الشاشات الصغيرة جداً (موبايل صغير)  */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+    .hero-subtitle {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+    }
+    .container {
+        padding: 60px 10px 10px 10px;
+    }
+}
+/* تصميم البار السفلي */
+.bottom-bar {
+    width: 100%;
+    background-color: #333; /* نفس لون البار العلوي */
+    padding: 15px 20px;
+    margin-top: 50px; /* مسافة بسيطة من المحتوى فوقه */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* موبايل */
-@media (max-width:768px){
-
-.logo{
-width:90%;
-max-width:320px;
+/* نص حقوق النشر */
+.copyright-text {
+    color: white;
+    font-size: 14px;
+    text-align: left;
 }
 
-.coming{
-font-size:40px;
+/* زر تغيير اللغة */
+#bottom-lang-btn {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #333;
+    border: none;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    transition: 0.3s;
+    font-family: inherit;
 }
 
+#bottom-lang-btn:hover {
+    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
 }
 
-/* موبايل صغير */
-@media (max-width:480px){
-
-.coming{
-font-size:32px;
-letter-spacing:2px;
+/* انيميشن للمربع المميز */
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3); }
 }
 
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
 }
 
-</style>
-</head>
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
 
-<body>
+        </style>
+    </head>
+    <body>
 
-<img src="bg.webp" class="logo" alt="FastUplink Logo">
+    <div id="preloader"></div>
+    <div class="site-content">
+        <h1>WELCOME</h1>
 
-<div class="coming">
-Coming Soon
+    </div>
+        <div class="background"></div>
+        
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <div class="top-bar">
+            <div class="social-icons">
+            <a href="https://www.facebook.com/fastuplink/" target="_blank" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                </svg>
+            </a>
+                
+            <a href="https://m.me/fastuplink/" target="_blank" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path d="M256.3 32C132.2 32 32 124.6 32 238.1c0 63.1 31.7 119.1 81.3 156.6V480l85.7-47.2c18.1 5 37.3 7.7 57.3 7.7 124.1 0 224.3-92.6 224.3-206.1S380.4 32 256.3 32zm24.3 270.5-62.1-66.3-121.4 66.3 133.3-141.9 62.1 66.3 121.4-66.3-133.3 141.9z"/>
+                </svg>
+            </a>
+                
+            <a href="https://wa.me/201210021424" target="_blank" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
+                </svg>
+            </a>
+            <a href="#" class="social-icon" onclick="showLocation(event)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"></path>
+                </svg>
+            </a>
+            </div>
+            
+            <button class="start-button" id="top-start-button" onclick="toggleLanguage()">🌐 عربي</button>
+        </div>
+        
+        <div class="location-modal" id="locationModal">
+            <div class="modal-content">
+                <h2 class="modal-title" id="location-modal-title">موقع شركة فاست أب لينك</h2>
+                <p class="modal-address" id="location-modal-address">
+                    العنوان: 📍القاهرة : ٦٢ ش يوسف عباس -شقه ١٠٣ -الدور العاشر منطقه السينما -مدينه نصر اول-القاهره
+                    <br>📍 الجيزة : سان جيوفاني -ش عبدالعزيز ال سعود -المنيل -الجيزه
+                    <br>📍 الربط الشبكي والاتصالات الموحدة : جنينه سيتي محلات ارقام ٣٠٩١/٣٠٩٢/٣٠٧ <br>
+
+                </p>
+                <button class="modal-close" id="location-modal-close" onclick="closeLocation()">إغلاق</button>
+            </div>
+        </div>
+
+        <div class="contact-modal" id="contactModal">
+            <div class="contact-modal-content">
+                <div class="contact-modal-header">
+                    <button class="contact-modal-close" onclick="closeContactModal()">×</button>
+                    <h2 class="contact-modal-title" id="contact-modal-title">تواصل معنا</h2>
+                </div>
+                <div class="contact-modal-body">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="contact-address-cairo">العنوان : الاسكدرية - الجمرك - شارع ابو وردة</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="contact-address-giza"> </span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="contact-address-sharm"> </span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span id="contact-phone">الهاتف: 01210021424 -   </span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="contact-email">البريد الإلكتروني: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a03040c052a0c0b191e1f1a0603040144090507">[email&#160;protected]</a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-actions">
+                        <button class="contact-btn call" onclick="makeCall()">
+                            <i class="fas fa-phone"></i> <span id="contact-call-btn">اتصل بنا</span>
+                        </button>
+                        <button class="contact-btn whatsapp" onclick="openWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> <span id="contact-whatsapp-btn">واتساب</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="logo-frame">
+                <img src="logo.png" alt="Sunnydays Logo">
+            </div>
+            
+
+            
+            <div class="content-box" style="max-width: 900px; padding: 40px 50px; margin: 0 20px 30px 20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%); backdrop-filter: blur(25px); border: 2px solid rgba(255, 215, 0, 0.4); border-radius: 25px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3); position: relative; overflow: hidden; animation: glow 3s ease-in-out infinite, float 4s ease-in-out infinite;">
+                <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent); animation: shimmer 3s ease-in-out infinite; pointer-events: none;"></div>
+                
+                <p class="main-text" id="main-text" style="font-size: 3.2rem; font-weight: 700; color: #030533; margin: 0; text-align: center; text-shadow: 0 2px 15px rgb(253, 253, 253), 0 4px 20px rgba(0, 0, 0, 0.3); letter-spacing: 3px; position: relative; z-index: 2; line-height: 1.4;">ذكاء في الحلول .. سرعة في التنفيذ</p>
+                
+                <div style="position: absolute; top: 15px; right: 15px; width: 25px; height: 25px; background: linear-gradient(45deg, #ffd700, #ffed4e); border-radius: 50%; opacity: 0.7; animation: float 2s ease-in-out infinite reverse;"></div>
+                <div style="position: absolute; bottom: 15px; left: 15px; width: 20px; height: 20px; background: linear-gradient(45deg, #ffd700, #ffed4e); border-radius: 50%; opacity: 0.5; animation: float 2.5s ease-in-out infinite;"></div>
+                <div style="position: absolute; top: 50%; left: 10px; width: 15px; height: 15px; background: linear-gradient(45deg, #ffd700, #ffed4e); border-radius: 50%; opacity: 0.4; animation: float 3s ease-in-out infinite reverse;"></div>
+                <div style="position: absolute; top: 50%; right: 10px; width: 18px; height: 18px; background: linear-gradient(45deg, #ffd700, #ffed4e); border-radius: 50%; opacity: 0.6; animation: float 2.8s ease-in-out infinite;"></div>
+            </div>
+            
+            <div class="about-section">
+                <h1 class="about-title" id="about-title">عن شركة فاست أب لينك</h1>
+                <h2 class="about-text" id="about-text">
+                    هي شركة متخصصة في تقديم حلول تكنولوجيا المعلومات، بخبرة تمتد لأكثر من 15 عامًا في مجال الشبكات والدعم الفني وخدمات البنية التحتية الرقمية. نهدف إلى تمكين عملائنا من الاعتماد على أنظمة تقنية مستقرة وآمنة تساعدهم على تطوير أعمالهم بكفاءة.
+
+                    نقدم مجموعة متكاملة من الخدمات تشمل تصميم وتركيب الشبكات، أنظمة كاميرات المراقبة، الصيانة والدعم الفني، بالإضافة إلى توريد وتركيب الأجهزة والحلول التقنية المختلفة. نعتمد على أحدث التقنيات وأفضل الممارسات لضمان تقديم خدمات عالية الجودة تلبي احتياجات الشركات والمنشآت بمختلف أحجامها.
+                    
+                    في FastUpLink نؤمن أن السرعة في الاستجابة والدقة في التنفيذ هما أساس نجاح أي نظام تقني، لذلك نحرص على تقديم دعم فني سريع وفعال، مع متابعة مستمرة لضمان استقرار الأنظمة وتقليل الأعطال إلى الحد الأدنى.
+                </h2>
+            </div>
+
+            <div class="image-gallery" style="margin-top: 50px;">
+                <h2 class="gallery-title" id="gallery-title"> مميزات التعاون مع Fast Uplink</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vertical Fullscreen Slider -->
+    <div class="slider-wrapper" id="slider-wrapper">
+        <div class="slider-track" id="slider-track">
+
+            <div class="slide" id="slide-0">
+                <div class="slide-image">
+                    <img src="01.webp" alt="حلول مصممة خصيصًا لشركتك">
+                </div>
+                <div class="slide-content">
+                    <h1 class="title" id="card-title-0">حلول مصممة خصيصًا لشركتك</h1>
+                    <p class="desc" id="card-desc-0">جنة البحر الأبيض بمياهه الفيروزية ورماله البيضاء الناعمة، اجمل الحفلات والسهرات التي لا تنسي. استمتع بأجواء فاخرة وأنشطة ترفيهية تناسب كل الأذواق من شروق الشمس لغروبها</p>
+                </div>
+            </div>
+
+            <div class="slide" id="slide-1">
+                <div class="slide-image">
+                    <img src="02.webp" alt="دعم فني سريع على مدار الساعة">
+                </div>
+                <div class="slide-content">
+                    <h1 class="title" id="card-title-1">دعم فني سريع على مدار الساعة</h1>
+                    <p class="desc" id="card-desc-1">عروس البحر الأحمر بمياهها الكريستالية وشعابها المرجانية الساحرة، الوجهة المثالية لعشاق الغوص والاسترخاء. استمتع بشمس دافئة على مدار العام وتجربة ترفيهية لا تُنسى على أجمل الشواطئ</p>
+                </div>
+            </div>
+
+            <div class="slide" id="slide-2">
+                <div class="slide-image">
+                    <img src="03.webp" alt="أمان معلوماتك هو أولويتنا">
+                </div>
+                <div class="slide-content">
+                    <h1 class="title" id="card-title-2">أمان معلوماتك هو أولويتنا</h1>
+                    <p class="desc" id="card-desc-2">واحة الشفاء بجمالها الفريد وعيونها الكبريتية الطبيعية. هنا العلاج من الطبيعة والراحة من صحراء تنبض بالسكينة.</p>
+                </div>
+            </div>
+
+            <div class="slide" id="slide-3">
+                <div class="slide-image">
+                    <img src="04.webp" alt="بنية تحتية قوية وموثوقة">
+                </div>
+                <div class="slide-content">
+                    <h1 class="title" id="card-title-3">بنية تحتية قوية وموثوقة</h1>
+                    <p class="desc" id="card-desc-3">مدينة السحر والهدوء حيث تلتقي الجبال بالبحر في لوحة طبيعية خلابة. وجهتك المثالية للغوص، الاسترخاء، والاستمتاع بغروب شمس لا يُنسى</p>
+                </div>
+            </div>
+
+            <div class="slide" id="slide-4">
+                <div class="slide-image">
+                    <img src="05.webp" alt="الربط الشبكي والاتصالات الموحدة">
+                </div>
+                <div class="slide-content">
+                    <h1 class="title" id="card-title-4">الربط الشبكي والاتصالات الموحدة</h1>
+                    <p class="desc" id="card-desc-4">عاصمة السياحة في البحر الأحمر، حيث الفخامة والمغامرة في مكان واحد. استمتع بشواطئ مذهلة، حياة ليلية نابضة، وأنشطة بحرية لا تنتهي</p>
+                </div>
+            </div>
+
+            <div class="slide" id="slide-5">
+                <div class="slide-image">
+                    <img src="06.webp" alt="الاقصر">
+                </div>
+                <div class="slide-content">
+                    <h1 class="title" id="card-title-5">الاقصر</h1>
+                    <p class="desc" id="card-desc-5">متحف مفتوح تحت سماء صافية، حيث يروي الحجر قصة الفراعنة. تعال واكتشف سحر النيل ومعابد خالدة تنبض بالتاريخ والجمال.</p>
+                </div>
+            </div>
+
+            <div class="slide" id="slide-6">
+                <div class="slide-image">
+                    <img src="07.webp" alt="شريكك التقني لتحقيق النجاح">
+                </div>
+                <div class="slide-content">
+                    <h1 class="title" id="card-title-6">شريكك التقني لتحقيق النجاح</h1>
+                    <p class="desc" id="card-desc-6">أرض النيل السحري وجمال الطبيعة الدافئة. هنا تلاقي هدوء يروي الروح وسحر يخطف القلوب.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- أزرار التنقل -->
+        <button class="slider-btn slider-btn-up" id="slider-btn-up" onclick="slideMove(-1)" aria-label="السابق">&#8679;</button>
+        <button class="slider-btn slider-btn-down" id="slider-btn-down" onclick="slideMove(1)" aria-label="التالي">&#8681;</button>
+
+        <!-- نقاط التنقل -->
+        <div class="slider-dots" id="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+            <span class="dot" onclick="goToSlide(3)"></span>
+            <span class="dot" onclick="goToSlide(4)"></span>
+            <span class="dot" onclick="goToSlide(5)"></span>
+            <span class="dot" onclick="goToSlide(6)"></span>
+        </div>
+
+        <!-- عداد السلايد -->
+        <div class="slide-counter" id="slide-counter">1 / 7</div>
+    </div>
+
+        </div>
+    </div>
+
+    <style>
+        /* ===== Vertical Fullscreen Slider ===== */
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .slider-track {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .slide {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-image {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.45);
+            transition: transform 0.8s ease;
+        }
+
+        .slide.active .slide-image img {
+            transform: scale(1.04);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            width: 90%;
+            text-align: center;
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 215, 0, 0.35);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            animation: none;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+        }
+
+        .slide.active .slide-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .title {
+            font-size: clamp(22px, 4vw, 42px);
+            font-weight: 700;
+            margin: 0 0 16px;
+            color: #ffd700;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+        }
+
+        .desc {
+            margin: 0;
+            line-height: 1.8;
+            font-size: clamp(14px, 2.2vw, 22px);
+            color: white;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+        }
+
+        /* أزرار الأعلى/الأسفل */
+        .slider-btn {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            background: rgba(255, 215, 0, 0.85);
+            color: #222;
+            border: none;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            line-height: 1;
+        }
+
+        .slider-btn:hover {
+            background: #ffd700;
+            transform: translateX(-50%) scale(1.12);
+        }
+
+        .slider-btn-up { top: 18px; }
+        .slider-btn-down { bottom: 18px; }
+
+        /* النقاط الجانبية */
+        .slider-dots {
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            border: 2px solid rgba(255,215,0,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #ffd700;
+            transform: scale(1.35);
+            border-color: #ffd700;
+        }
+
+        /* عداد السلايد */
+        .slide-counter {
+            position: absolute;
+            left: 22px;
+            bottom: 22px;
+            z-index: 10;
+            color: rgba(255,255,255,0.75);
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+        }
+
+        /* موبايل */
+        @media (max-width: 600px) {
+            .slide-content {
+                padding: 30px 20px;
+            }
+            .slider-dots {
+                right: 10px;
+            }
+            .slider-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 22px;
+            }
+        }
+    </style>
+
+    <script>
+        // === Vertical Slider Logic ===
+        let currentSlide = 0;
+        const totalSlides = 7;
+        const track = document.getElementById('slider-track');
+        const dots = document.querySelectorAll('.dot');
+        const counter = document.getElementById('slide-counter');
+
+        function updateSlider() {
+            track.style.transform = `translateY(-${currentSlide * 100}vh)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+            counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+            // hide/show up-down buttons
+            document.getElementById('slider-btn-up').style.opacity = currentSlide === 0 ? '0.3' : '1';
+            document.getElementById('slider-btn-down').style.opacity = currentSlide === totalSlides - 1 ? '0.3' : '1';
+        }
+
+        function slideMove(dir) {
+            currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + dir));
+            updateSlider();
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            updateSlider();
+        }
+
+        // Scroll wheel support
+        let scrollCooldown = false;
+        document.getElementById('slider-wrapper').addEventListener('wheel', (e) => {
+            const goingDown = e.deltaY > 0;
+            const atFirst = currentSlide === 0;
+            const atLast = currentSlide === totalSlides - 1;
+
+            // لو في الأول وبيسكرول فوق، أو في الآخر وبيسكرول تحت → سيب الصفحة تكمل طبيعي
+            if ((atFirst && !goingDown) || (atLast && goingDown)) return;
+
+            e.preventDefault();
+            if (scrollCooldown) return;
+            scrollCooldown = true;
+            slideMove(goingDown ? 1 : -1);
+            setTimeout(() => scrollCooldown = false, 800);
+        }, { passive: false });
+
+        // Touch/swipe support
+        let touchStartY = 0;
+        document.getElementById('slider-wrapper').addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        document.getElementById('slider-wrapper').addEventListener('touchend', (e) => {
+            const diff = touchStartY - e.changedTouches[0].clientY;
+            if (Math.abs(diff) > 40) slideMove(diff > 0 ? 1 : -1);
+        }, { passive: true });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') slideMove(1);
+            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') slideMove(-1);
+        });
+
+        // Init
+        updateSlider();
+    </script>
+
+<div class="bottom-bar">
+    <div class="copyright-text" id="copyright-text">جميع الحقوق محفوظة ©  شركة فاست أب لينك.</div>
+    <button id="bottom-lang-btn" onclick="startJourney()">تواصل معنا</button>
 </div>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // --- START LANGUAGE SWITCHER CODE ---
+
+        let currentLang = 'en';
+
+        const translations = {
+            ar: {
+                topStartButton: "🌐 English",
+                locationModalTitle: "موقع شركة فاست أب لينك",
+                locationModalAddress: `العنوان: 📍القاهرة : ٦٢ ش يوسف عباس -شقه ١٠٣ -الدور العاشر منطقه السينما -مدينه نصر اول-القاهره
+                <br>📍 الجيزة : سان جيوفاني -ش عبدالعزيز ال سعود -المنيل -الجيزه
+                <br>📍 الربط الشبكي والاتصالات الموحدة : جنينه سيتي محلات ارقام ٣٠٩١/٣٠٩٢/٣٠٧ <br>
+                الهاتف:  01210021424 -   <br>
+                البريد الإلكتروني: info@fastuplink.com`,
+                locationModalClose: "إغلاق",
+                contactModalTitle: "تواصل معنا",
+                contactAddressCairo: "العنوان : الاسكدرية - الجمرك - شارع ابو وردة",
+                contactAddressGiza: " ",
+                contactAddressSharm: " ",
+                contactPhone: "الهاتف:  - 01210021424 ",
+                contactEmail: "البريد الإلكتروني: info@fastuplink.com",
+                contactCallBtn: "اتصل بنا",
+                contactWhatsappBtn: "واتساب",
+                mainText: "ذكاء في الحلول .. سرعة في التنفيذ",
+                aboutTitle: "عن شركة فاست أب لينك",
+                aboutText: `هي شركة متخصصة في تقديم حلول تكنولوجيا المعلومات، بخبرة تمتد لأكثر من 15 عامًا في مجال الشبكات والدعم الفني وخدمات البنية التحتية الرقمية. نهدف إلى تمكين عملائنا من الاعتماد على أنظمة تقنية مستقرة وآمنة تساعدهم على تطوير أعمالهم بكفاءة.
+
+نقدم مجموعة متكاملة من الخدمات تشمل تصميم وتركيب الشبكات، أنظمة كاميرات المراقبة، الصيانة والدعم الفني، بالإضافة إلى توريد وتركيب الأجهزة والحلول التقنية المختلفة. نعتمد على أحدث التقنيات وأفضل الممارسات لضمان تقديم خدمات عالية الجودة تلبي احتياجات الشركات والمنشآت بمختلف أحجامها.
+
+في FastUpLink نؤمن أن السرعة في الاستجابة والدقة في التنفيذ هما أساس نجاح أي نظام تقني، لذلك نحرص على تقديم دعم فني سريع وفعال، مع متابعة مستمرة لضمان استقرار الأنظمة وتقليل الأعطال إلى الحد الأدنى.`,
+                galleryTitle: " مميزات التعاون مع Fast Uplink",
+                copyrightText: "جميع الحقوق محفوظة ©  شركة فاست أب لينك.",
+                cardTitles: [
+                    "حلول مصممة خصيصًا لشركتك",
+                    "دعم فني سريع على مدار الساعة",
+                    "أمان معلوماتك هو أولويتنا",
+                    "بنية تحتية قوية وموثوقة",
+                    "الربط الشبكي والاتصالات الموحدة",
+                    "خبرة تمتد لأكثر من 15 عامًا ",
+                    "شريكك التقني لتحقيق النجاح"
+                ],
+                cardDescriptions: [
+                    "لا نؤمن بمفهوم الحلول الجاهزة للجميع. كل حل نقوم بتطويره مخصص لتلبية احتياجات شركتك .",
+                    "فريقنا جاهز دائمًا لحل أي مشكلة تقنية تواجهك في أسرع وقت. نضمن استمرارية عملك بدون توقف.",
+                    "نطبق أحدث معايير الحماية لضمان أمان بياناتك من أي تهديدات. لأن حماية أعمالك تبدأ من حماية معلوماتك.",
+                    "نصمم وننفذ شبكات وأنظمة IT عالية الأداء لضمان استقرار العمل. بنية قوية تعني إنتاجية أعلى.",
+                    "نصمم وننفذ شبكات داخلية وخارجية تضمن تدفق المعلومات بين أقسام شركتك بسرعة وأمان. حلولنا تربط فريقك ببعضه البعض وبعملائك من خلال قنوات اتصال مستقرة ومتكاملة.",
+                    "نعتمد على خبرة طويلة في تنفيذ مشاريع ناجحة بمختلف القطاعات. نضمن لك حلول مجربة ونتائج موثوقة.",
+                    "لا نقدم مجرد خدمات، بل نبني شراكة طويلة المدى مع عملائنا. نجاحك هو المقياس الحقيقي لنجاحنا."
+                ]
+            },
+            en: {
+                topStartButton: "🌐 عربي",
+                locationModalTitle: "Fast Uplink Company Location",
+                locationModalAddress: `Address: Address: Alexandria - AlGomrouk- Abu Warda Street
+                <br> 
+                <br>  <br>
+                Phone:  01210021424 -   <br>
+                Email: info@fastuplink.com`,
+                locationModalClose: "Close",
+                contactModalTitle: "Contact Us",
+                contactAddressCairo: "Address: Alexandria - AlGomrouk- Abu Warda Street",
+                contactAddressGiza: " ",
+                contactAddressSharm: " ",
+                contactPhone: "Phone:  01210021424 -  ",
+                contactEmail: "Email: info@fastuplink.com",
+                contactCallBtn: "Call Us",
+                contactWhatsappBtn: "WhatsApp",
+                mainText: "Smart Solutions .. Fast Execution",
+                aboutTitle: "About Fast Uplink",
+                aboutText: `FastUpLink is a specialized IT solutions company with over 12 years of experience in networking, technical support, and digital infrastructure services. Our goal is to empower businesses with reliable, secure, and efficient technology systems that support their growth and daily operations.
+
+We provide a comprehensive range of services including network design and installation, CCTV surveillance systems, technical support and maintenance, as well as supplying and deploying IT equipment and solutions. We rely on the latest technologies and best practices to deliver high-quality services tailored to meet the needs of businesses of all sizes.
+
+At FastUpLink, we believe that fast response and precise execution are the key to any successful IT system. That’s why we are committed to providing quick and effective technical support, along with continuous monitoring to ensure system stability and minimize downtime`,
+                galleryTitle: "Enjoy a unique vacation that combines comfort, luxury, and investment.",
+                copyrightText: "All rights reserved ©  Fast Uplink Company.",
+                cardTitles: [
+                    "Solutions Tailored Specifically for Your Company",
+                    "24/7 Fast Technical Support",
+                    "Your Data Security is Our Priority",
+                    "Strong and Reliable Infrastructure",
+                    "Network Connectivity & Unified Communications",
+                    "More than 15 years of experience",
+                    "Your technology partner for achieving success"
+                ],
+                cardDescriptions: [
+                    "We don't believe in a one-size-fits-all concept. Every solution we develop is customized to meet your company's unique needs.",
+                    "Our team is always ready to solve any technical problem you face in the shortest time. We guarantee your business continuity without interruption.",
+                    "We implement the latest protection standards to safeguard your data against any threats. Because protecting your business starts with securing your information.",
+                    "We design and implement high-performance IT networks and systems to ensure business stability. A strong infrastructure means higher productivity.",
+                    "We design and implement secure, high-performance networks that ensure fast information flow across your organization, connecting your team and customers through stable.",
+                    "We rely on extensive experience in delivering successful projects across various sectors. We guarantee proven solutions and reliable results.",
+                    "We don’t just provide services; we build long-term partnerships with our clients. Your success is the true measure of our success."
+                ]
+            }
+        };
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            document.getElementById('top-start-button').innerHTML = translations[currentLang].topStartButton;
+            document.getElementById('location-modal-title').innerHTML = translations[currentLang].locationModalTitle;
+            document.getElementById('location-modal-address').innerHTML = translations[currentLang].locationModalAddress;
+            document.getElementById('location-modal-close').innerHTML = translations[currentLang].locationModalClose;
+            document.getElementById('contact-modal-title').innerHTML = translations[currentLang].contactModalTitle;
+            document.getElementById('contact-address-cairo').innerHTML = translations[currentLang].contactAddressCairo;
+            document.getElementById('contact-address-giza').innerHTML = translations[currentLang].contactAddressGiza;
+            document.getElementById('contact-address-sharm').innerHTML = translations[currentLang].contactAddressSharm;
+            document.getElementById('contact-phone').innerHTML = translations[currentLang].contactPhone;
+            document.getElementById('contact-email').innerHTML = translations[currentLang].contactEmail;
+            document.getElementById('contact-call-btn').innerHTML = translations[currentLang].contactCallBtn;
+            document.getElementById('contact-whatsapp-btn').innerHTML = translations[currentLang].contactWhatsappBtn;
+            document.getElementById('main-text').innerHTML = translations[currentLang].mainText;
+            document.getElementById('about-title').innerHTML = translations[currentLang].aboutTitle;
+            document.getElementById('about-text').innerHTML = translations[currentLang].aboutText;
+            document.getElementById('gallery-title').innerHTML = translations[currentLang].galleryTitle;
+            document.getElementById('copyright-text').innerHTML = translations[currentLang].copyrightText;
+            document.getElementById('bottom-lang-btn').innerHTML = currentLang === 'ar' ? 'تواصل معنا' : 'Contact Us';
+
+            updateCardsLanguage();
+
+            const modalAddress = document.querySelector('.modal-address');
+            const contactItems = document.querySelectorAll('.contact-item');
+            if (currentLang === 'en') {
+                modalAddress.style.borderRight = 'none';
+                modalAddress.style.borderLeft = '4px solid #ffd700';
+                contactItems.forEach(item => {
+                    item.style.borderRight = 'none';
+                    item.style.borderLeft = '4px solid #ffd700';
+                    item.querySelector('i').style.marginRight = '10px';
+                    item.querySelector('i').style.marginLeft = '0';
+                });
+            } else {
+                modalAddress.style.borderLeft = 'none';
+                modalAddress.style.borderRight = '4px solid #ffd700';
+                contactItems.forEach(item => {
+                    item.style.borderLeft = 'none';
+                    item.style.borderRight = '4px solid #ffd700';
+                    item.querySelector('i').style.marginLeft = '10px';
+                    item.querySelector('i').style.marginRight = '0';
+                });
+            }
+        }
+
+        function toggleLanguage() {
+            applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        }
+
+        // وظيفة تحديث لغة البطاقات
+        function updateCardsLanguage() {
+            const cardTitles = document.querySelectorAll('.title');
+            const cardDescs = document.querySelectorAll('.desc');
+            
+            cardTitles.forEach((title, index) => {
+                if (translations[currentLang].cardTitles[index]) {
+                    title.innerHTML = translations[currentLang].cardTitles[index];
+                }
+            });
+            
+            cardDescs.forEach((desc, index) => {
+                if (translations[currentLang].cardDescriptions[index]) {
+                    desc.innerHTML = translations[currentLang].cardDescriptions[index];
+                }
+            });
+        }
+        
+        // ... existing code ...
+
+        // وظيفة بدء الرحلة - تنفذ عند الضغط على الزر
+        function startJourney() {
+            // إضافة تأثير نقر على الزر
+            const button = document.querySelector('.start-button');
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = '';
+                // عرض نافذة الرسالة المنبثقة
+                document.getElementById('contactModal').style.display = 'flex';
+            }, 100);
+        }
+        
+        // إغلاق نافذة الرسالة المنبثقة
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+        
+        // وظائف النافذة المنبثقة للموقع
+        function showLocation(event) {
+            event.preventDefault();
+            document.getElementById('locationModal').style.display = 'flex';
+        }
+        
+        function closeLocation() {
+            document.getElementById('locationModal').style.display = 'none';
+        }
+        
+        // وظائف الاتصال
+        function makeCall() {
+            window.location.href = 'tel:+2 01210021424';
+        }
+        
+        function openWhatsApp() {
+            window.open('https://wa.me/201210021424', '_blank');
+        }
+        
+        // إغلاق النوافذ المنبثقة عند النقر خارج المحتوى
+        window.onclick = function(event) {
+            const modal = document.getElementById('locationModal');
+            if (event.target == modal) {
+                closeLocation();
+            }
+            
+            const contactModal = document.getElementById('contactModal');
+            if (event.target == contactModal) {
+                closeContactModal();
+            }
+        }
+        
+        // إضافة تأثيرات بصرية عند حركة الماوس
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.95) {
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+        
+        // وظيفة إنشاء تأثير البريق
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.width = '6px';
+            sparkle.style.height = '6px';
+            sparkle.style.background = 'rgba(255, 215, 0, 0.8)';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '9999';
+            sparkle.style.animation = 'sparkleAnimation 1s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+        
+        // إضافة رسوم متحركة لتأثير البريق
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes sparkleAnimation {
+                0% {
+                    opacity: 1;
+                    transform: scale(0) rotate(0deg);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1) rotate(180deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: scale(0) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        applyLanguage('en');
+
+    // إنشاء الفقاعات
+    function createBubbles() {
+        const preloader = document.getElementById("preloader");
+        for (let i = 0; i < 25; i++) {
+            let bubble = document.createElement("div");
+            let size = Math.random() * 40 + 20;
+            bubble.classList.add("bubble");
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}%`;
+            bubble.style.animationDuration = `${Math.random() * 3 + 3}s`;
+            bubble.style.animationDelay = `${Math.random() * 2}s`;
+            preloader.appendChild(bubble);
+        }
+    }
+
+    createBubbles();
+
+    // إخفاء شاشة التحميل بانسيابية
+    setTimeout(() => {
+        let preloader = document.getElementById("preloader");
+        preloader.style.transform = "translateY(-100%)";
+        preloader.style.opacity = "0";
+        preloader.style.transition = "transform 1s ease, opacity 1s ease";
+
+        setTimeout(() => {
+            preloader.style.display = "none";
+            document.querySelector(".site-content").classList.add("show");
+        }, 1000);
+    }, 3000);
+
+
+    </script>
+
+    
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+  function openInNewTab(url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
 
-// تأثير وميض إضافي للنص
-const text = document.querySelector(".coming");
+  // Facebook
+  const fbIcon = document.querySelector('.social-icons a[href*="facebook.com"]');
+  if (fbIcon) {
+    fbIcon.addEventListener('click', function (e) {
+      e.preventDefault();
+      openInNewTab(this.href);
+    });
+  }
 
-setInterval(()=>{
-text.style.textShadow =
-`0 0 10px #00bfff,
-0 0 20px #00bfff,
-0 0 40px #ff8c00`;
-},1000);
+  //  messenger
+  const igIcon = document.querySelector('.social-icons a[href*=" messenger.com"]');
+  if (igIcon) {
+    igIcon.addEventListener('click', function (e) {
+      e.preventDefault();
+      openInNewTab(this.href);
+    });
+  }
 
-</script>
-
-</body>
-</html>
+  // WhatsApp
+  const waIcon = document.querySelector('.social-icon
