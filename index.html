@@ -56,38 +56,57 @@ img { max-width: 100%; height: auto; }
         100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
     }
 
-/* المحتوى */
+/* ترحيب: كلمة واحدة — نفس الشكل بالعربي والإنجليزي */
 .site-content {
     opacity: 0;
-    transform: translateY(25vw); /* نزول النص بنسبة من عرض الشاشة */
-    padding-top: 20vw; /* نزول نسبي مع حجم الشاشة */
-    padding: 2vw; /* مسافة داخلية متناسبة */
+    padding: 2vw;
     padding-bottom: 0;
     text-align: center;
-    margin-top: 3vw; /* زيادة بسيطة عن البار العلوي */
+    margin-top: 3vw;
     margin-bottom: 0;
-    font-size: 8vw; /* حجم النص يتناسب مع عرض الشاشة */
-    font-family: 'Bebas Neue', sans-serif; /* خط عصري */
-    color: white;
-    letter-spacing: 1vw; /* مسافة بين الحروف متناسبة */
-    text-shadow: 0 0 1vw rgb(248, 223, 78); /* ظل ناعم متناسب */
-    transition: opacity 1s ease, transform 1s ease;
+    transition: opacity 0.6s ease;
 }
 
-.site-content h1 {
+.site-content.show {
+    opacity: 1;
+}
+
+.WELCOME-word {
     margin: 0;
-    line-height: 1;
+    line-height: 1.12;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(13.35rem, 28vw, 13.35rem);
+    font-weight: 800;
+    direction: ltr;
+    unicode-bidi: isolate;
+    color: transparent;
+    background: linear-gradient(135deg, #fff 0%, #ffd700 50%, #fff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: 0.06em;
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+    transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: drop-shadow(0 0 1.1vw rgba(255, 215, 0, 0.65));
+    animation: WELCOME-shimmer 3.5s linear infinite;
 }
+
+.site-content.show .WELCOME-word {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@keyframes WELCOME-shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
 @media (max-width: 480px) {
-    .site-content {
-        padding-top: 50vw; /* نزول أكتر على الموبايل */
-        font-size: 10vw; /* حجم أصغر أو أكبر حسب التصميم */
+    .WELCOME-word {
+        font-size: clamp(3rem, 22vw, 6.5rem);
     }
 }
-    .site-content.show {
-        opacity: 1;
-        transform: translateY(0);
-    }
         /* أنماط الاستجابة الإضافية  */
         @media (max-width: 400px) {
             .logo-frame img {
@@ -1073,8 +1092,7 @@ img { max-width: 100%; height: auto; }
 
     <div id="preloader"></div>
     <div class="site-content">
-        <h1>WELCOME</h1>
-
+        <h1 class="WELCOME-word" id="WELCOME-title" dir="ltr" lang="en">WELCOME</h1>
     </div>
         <div class="background"></div>
         
@@ -1203,174 +1221,114 @@ img { max-width: 100%; height: auto; }
         </div>
     </div>
 
-    <!-- Vertical Fullscreen Slider -->
-    <div class="slider-wrapper" id="slider-wrapper">
-        <div class="slider-track" id="slider-track">
+    <!-- Stacked Cards Section -->
+    <div class="cards-stack-wrapper">
 
-            <div class="slide" id="slide-0">
-                <div class="slide-image">
-                    <img src="01.webp" alt="حلول مصممة خصيصًا لشركتك">
-                </div>
-                <div class="slide-content">
-                    <h1 class="title" id="card-title-0">حلول مصممة خصيصًا لشركتك</h1>
-                    <p class="desc" id="card-desc-0">جنة البحر الأبيض بمياهه الفيروزية ورماله البيضاء الناعمة، اجمل الحفلات والسهرات التي لا تنسي. استمتع بأجواء فاخرة وأنشطة ترفيهية تناسب كل الأذواق من شروق الشمس لغروبها</p>
-                </div>
+        <div class="slide" id="slide-0">
+            <div class="slide-image"><img src="01.webp" alt="حلول مصممة خصيصًا لشركتك"></div>
+            <div class="slide-content">
+                <h1 class="title" id="card-title-0">حلول مصممة خصيصًا لشركتك</h1>
+                <p class="desc" id="card-desc-0">جنة البحر الأبيض بمياهه الفيروزية ورماله البيضاء الناعمة، اجمل الحفلات والسهرات التي لا تنسي. استمتع بأجواء فاخرة وأنشطة ترفيهية تناسب كل الأذواق من شروق الشمس لغروبها</p>
             </div>
-
-            <div class="slide" id="slide-1">
-                <div class="slide-image">
-                    <img src="02.webp" alt="دعم فني سريع على مدار الساعة">
-                </div>
-                <div class="slide-content">
-                    <h1 class="title" id="card-title-1">دعم فني سريع على مدار الساعة</h1>
-                    <p class="desc" id="card-desc-1">عروس البحر الأحمر بمياهها الكريستالية وشعابها المرجانية الساحرة، الوجهة المثالية لعشاق الغوص والاسترخاء. استمتع بشمس دافئة على مدار العام وتجربة ترفيهية لا تُنسى على أجمل الشواطئ</p>
-                </div>
-            </div>
-
-            <div class="slide" id="slide-2">
-                <div class="slide-image">
-                    <img src="03.webp" alt="أمان معلوماتك هو أولويتنا">
-                </div>
-                <div class="slide-content">
-                    <h1 class="title" id="card-title-2">أمان معلوماتك هو أولويتنا</h1>
-                    <p class="desc" id="card-desc-2">واحة الشفاء بجمالها الفريد وعيونها الكبريتية الطبيعية. هنا العلاج من الطبيعة والراحة من صحراء تنبض بالسكينة.</p>
-                </div>
-            </div>
-
-            <div class="slide" id="slide-3">
-                <div class="slide-image">
-                    <img src="04.webp" alt="بنية تحتية قوية وموثوقة">
-                </div>
-                <div class="slide-content">
-                    <h1 class="title" id="card-title-3">بنية تحتية قوية وموثوقة</h1>
-                    <p class="desc" id="card-desc-3">مدينة السحر والهدوء حيث تلتقي الجبال بالبحر في لوحة طبيعية خلابة. وجهتك المثالية للغوص، الاسترخاء، والاستمتاع بغروب شمس لا يُنسى</p>
-                </div>
-            </div>
-
-            <div class="slide" id="slide-4">
-                <div class="slide-image">
-                    <img src="05.webp" alt="الربط الشبكي والاتصالات الموحدة">
-                </div>
-                <div class="slide-content">
-                    <h1 class="title" id="card-title-4">الربط الشبكي والاتصالات الموحدة</h1>
-                    <p class="desc" id="card-desc-4">عاصمة السياحة في البحر الأحمر، حيث الفخامة والمغامرة في مكان واحد. استمتع بشواطئ مذهلة، حياة ليلية نابضة، وأنشطة بحرية لا تنتهي</p>
-                </div>
-            </div>
-
-            <div class="slide" id="slide-5">
-                <div class="slide-image">
-                    <img src="06.webp" alt="الاقصر">
-                </div>
-                <div class="slide-content">
-                    <h1 class="title" id="card-title-5">الاقصر</h1>
-                    <p class="desc" id="card-desc-5">متحف مفتوح تحت سماء صافية، حيث يروي الحجر قصة الفراعنة. تعال واكتشف سحر النيل ومعابد خالدة تنبض بالتاريخ والجمال.</p>
-                </div>
-            </div>
-
-            <div class="slide" id="slide-6">
-                <div class="slide-image">
-                    <img src="07.webp" alt="شريكك التقني لتحقيق النجاح">
-                </div>
-                <div class="slide-content">
-                    <h1 class="title" id="card-title-6">شريكك التقني لتحقيق النجاح</h1>
-                    <p class="desc" id="card-desc-6">أرض النيل السحري وجمال الطبيعة الدافئة. هنا تلاقي هدوء يروي الروح وسحر يخطف القلوب.</p>
-                </div>
-            </div>
-
         </div>
 
-        <!-- أزرار التنقل -->
-        <button class="slider-btn slider-btn-up" id="slider-btn-up" onclick="slideMove(-1)" aria-label="السابق">&#8679;</button>
-        <button class="slider-btn slider-btn-down" id="slider-btn-down" onclick="slideMove(1)" aria-label="التالي">&#8681;</button>
-
-        <!-- نقاط التنقل -->
-        <div class="slider-dots" id="slider-dots">
-            <span class="dot active" onclick="goToSlide(0)"></span>
-            <span class="dot" onclick="goToSlide(1)"></span>
-            <span class="dot" onclick="goToSlide(2)"></span>
-            <span class="dot" onclick="goToSlide(3)"></span>
-            <span class="dot" onclick="goToSlide(4)"></span>
-            <span class="dot" onclick="goToSlide(5)"></span>
-            <span class="dot" onclick="goToSlide(6)"></span>
+        <div class="slide" id="slide-1">
+            <div class="slide-image"><img src="02.webp" alt="دعم فني سريع على مدار الساعة"></div>
+            <div class="slide-content">
+                <h1 class="title" id="card-title-1">دعم فني سريع على مدار الساعة</h1>
+                <p class="desc" id="card-desc-1">عروس البحر الأحمر بمياهها الكريستالية وشعابها المرجانية الساحرة، الوجهة المثالية لعشاق الغوص والاسترخاء. استمتع بشمس دافئة على مدار العام وتجربة ترفيهية لا تُنسى على أجمل الشواطئ</p>
+            </div>
         </div>
 
-        <!-- عداد السلايد -->
-        <div class="slide-counter" id="slide-counter">1 / 7</div>
+        <div class="slide" id="slide-2">
+            <div class="slide-image"><img src="03.webp" alt="أمان معلوماتك هو أولويتنا"></div>
+            <div class="slide-content">
+                <h1 class="title" id="card-title-2">أمان معلوماتك هو أولويتنا</h1>
+                <p class="desc" id="card-desc-2">واحة الشفاء بجمالها الفريد وعيونها الكبريتية الطبيعية. هنا العلاج من الطبيعة والراحة من صحراء تنبض بالسكينة.</p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <div class="slide-image"><img src="04.webp" alt="بنية تحتية قوية وموثوقة"></div>
+            <div class="slide-content">
+                <h1 class="title" id="card-title-3">بنية تحتية قوية وموثوقة</h1>
+                <p class="desc" id="card-desc-3">مدينة السحر والهدوء حيث تلتقي الجبال بالبحر في لوحة طبيعية خلابة. وجهتك المثالية للغوص، الاسترخاء، والاستمتاع بغروب شمس لا يُنسى</p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-4">
+            <div class="slide-image"><img src="05.webp" alt="الربط الشبكي والاتصالات الموحدة"></div>
+            <div class="slide-content">
+                <h1 class="title" id="card-title-4">الربط الشبكي والاتصالات الموحدة</h1>
+                <p class="desc" id="card-desc-4">عاصمة السياحة في البحر الأحمر، حيث الفخامة والمغامرة في مكان واحد. استمتع بشواطئ مذهلة، حياة ليلية نابضة، وأنشطة بحرية لا تنتهي</p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-5">
+            <div class="slide-image"><img src="06.webp" alt="الاقصر"></div>
+            <div class="slide-content">
+                <h1 class="title" id="card-title-5">الاقصر</h1>
+                <p class="desc" id="card-desc-5">متحف مفتوح تحت سماء صافية، حيث يروي الحجر قصة الفراعنة. تعال واكتشف سحر النيل ومعابد خالدة تنبض بالتاريخ والجمال.</p>
+            </div>
+        </div>
+
+        <div class="slide" id="slide-6">
+            <div class="slide-image"><img src="07.webp" alt="شريكك التقني لتحقيق النجاح"></div>
+            <div class="slide-content">
+                <h1 class="title" id="card-title-6">شريكك التقني لتحقيق النجاح</h1>
+                <p class="desc" id="card-desc-6">أرض النيل السحري وجمال الطبيعة الدافئة. هنا تلاقي هدوء يروي الروح وسحر يخطف القلوب.</p>
+            </div>
+        </div>
+
     </div>
 
         </div>
     </div>
 
     <style>
-        /* ===== Vertical Fullscreen Slider ===== */
-
-        .slider-wrapper {
-            position: relative;
+        /* ===== Stacked Cards Section ===== */
+        .cards-stack-wrapper {
             width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            background: rgba(0,0,0,0.3);
-        }
-
-        .slider-track {
             display: flex;
             flex-direction: column;
-            height: 100%;
-            transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+            gap: 30px;
+            padding: 30px 0;
         }
-
         .slide {
-            min-height: 100vh;
             width: 100%;
+            height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
-            gap: 0;
             position: relative;
             overflow: hidden;
+            border-radius: 20px;
         }
-
         .slide-image {
             position: absolute;
             inset: 0;
             z-index: 0;
         }
-
         .slide-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             filter: brightness(0.45);
-            transition: transform 0.8s ease;
         }
-
-        .slide.active .slide-image img {
-            transform: scale(1.04);
-        }
-
         .slide-content {
             position: relative;
             z-index: 2;
             max-width: 750px;
             width: 90%;
             text-align: center;
-            padding: 50px 40px;
+            padding: 40px;
+            margin-bottom: 50px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(18px);
             border: 1px solid rgba(255, 215, 0, 0.35);
             border-radius: 24px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-            animation: none;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
         }
-
-        .slide.active .slide-content {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         .title {
             font-size: clamp(22px, 4vw, 42px);
             font-weight: 700;
@@ -1378,7 +1336,6 @@ img { max-width: 100%; height: auto; }
             color: #ffd700;
             text-shadow: 0 2px 12px rgba(0,0,0,0.5);
         }
-
         .desc {
             margin: 0;
             line-height: 1.8;
@@ -1386,176 +1343,11 @@ img { max-width: 100%; height: auto; }
             color: white;
             text-shadow: 0 1px 6px rgba(0,0,0,0.6);
         }
-
-        /* أزرار الأعلى/الأسفل */
-        .slider-btn {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            background: rgba(255, 215, 0, 0.85);
-            color: #222;
-            border: none;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            font-size: 28px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            line-height: 1;
-        }
-
-        .slider-btn:hover {
-            background: #ffd700;
-            transform: translateX(-50%) scale(1.12);
-        }
-
-        .slider-btn-up { top: 18px; }
-        .slider-btn-down { bottom: 18px; }
-
-        /* النقاط الجانبية */
-        .slider-dots {
-            position: absolute;
-            right: 22px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.45);
-            border: 2px solid rgba(255,215,0,0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: #ffd700;
-            transform: scale(1.35);
-            border-color: #ffd700;
-        }
-
-        /* عداد السلايد */
-        .slide-counter {
-            position: absolute;
-            left: 22px;
-            bottom: 22px;
-            z-index: 10;
-            color: rgba(255,255,255,0.75);
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.5);
-        }
-
-        /* موبايل */
         @media (max-width: 600px) {
-            .slide-content {
-                padding: 30px 20px;
-            }
-            .slider-dots {
-                right: 10px;
-            }
-            .slider-btn {
-                width: 42px;
-                height: 42px;
-                font-size: 22px;
-            }
+            .cards-stack-wrapper { gap: 18px; padding: 18px 0; }
+            .slide-content { padding: 25px 18px; margin-bottom: 30px; width: 88%; }
         }
     </style>
-
-    <script>
-        // === Vertical Slider Logic ===
-        let currentSlide = 0;
-        const totalSlides = 7;
-        const track = document.getElementById('slider-track');
-        const dots = document.querySelectorAll('.dot');
-        const counter = document.getElementById('slide-counter');
-
-        function updateSlider() {
-            track.style.transform = `translateY(-${currentSlide * 100}vh)`;
-            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
-            counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
-            document.querySelectorAll('.slide').forEach((s, i) => s.classList.toggle('active', i === currentSlide));
-            // hide/show up-down buttons
-            document.getElementById('slider-btn-up').style.opacity = currentSlide === 0 ? '0.3' : '1';
-            document.getElementById('slider-btn-down').style.opacity = currentSlide === totalSlides - 1 ? '0.3' : '1';
-        }
-
-        function slideMove(dir) {
-            currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + dir));
-            updateSlider();
-            resetAutoPlay();
-        }
-
-        function goToSlide(n) {
-            currentSlide = n;
-            updateSlider();
-            resetAutoPlay();
-        }
-
-        // Scroll wheel support
-        let scrollCooldown = false;
-        document.getElementById('slider-wrapper').addEventListener('wheel', (e) => {
-            const goingDown = e.deltaY > 0;
-            const atFirst = currentSlide === 0;
-            const atLast = currentSlide === totalSlides - 1;
-
-            // لو في الأول وبيسكرول فوق، أو في الآخر وبيسكرول تحت → سيب الصفحة تكمل طبيعي
-            if ((atFirst && !goingDown) || (atLast && goingDown)) return;
-
-            e.preventDefault();
-            if (scrollCooldown) return;
-            scrollCooldown = true;
-            slideMove(goingDown ? 1 : -1);
-            setTimeout(() => scrollCooldown = false, 800);
-        }, { passive: false });
-
-        // Touch/swipe support
-        let touchStartY = 0;
-        document.getElementById('slider-wrapper').addEventListener('touchstart', (e) => {
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
-        document.getElementById('slider-wrapper').addEventListener('touchend', (e) => {
-            const diff = touchStartY - e.changedTouches[0].clientY;
-            if (Math.abs(diff) > 40) slideMove(diff > 0 ? 1 : -1);
-        }, { passive: true });
-
-        // Keyboard support
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { slideMove(1); resetAutoPlay(); }
-            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { slideMove(-1); resetAutoPlay(); }
-        });
-
-        // Auto-play every 3 seconds
-        let autoPlay = setInterval(() => {
-            currentSlide = currentSlide === totalSlides - 1 ? 0 : currentSlide + 1;
-            updateSlider();
-        }, 3000);
-
-        // لما المستخدم يتفاعل يدوياً، نعيد العداد من الأول
-        function resetAutoPlay() {
-            clearInterval(autoPlay);
-            autoPlay = setInterval(() => {
-                currentSlide = currentSlide === totalSlides - 1 ? 0 : currentSlide + 1;
-                updateSlider();
-            }, 3000);
-        }
-
-        // Init
-        updateSlider();
-    </script>
 
 <div class="bottom-bar">
     <div class="copyright-text" id="copyright-text">جميع الحقوق محفوظة ©  شركة فاست أب لينك.</div>
