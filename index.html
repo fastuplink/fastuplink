@@ -64,6 +64,8 @@ img { max-width: 100%; height: auto; }
     text-align: center;
     margin-top: 3vw;
     margin-bottom: 0;
+    position: relative;
+    z-index: 1;
     transition: opacity 0.6s ease;
 }
 
@@ -75,7 +77,8 @@ img { max-width: 100%; height: auto; }
     margin: 0;
     line-height: 1.12;
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(13.35rem, 28vw, 13.35rem);
+    /* كمبيوتر/شاشات عريضة: حجم كبير زي ما كان؛ الموبايل يتظبط في media تحت */
+    font-size: clamp(3.75rem, 20vw, 13rem);
     font-weight: 800;
     direction: ltr;
     unicode-bidi: isolate;
@@ -102,7 +105,25 @@ img { max-width: 100%; height: auto; }
     100% { background-position: -200% center; }
 }
 
+/* مساحة تحت البار الثابت — الموبايل/التابلت + حجم WELCOME أصغر من الديسكتوب */
+@media (max-width: 768px) {
+    .site-content {
+        margin-top: 0;
+        padding-top: calc(5.75rem + env(safe-area-inset-top, 0px));
+        padding-left: max(16px, 2vw);
+        padding-right: max(16px, 2vw);
+        padding-bottom: 0;
+    }
+    .WELCOME-word {
+        font-size: clamp(3rem, 16vw, 8.5rem);
+    }
+}
 @media (max-width: 480px) {
+    .site-content {
+        padding-top: calc(8.75rem + env(safe-area-inset-top, 0px));
+        padding-left: max(12px, 3vw);
+        padding-right: max(12px, 3vw);
+    }
     .WELCOME-word {
         font-size: clamp(3rem, 22vw, 6.5rem);
     }
@@ -389,16 +410,18 @@ img { max-width: 100%; height: auto; }
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            gap: clamp(1.35rem, 4vw, 2.25rem);
             min-height: auto;
             padding: 6px 20px 20px 20px;
             position: relative;
             z-index: 10;
         }
 
-        /* توحيد عرض الثلاث براويز أسفل WELCOME */
+        /* توحيد عرض البراويز أسفل WELCOME */
         .container > .logo-frame,
         .container > .content-box,
-        .container > .about-section {
+        .container > .about-section,
+        .container > .image-gallery {
             width: min(900px, calc(100% - 40px));
             box-sizing: border-box;
             height: auto;
@@ -411,7 +434,7 @@ img { max-width: 100%; height: auto; }
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             padding: 30px;
-            margin-bottom: 20px;
+            margin: 0;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out;
@@ -465,7 +488,7 @@ img { max-width: 100%; height: auto; }
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out 0.2s both;
             max-width: 500px;
-            margin-bottom: 30px;
+            margin: 0;
         }
         
         /* تأثير عند المرور على صندوق المحتوى  */
@@ -542,7 +565,7 @@ img { max-width: 100%; height: auto; }
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out 0.4s both;
             max-width: 900px;
-            margin: 0 20px 60px 20px;
+            margin: 0;
         }
         
         /* تأثير عند المرور على قسم عن الشركة  */
@@ -616,10 +639,10 @@ img { max-width: 100%; height: auto; }
             
             .content-box {
                 padding: 30px 25px;
-                margin: 0 10px 20px 10px;
+                margin: 0;
             }
             
-            .main-text {
+            .main-text:not(.highlight-headline) {
                 font-size: 1.4rem;
                 margin-bottom: 25px;
             }
@@ -700,7 +723,7 @@ img { max-width: 100%; height: auto; }
                 height: 16px;
             }
             
-            .main-text {
+            .main-text:not(.highlight-headline) {
                 font-size: 1.2rem;
             }
             
@@ -746,52 +769,119 @@ img { max-width: 100%; height: auto; }
             }
         }
 
-        /* ===== معرض الصور - القسم الرئيسي =====  */
+        /* ===== معرض الصور (هيكل فقط؛ الشكل مع .glass-highlight-box) =====  */
         .image-gallery {
-            /* خلفية شفافة مع تأثير زجاجي  */
-            background: rgba(255, 255, 255, 0.15);
-            /* تأثير ضبابي خلف العنصر  */
-            backdrop-filter: blur(20px);
-            /* حدود شفافة  */
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            /* زوايا مدورة  */
-            border-radius: 20px;
-            /* مساحة داخلية  */
-            padding: 40px;
-            /* محاذاة النص للمنتصف  */
+            margin: 0 auto;
             text-align: center;
-            /* ظل خفيف  */
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            /* انتقال سلس لجميع الخصائص  */
             transition: all 0.3s ease;
-            /* رسوم متحركة للظهور من الأسفل  */
-            animation: fadeInUp 1s ease-out 0.6s both;
-            /* أقصى عرض  */
-            max-width: 1200px;
-            /* هوامش: أعلى 80px، يمين 20px، أسفل 50px، يسار 20px  */
-            margin: 80px 20px 50px 20px;
         }
-        
-        /* تأثير عند المرور على معرض الصور  */
-        .image-gallery:hover {
-            /* رفع العنصر 5 بكسل للأعلى  */
-            transform: translateY(-10px);
-            /* ظل أكبر وأعمق عند المرور  */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+
+        @keyframes glass-panel-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
-        
-        /* عنوان معرض الصور  */
-        .gallery-title {
-            /* حجم الخط  */
-            font-size: 2.8rem;
-            /* سمك الخط  */
-            font-weight: 600;
-            /* لون ذهبي  */
-            color: #ffd700;
-            /* مسافة من الأسفل  */
-            margin-bottom: 50px;
-            /* ظل للنص  */
-            text-shadow: 0 2px 8px rgb(65, 66, 18);
+
+        /* برواز زجاجي موحّد: شعار الرسالة + عنوان المعرض — نفس الشكل بالعربي والإنجليزي */
+        .glass-highlight-box {
+            max-width: 900px;
+            width: min(900px, calc(100% - 40px));
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 50px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            animation: glow 3s ease-in-out infinite, glass-panel-float 4s ease-in-out infinite;
+        }
+
+        .glass-highlight-box .glass-shimmer-layer {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .glass-sparkle {
+            position: absolute;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .glass-sparkle--a {
+            top: 15px;
+            right: 15px;
+            width: 25px;
+            height: 25px;
+            opacity: 0.7;
+            animation: glass-panel-float 2s ease-in-out infinite reverse;
+        }
+        .glass-sparkle--b {
+            bottom: 15px;
+            left: 15px;
+            width: 20px;
+            height: 20px;
+            opacity: 0.5;
+            animation: glass-panel-float 2.5s ease-in-out infinite;
+        }
+        .glass-sparkle--c {
+            top: 50%;
+            left: 10px;
+            width: 15px;
+            height: 15px;
+            margin-top: -7.5px;
+            opacity: 0.4;
+            animation: glass-panel-float 3s ease-in-out infinite reverse;
+        }
+        .glass-sparkle--d {
+            top: 50%;
+            right: 10px;
+            width: 18px;
+            height: 18px;
+            margin-top: -9px;
+            opacity: 0.6;
+            animation: glass-panel-float 2.8s ease-in-out infinite;
+        }
+
+        .highlight-headline {
+            font-size: clamp(1.2rem, 4.2vw, 3.2rem);
+            font-weight: 700;
+            color: #030533;
+            margin: 0;
+            text-align: center;
+            text-shadow: 0 2px 15px rgb(253, 253, 253), 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: clamp(1px, 0.35vw, 3px);
+            position: relative;
+            z-index: 2;
+            line-height: 1.4;
+        }
+
+        .glass-highlight-box:hover {
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+
+        /* عنوان المعرض بدون ستايل ذهبي قديم عند استخدام نفس شكل الشعار */
+        .gallery-title.highlight-headline {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .glass-highlight-box {
+                padding: 30px 25px;
+            }
+        }
+        @media (max-width: 480px) {
+            .glass-highlight-box {
+                padding: 25px 20px;
+            }
         }
         
         /* حاوية الصور - تنسيق التخطيط  */
@@ -1012,7 +1102,7 @@ img { max-width: 100%; height: auto; }
         width: 90%;
         height: auto;
     }
-    .content-box {
+    .content-box:not(.glass-highlight-box) {
         padding: 20px;
         font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     }
@@ -1193,15 +1283,13 @@ img { max-width: 100%; height: auto; }
             
 
             
-            <div class="content-box" style="max-width: 900px; padding: 40px 50px; margin: 0 20px 30px 20px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%); backdrop-filter: blur(25px); border: 2px solid rgba(255, 215, 0, 0.4); border-radius: 25px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3); position: relative; overflow: hidden; animation: glow 3s ease-in-out infinite, float 4s ease-in-out infinite;">
-                <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent); animation: shimmer 3s ease-in-out infinite; pointer-events: none;"></div>
-                
-                <p class="main-text" id="main-text" style="font-size: 3.2rem; font-weight: 700; color: #030533; margin: 0; text-align: center; text-shadow: 0 2px 15px rgb(253, 253, 253), 0 4px 20px rgba(0, 0, 0, 0.3); letter-spacing: 3px; position: relative; z-index: 2; line-height: 1.4;">ذكاء في الحلول .. سرعة في التنفيذ</p>
-                
-                <div style="position: absolute; top: 15px; right: 15px; width: 25px; height: 25px; background: linear-gradient(45deg, #ffd700, #ffed4e); border-radius: 50%; opacity: 0.7; animation: float 2s ease-in-out infinite reverse;"></div>
-                <div style="position: absolute; bottom: 15px; left: 15px; width: 20px; height: 20px; background: linear-gradient(45deg, #ffd700, #ffed4e); border-radius: 50%; opacity: 0.5; animation: float 2.5s ease-in-out infinite;"></div>
-                <div style="position: absolute; top: 50%; left: 10px; width: 15px; height: 15px; background: linear-gradient(45deg, #ffd700, #ffed4e); border-radius: 50%; opacity: 0.4; animation: float 3s ease-in-out infinite reverse;"></div>
-                <div style="position: absolute; top: 50%; right: 10px; width: 18px; height: 18px; background: linear-gradient(45deg, #ffd700, #ffed4e); border-radius: 50%; opacity: 0.6; animation: float 2.8s ease-in-out infinite;"></div>
+            <div class="content-box glass-highlight-box">
+                <div class="glass-shimmer-layer" aria-hidden="true"></div>
+                <p class="main-text highlight-headline" id="main-text">ذكاء في الحلول .. سرعة في التنفيذ</p>
+                <span class="glass-sparkle glass-sparkle--a" aria-hidden="true"></span>
+                <span class="glass-sparkle glass-sparkle--b" aria-hidden="true"></span>
+                <span class="glass-sparkle glass-sparkle--c" aria-hidden="true"></span>
+                <span class="glass-sparkle glass-sparkle--d" aria-hidden="true"></span>
             </div>
             
             <div class="about-section">
@@ -1215,8 +1303,13 @@ img { max-width: 100%; height: auto; }
                 </h2>
             </div>
 
-            <div class="image-gallery" style="margin-top: 50px;">
-                <h2 class="gallery-title" id="gallery-title"> مميزات التعاون مع Fast Uplink</h2>
+            <div class="image-gallery glass-highlight-box">
+                <div class="glass-shimmer-layer" aria-hidden="true"></div>
+                <h2 class="gallery-title highlight-headline" id="gallery-title"> مميزات التعاون مع Fast Uplink</h2>
+                <span class="glass-sparkle glass-sparkle--a" aria-hidden="true"></span>
+                <span class="glass-sparkle glass-sparkle--b" aria-hidden="true"></span>
+                <span class="glass-sparkle glass-sparkle--c" aria-hidden="true"></span>
+                <span class="glass-sparkle glass-sparkle--d" aria-hidden="true"></span>
             </div>
         </div>
     </div>
