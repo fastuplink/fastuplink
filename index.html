@@ -25,13 +25,12 @@ img { max-width: 100%; height: auto; }
         overflow-x: hidden;
     }
 
-    /* شاشة التحميل  */
+    /* شاشة التحميل */
     #preloader {
         position: fixed;
         width: 100%;
         height: 100%;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(15px);
+        background: #000;
         top: 0;
         left: 0;
         z-index: 9999;
@@ -41,19 +40,54 @@ img { max-width: 100%; height: auto; }
         overflow: hidden;
     }
 
-    /* الفقاعات  */
-    .bubble {
-        position: absolute;
-        bottom: -100px;
-        background: rgba(255, 255, 255, 0.25);
-        border-radius: 50%;
-        animation: rise 4s infinite ease-in;
-        backdrop-filter: blur(10px);
+    /* حاوية اللوجو */
+    .preloader-logo-wrap {
+        position: relative;
+        width: min(420px, 78vw);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    @keyframes rise {
-        0% { transform: translateY(0) scale(1); opacity: 1; }
-        100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    /* اللوجو الباهت في الخلف (outline رمادي) */
+    #preloader-logo-dim {
+        width: 100%;
+        height: auto;
+        display: block;
+        opacity: 0.15;
+        filter: grayscale(1);
+        mix-blend-mode: screen;
+    }
+
+    /* اللوجو الملون فوقه — بيتملى من تحت لفوق بـ clip-path */
+    #preloader-logo-fill {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        mix-blend-mode: screen;
+        filter: drop-shadow(0 0 18px rgba(255, 170, 0, 0.85))
+                drop-shadow(0 0 40px rgba(0, 120, 255, 0.5));
+        /* يبدأ مخفي من الأسفل — clip-path بيقطع الصورة */
+        clip-path: inset(100% 0% 0% 0%);
+        animation: fillFromBottom 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+    }
+
+    /* الأنيميشن — بيملى من تحت لفوق */
+    @keyframes fillFromBottom {
+        0%   { clip-path: inset(100% 0% 0% 0%); }
+        100% { clip-path: inset(0%   0% 0% 0%); }
+    }
+
+    /* بعد ما خلص التحميل — الشاشة بتانزلق لفوق */
+    #preloader.hide {
+        animation: curtainUp 1s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    }
+
+    @keyframes curtainUp {
+        0%   { transform: translateY(0); }
+        100% { transform: translateY(-100%); }
     }
 
 /* ترحيب: كلمة واحدة — نفس الشكل بالعربي والإنجليزي */
@@ -1180,7 +1214,14 @@ img { max-width: 100%; height: auto; }
     </head>
     <body>
 
-    <div id="preloader"></div>
+    <div id="preloader">
+        <div class="preloader-logo-wrap">
+            <!-- اللوجو الباهت في الخلف -->
+            <img id="preloader-logo-dim" src="bg.webp" alt="">
+            <!-- اللوجو الملون بيتملى من تحت لفوق -->
+            <img id="preloader-logo-fill" src="bg.webp" alt="FastUplink Logo">
+        </div>
+    </div>
     <div class="site-content">
         <h1 class="WELCOME-word" id="WELCOME-title" dir="ltr" lang="en">WELCOME</h1>
     </div>
@@ -1716,30 +1757,10 @@ At FastUpLink, we believe that fast response and precise execution are the key t
 
         applyLanguage('ar');
 
-    // إنشاء الفقاعات
-    function createBubbles() {
-        const preloader = document.getElementById("preloader");
-        for (let i = 0; i < 25; i++) {
-            let bubble = document.createElement("div");
-            let size = Math.random() * 40 + 20;
-            bubble.classList.add("bubble");
-            bubble.style.width = `${size}px`;
-            bubble.style.height = `${size}px`;
-            bubble.style.left = `${Math.random() * 100}%`;
-            bubble.style.animationDuration = `${Math.random() * 3 + 3}s`;
-            bubble.style.animationDelay = `${Math.random() * 2}s`;
-            preloader.appendChild(bubble);
-        }
-    }
-
-    createBubbles();
-
-    // إخفاء شاشة التحميل بانسيابية
+    // إخفاء شاشة التحميل بتأثير curtain من تحت لفوق
     setTimeout(() => {
         let preloader = document.getElementById("preloader");
-        preloader.style.transform = "translateY(-100%)";
-        preloader.style.opacity = "0";
-        preloader.style.transition = "transform 1s ease, opacity 1s ease";
+        preloader.classList.add("hide");
 
         setTimeout(() => {
             preloader.style.display = "none";
