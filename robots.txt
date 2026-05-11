@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sunnydayseg.com/sitemap.xml
+Sitemap: https://fastuplink.com/sitemap.xml
