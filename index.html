@@ -1485,7 +1485,130 @@ img { max-width: 100%; height: auto; }
             .cards-stack-wrapper { gap: 18px; padding: 18px 0; }
             .slide-content { padding: 25px 18px; margin-bottom: 30px; width: 88%; }
         }
+
+        /* ===== Partners Section ===== */
+        .partners-carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 30px 0;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .partners-carousel::before,
+        .partners-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 15%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .partners-carousel::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+        }
+        
+        .partners-carousel::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
+        }
+        
+        .partners-carousel:hover .partners-track {
+            animation-play-state: paused;
+        }
+        
+        .partners-track {
+            display: flex;
+            width: max-content;
+            gap: 80px;
+            animation: scrollTrack 25s linear infinite;
+        }
+        
+        .partner-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: 150px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .partner-logo:hover {
+            transform: translateY(-5px) scale(1.08);
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 215, 0, 0.7);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(1) opacity(0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover img {
+            filter: grayscale(0) opacity(1) drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+        }
+        
+        @keyframes scrollTrack {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
     </style>
+
+    <!-- Partners of Success Section -->
+    <div class="partners-section">
+        <div class="glass-highlight-box" style="margin-top: 50px; margin-bottom: 30px;">
+            <div class="glass-shimmer-layer" aria-hidden="true"></div>
+            <h2 class="gallery-title highlight-headline" id="partners-title">شركاء النجاح</h2>
+            <span class="glass-sparkle glass-sparkle--a" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--b" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--c" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--d" aria-hidden="true"></span>
+        </div>
+        
+        <div class="partners-carousel" dir="ltr">
+            <div class="partners-track">
+                <!-- Set 1 -->
+                <div class="partner-logo"><img src="101.webp" alt="Partner 101" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="102.webp" alt="Partner 102" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="103.webp" alt="Partner 103" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="104.webp" alt="Partner 104" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="105.webp" alt="Partner 105" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="106.webp" alt="Partner 106" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="107.webp" alt="Partner 107" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="108.webp" alt="Partner 108" onerror="this.parentElement.style.display='none';"></div>
+
+                <!-- Set 2 (Duplicate for Infinite Scroll) -->
+                <div class="partner-logo"><img src="101.webp" alt="Partner 101" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="102.webp" alt="Partner 102" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="103.webp" alt="Partner 103" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="104.webp" alt="Partner 104" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="105.webp" alt="Partner 105" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="106.webp" alt="Partner 106" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="107.webp" alt="Partner 107" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="108.webp" alt="Partner 108" onerror="this.parentElement.style.display='none';"></div>
+            </div>
+        </div>
+    </div>
 
 <div class="bottom-bar">
     <div class="copyright-text" id="copyright-text">جميع الحقوق محفوظة ©  شركة فاست أب لينك.</div>
@@ -1521,6 +1644,7 @@ img { max-width: 100%; height: auto; }
 
 في FastUpLink نؤمن أن السرعة في الاستجابة والدقة في التنفيذ هما أساس نجاح أي نظام تقني، لذلك نحرص على تقديم دعم فني سريع وفعال، مع متابعة مستمرة لضمان استقرار الأنظمة وتقليل الأعطال إلى الحد الأدنى.`,
                 galleryTitle: " مميزات التعاون مع Fast Uplink",
+                partnersTitle: "شركاء النجاح",
                 copyrightText: "جميع الحقوق محفوظة ©  شركة فاست أب لينك.",
                 cardTitles: [
                     "حلول مصممة خصيصًا لشركتك",
@@ -1566,6 +1690,7 @@ We provide a comprehensive range of services including network design and instal
 
 At FastUpLink, we believe that fast response and precise execution are the key to any successful IT system. That’s why we are committed to providing quick and effective technical support, along with continuous monitoring to ensure system stability and minimize downtime`,
                 galleryTitle: "Advantages of partnering with Fast Uplink",
+                partnersTitle: "Success Partners",
                 copyrightText: "All rights reserved ©  Fast Uplink Company.",
                 cardTitles: [
                     "Solutions Tailored Specifically for Your Company",
@@ -1610,6 +1735,7 @@ At FastUpLink, we believe that fast response and precise execution are the key t
             document.getElementById('about-title').innerHTML = translations[currentLang].aboutTitle;
             document.getElementById('about-text').innerHTML = translations[currentLang].aboutText;
             document.getElementById('gallery-title').innerHTML = translations[currentLang].galleryTitle;
+            document.getElementById('partners-title').innerHTML = translations[currentLang].partnersTitle;
             document.getElementById('copyright-text').innerHTML = translations[currentLang].copyrightText;
             document.getElementById('bottom-lang-btn').innerHTML = currentLang === 'ar' ? 'تواصل معنا' : 'Contact Us';
 
@@ -1791,8 +1917,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  //  messenger
-  const igIcon = document.querySelector('.social-icons a[href*=" messenger.com"]');
+  // messenger
+  const igIcon = document.querySelector('.social-icons a[href*="messenger.com"]');
   if (igIcon) {
     igIcon.addEventListener('click', function (e) {
       e.preventDefault();
@@ -1801,4 +1927,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // WhatsApp
-  const waIcon = document.querySelector('.social-icon
+  const waIcon = document.querySelector('.social-icons a[href*="wa.me"]');
+  if (waIcon) {
+    waIcon.addEventListener('click', function (e) {
+      e.preventDefault();
+      openInNewTab(this.href);
+    });
+  }
+});
+</script>
+</body>
+</html>
