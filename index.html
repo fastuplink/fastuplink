@@ -34,7 +34,7 @@ img { max-width: 100%; height: auto; }
         position: fixed;
         width: 100%;
         height: 100%;
-        background: #000;
+        background: radial-gradient(circle, #161824 0%, #090a0f 100%);
         top: 0;
         left: 0;
         z-index: 9999;
@@ -44,54 +44,82 @@ img { max-width: 100%; height: auto; }
         overflow: hidden;
     }
 
-    /* حاوية اللوجو */
+    /* حاوية اللوجو والشريط */
     .preloader-logo-wrap {
-        position: relative;
-        width: min(420px, 78vw);
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
+        gap: 30px;
+        width: min(350px, 70vw);
     }
 
-    /* اللوجو الباهت في الخلف (outline رمادي) */
-    #preloader-logo-dim {
+    /* أنيميشن اللوجو - تلاشي ناعم وبدون إضاءة خارجية */
+    #preloader-logo {
         width: 100%;
         height: auto;
         display: block;
-        opacity: 0.15;
-        filter: grayscale(1);
+        opacity: 0;
+        transform: scale(0.95);
         mix-blend-mode: screen;
+        animation: logoReveal 1.5s ease-out 0.2s forwards;
     }
 
-    /* اللوجو الملون فوقه — بيتملى من تحت لفوق بـ clip-path */
-    #preloader-logo-fill {
-        width: 100%;
-        height: auto;
-        position: absolute;
-        top: 0;
-        left: 0;
-        mix-blend-mode: screen;
-        filter: drop-shadow(0 0 18px rgba(255, 170, 0, 0.85))
-                drop-shadow(0 0 40px rgba(0, 120, 255, 0.5));
-        /* يبدأ مخفي من الأسفل — clip-path بيقطع الصورة */
-        clip-path: inset(100% 0% 0% 0%);
-        animation: fillFromBottom 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+    /* شريط التقدم الخارجي النحيف */
+    .preloader-progress-bar {
+        width: 80%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
     }
 
-    /* الأنيميشن — بيملى من تحت لفوق */
-    @keyframes fillFromBottom {
-        0%   { clip-path: inset(100% 0% 0% 0%); }
-        100% { clip-path: inset(0%   0% 0% 0%); }
+    /* تعبئة شريط التقدم الذهبي المتدرج */
+    .preloader-progress-fill {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, #ffd700, #ffed4e);
+        border-radius: 4px;
+        animation: fillProgress 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
     }
 
-    /* بعد ما خلص التحميل — الشاشة بتانزلق لفوق */
+    @keyframes logoReveal {
+        0% {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fillProgress {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+
+    /* تأثير الاختفاء - تلاشي ضبابي سينمائي */
     #preloader.hide {
-        animation: curtainUp 1s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+        animation: preloaderBlurDissolve 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        pointer-events: none;
     }
 
-    @keyframes curtainUp {
-        0%   { transform: translateY(0); }
-        100% { transform: translateY(-100%); }
+    @keyframes preloaderBlurDissolve {
+        0% {
+            opacity: 1;
+            filter: blur(0px);
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
+            filter: blur(20px);
+            transform: scale(1.05);
+        }
     }
 
 /* ترحيب: كلمة واحدة — نفس الشكل بالعربي والإنجليزي */
@@ -1220,10 +1248,10 @@ img { max-width: 100%; height: auto; }
 
     <div id="preloader">
         <div class="preloader-logo-wrap">
-            <!-- اللوجو الباهت في الخلف -->
-            <img id="preloader-logo-dim" src="bg.webp" alt="">
-            <!-- اللوجو الملون بيتملى من تحت لفوق -->
-            <img id="preloader-logo-fill" src="bg.webp" alt="FastUplink Logo">
+            <img id="preloader-logo" src="bg.png" alt="FastUplink Logo">
+            <div class="preloader-progress-bar">
+                <div class="preloader-progress-fill"></div>
+            </div>
         </div>
     </div>
     <div class="site-content">
