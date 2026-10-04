@@ -1,383 +1,458 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Outfit:wght@600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Outfit:wght@600;700;800;900&family=Bebas+Neue&display=swap"
+        rel="stylesheet">
     <title>fastuplink</title>
     <meta name="description" content="Fast Uplink | Innovative solutions and standout services for our clients.">
-<meta name="keywords" content="fast uplink, تكنولوجيا المعلومات , الربط السريع , فاست أب لينك, business, website , شركة الربط السريع , it solutions">
-<meta name="author" content="fast uplink,شركة الربط السريع , it solutions , تكنولوجيا المعلومات , الربط السريع , فاست أب لينك">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://fastuplink.com/">
+    <meta name="keywords"
+        content="fast uplink, تكنولوجيا المعلومات , الربط السريع , فاست أب لينك, business, website , شركة الربط السريع , it solutions">
+    <meta name="author"
+        content="fast uplink,شركة الربط السريع , it solutions , تكنولوجيا المعلومات , الربط السريع , فاست أب لينك">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fastuplink.com/">
 
-<link rel="icon" type="image/png" sizes="32x32" href="/slogo.png">
-<link rel="shortcut icon" href="/slogo.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/slogo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/slogo.png">
+    <link rel="shortcut icon" href="/slogo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/slogo.png">
     <style>
-/* جعل الصور متجاوبة  */
-img { max-width: 100%; height: auto; }
+        /* جعل الصور متجاوبة  */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
-  /* الأساسيات  */
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-        background: #f0f0f0;
-        overflow-x: hidden;
-    }
+        /* الأساسيات  */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            overflow-x: hidden;
+        }
 
-    /* شاشة التحميل */
-    #preloader {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle, #161824 0%, #090a0f 100%);
-        top: 0;
-        left: 0;
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
+        /* شاشة التحميل */
+        #preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #161824 0%, #090a0f 100%);
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
 
-    /* حاوية اللوجو والشريط */
-    .preloader-logo-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        width: min(350px, 70vw);
-    }
+        /* حاوية اللوجو والشريط */
+        .preloader-logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            width: min(350px, 70vw);
+        }
 
-    /* أنيميشن اللوجو - تلاشي ناعم وبدون إضاءة خارجية */
-    #preloader-logo {
-        width: 100%;
-        height: auto;
-        display: block;
-        opacity: 0;
-        transform: scale(0.95);
-        mix-blend-mode: screen;
-        animation: logoReveal 1.5s ease-out 0.2s forwards;
-    }
-
-    /* شريط التقدم الخارجي النحيف */
-    .preloader-progress-bar {
-        width: 80%;
-        height: 2px;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 4px;
-        overflow: hidden;
-        position: relative;
-    }
-
-    /* تعبئة شريط التقدم الذهبي المتدرج */
-    .preloader-progress-fill {
-        height: 100%;
-        width: 0;
-        background: linear-gradient(90deg, #ffd700, #ffed4e);
-        border-radius: 4px;
-        animation: fillProgress 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
-    }
-
-    @keyframes logoReveal {
-        0% {
+        /* أنيميشن اللوجو - تلاشي ناعم وبدون إضاءة خارجية */
+        #preloader-logo {
+            width: 100%;
+            height: auto;
+            display: block;
             opacity: 0;
             transform: scale(0.95);
+            mix-blend-mode: screen;
+            animation: logoReveal 1.5s ease-out 0.2s forwards;
         }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
 
-    @keyframes fillProgress {
-        0% {
+        /* شريط التقدم الخارجي النحيف */
+        .preloader-progress-bar {
+            width: 80%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* تعبئة شريط التقدم الذهبي المتدرج */
+        .preloader-progress-fill {
+            height: 100%;
             width: 0;
+            background: linear-gradient(90deg, #ffd700, #ffed4e);
+            border-radius: 4px;
+            animation: fillProgress 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
         }
-        100% {
-            width: 100%;
-        }
-    }
 
-    /* تأثير الاختفاء - تلاشي ضبابي سينمائي */
-    #preloader.hide {
-        animation: preloaderBlurDissolve 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        pointer-events: none;
-    }
+        @keyframes logoReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
 
-    @keyframes preloaderBlurDissolve {
-        0% {
-            opacity: 1;
-            filter: blur(0px);
-            transform: scale(1);
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
-        100% {
-            opacity: 0;
-            filter: blur(20px);
-            transform: scale(1.05);
-        }
-    }
 
-/* ==========================================================================
+        @keyframes fillProgress {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* تأثير الاختفاء - تلاشي ضبابي سينمائي */
+        #preloader.hide {
+            animation: preloaderBlurDissolve 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            pointer-events: none;
+        }
+
+        @keyframes preloaderBlurDissolve {
+            0% {
+                opacity: 1;
+                filter: blur(0px);
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                filter: blur(20px);
+                transform: scale(1.05);
+            }
+        }
+
+        /* ==========================================================================
    ستايل تكنولوجي مستقبلي (Futuristic Cyber HUD & Decryption Terminal)
    ========================================================================== */
-.site-content {
-    opacity: 0;
-    padding: calc(6.6rem + 1.5vw) 2vw 0;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 1.2vw;
-    position: relative;
-    z-index: 5;
-    transition: opacity 0.8s ease;
-}
+        .site-content {
+            opacity: 0;
+            padding: calc(6.6rem + 1.5vw) 2vw 0;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1.2vw;
+            position: relative;
+            z-index: 5;
+            transition: opacity 0.8s ease;
+        }
 
-.site-content.show {
-    opacity: 1;
-}
+        .site-content.show {
+            opacity: 1;
+        }
 
-/* حاوية HUD التقنية (Sci-Fi Cyber Frame) */
-.welcome-wrapper {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 22px 42px 18px;
-    background: rgba(10, 16, 32, 0.45);
-    border: 1px solid rgba(0, 243, 255, 0.25);
-    border-radius: 12px;
-    backdrop-filter: blur(16px);
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.45),
-        0 0 30px rgba(0, 243, 255, 0.14),
-        inset 0 0 25px rgba(0, 243, 255, 0.05);
-    overflow: hidden;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
-}
+        /* حاوية HUD التقنية (Sci-Fi Cyber Frame) */
+        .welcome-wrapper {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 22px 42px 18px;
+            background: rgba(10, 16, 32, 0.45);
+            border: 1px solid rgba(0, 243, 255, 0.25);
+            border-radius: 12px;
+            backdrop-filter: blur(16px);
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.45),
+                0 0 30px rgba(0, 243, 255, 0.14),
+                inset 0 0 25px rgba(0, 243, 255, 0.05);
+            overflow: hidden;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
 
-.welcome-wrapper:hover {
-    border-color: rgba(0, 243, 255, 0.5);
-    box-shadow: 
-        0 16px 50px rgba(0, 0, 0, 0.55),
-        0 0 45px rgba(0, 243, 255, 0.28),
-        inset 0 0 35px rgba(0, 243, 255, 0.1);
-}
+        .welcome-wrapper:hover {
+            border-color: rgba(0, 243, 255, 0.5);
+            box-shadow:
+                0 16px 50px rgba(0, 0, 0, 0.55),
+                0 0 45px rgba(0, 243, 255, 0.28),
+                inset 0 0 35px rgba(0, 243, 255, 0.1);
+        }
 
-/* شارة النظام التقنية العلوية (System Status HUD Badge) */
-.tech-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-    font-family: 'Orbitron', monospace;
-    font-size: clamp(0.68rem, 1.1vw, 0.82rem);
-    letter-spacing: 0.24em;
-    color: #00F3FF;
-    text-transform: uppercase;
-    background: rgba(0, 243, 255, 0.08);
-    border: 1px solid rgba(0, 243, 255, 0.3);
-    border-radius: 30px;
-    padding: 3px 14px;
-    box-shadow: 0 0 12px rgba(0, 243, 255, 0.2);
-    user-select: none;
-}
+        /* شارة النظام التقنية العلوية (System Status HUD Badge) */
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(0.68rem, 1.1vw, 0.82rem);
+            letter-spacing: 0.24em;
+            color: #00F3FF;
+            text-transform: uppercase;
+            background: rgba(0, 243, 255, 0.08);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 30px;
+            padding: 3px 14px;
+            box-shadow: 0 0 12px rgba(0, 243, 255, 0.2);
+            user-select: none;
+        }
 
-.tech-dot {
-    width: 7px;
-    height: 7px;
-    background: #00F3FF;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #00F3FF, 0 0 14px #00F3FF;
-    animation: techDotBlink 1.4s ease-in-out infinite alternate;
-}
+        .tech-dot {
+            width: 7px;
+            height: 7px;
+            background: #00F3FF;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00F3FF, 0 0 14px #00F3FF;
+            animation: techDotBlink 1.4s ease-in-out infinite alternate;
+        }
 
-@keyframes techDotBlink {
-    0% { opacity: 0.4; transform: scale(0.85); }
-    100% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 4px #00F3FF); }
-}
+        @keyframes techDotBlink {
+            0% {
+                opacity: 0.4;
+                transform: scale(0.85);
+            }
 
-.tech-code-id {
-    color: #FFD700;
-    font-size: 0.82em;
-    opacity: 0.9;
-}
+            100% {
+                opacity: 1;
+                transform: scale(1.15);
+                filter: drop-shadow(0 0 4px #00F3FF);
+            }
+        }
 
-/* زوايا الإطار التقني السيبراني (Cyber Corner Reticles) */
-.tech-corner {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border: 2px solid #00F3FF;
-    pointer-events: none;
-    filter: drop-shadow(0 0 4px #00F3FF);
-}
-.tech-corner--tl { top: -1px; left: -1px; border-right: none; border-bottom: none; border-top-left-radius: 10px; }
-.tech-corner--tr { top: -1px; right: -1px; border-left: none; border-bottom: none; border-top-right-radius: 10px; }
-.tech-corner--bl { bottom: -1px; left: -1px; border-right: none; border-top: none; border-bottom-left-radius: 10px; }
-.tech-corner--br { bottom: -1px; right: -1px; border-left: none; border-top: none; border-bottom-right-radius: 10px; }
+        .tech-code-id {
+            color: #FFD700;
+            font-size: 0.82em;
+            opacity: 0.9;
+        }
 
-/* شعاع الليزر المتحرك رأسياً (Horizontal Laser Scanline Beam) */
-.tech-scanline {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent 0%, rgba(0, 243, 255, 0.8) 50%, transparent 100%);
-    box-shadow: 0 0 14px #00F3FF, 0 0 28px rgba(0, 243, 255, 0.6);
-    pointer-events: none;
-    opacity: 0.65;
-    animation: techScanlineRun 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
+        /* زوايا الإطار التقني السيبراني (Cyber Corner Reticles) */
+        .tech-corner {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #00F3FF;
+            pointer-events: none;
+            filter: drop-shadow(0 0 4px #00F3FF);
+        }
 
-@keyframes techScanlineRun {
-    0% { top: -5%; opacity: 0; }
-    15% { opacity: 0.8; }
-    85% { opacity: 0.8; }
-    100% { top: 105%; opacity: 0; }
-}
+        .tech-corner--tl {
+            top: -1px;
+            left: -1px;
+            border-right: none;
+            border-bottom: none;
+            border-top-left-radius: 10px;
+        }
 
-/* هالة ضوئية تقنية بالخلفية */
-.welcome-aura {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 125%;
-    height: 140%;
-    background: radial-gradient(
-        ellipse 65% 55% at 50% 50%,
-        rgba(0, 243, 255, 0.22) 0%,
-        rgba(255, 215, 0, 0.16) 35%,
-        rgba(10, 25, 60, 0.1) 60%,
-        transparent 75%
-    );
-    filter: blur(40px);
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 1.2s ease;
-    animation: cyberAuraPulse 5s ease-in-out infinite alternate;
-}
+        .tech-corner--tr {
+            top: -1px;
+            right: -1px;
+            border-left: none;
+            border-bottom: none;
+            border-top-right-radius: 10px;
+        }
 
-.site-content.show .welcome-aura {
-    opacity: 1;
-}
+        .tech-corner--bl {
+            bottom: -1px;
+            left: -1px;
+            border-right: none;
+            border-top: none;
+            border-bottom-left-radius: 10px;
+        }
 
-@keyframes cyberAuraPulse {
-    0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.55; }
-    100% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.9; }
-}
+        .tech-corner--br {
+            bottom: -1px;
+            right: -1px;
+            border-left: none;
+            border-top: none;
+            border-bottom-right-radius: 10px;
+        }
 
-/* كلمة WELCOME بخط تقني سيبراني */
-.WELCOME-word {
-    margin: 0;
-    line-height: 1.1;
-    font-family: 'Orbitron', -apple-system, sans-serif;
-    font-size: clamp(2.8rem, 8.2vw, 6.2rem);
-    font-weight: 900;
-    direction: ltr;
-    unicode-bidi: isolate;
-    letter-spacing: clamp(0.14em, 2vw, 0.26em);
-    text-transform: uppercase;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-    filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.7)) drop-shadow(0 0 35px rgba(0, 243, 255, 0.35));
-    position: relative;
-    z-index: 2;
-}
+        /* شعاع الليزر المتحرك رأسياً (Horizontal Laser Scanline Beam) */
+        .tech-scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 243, 255, 0.8) 50%, transparent 100%);
+            box-shadow: 0 0 14px #00F3FF, 0 0 28px rgba(0, 243, 255, 0.6);
+            pointer-events: none;
+            opacity: 0.65;
+            animation: techScanlineRun 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
 
-/* الأحرف وتأثير النيون المشبع */
-.welcome-char {
-    display: inline-block;
-    min-width: 0.72em;
-    text-align: center;
-    color: transparent;
-    background: linear-gradient(
-        180deg,
-        #FFFFFF 0%,
-        #E0F9FF 32%,
-        #00F3FF 65%,
-        #FFD700 95%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    transition: transform 0.25s ease, filter 0.25s ease;
-    animation: cyberFlicker 6s infinite alternate;
-    animation-delay: calc(var(--i, 0) * 80ms);
-}
+        @keyframes techScanlineRun {
+            0% {
+                top: -5%;
+                opacity: 0;
+            }
 
-/* وميض طاقة كهربائية خفيف يمر بين الأحرف */
-@keyframes cyberFlicker {
-    0%, 94%, 96%, 100% {
-        opacity: 1;
-        filter: drop-shadow(0 0 12px rgba(0, 243, 255, 0.8));
-    }
-    95% {
-        opacity: 0.82;
-        filter: drop-shadow(0 0 4px rgba(0, 243, 255, 0.4));
-    }
-}
+            15% {
+                opacity: 0.8;
+            }
 
-/* تفاعل عند تمرير الماوس */
-.WELCOME-word:hover .welcome-char {
-    filter: drop-shadow(0 0 20px #00F3FF) drop-shadow(0 0 30px #FFD700);
-}
+            85% {
+                opacity: 0.8;
+            }
 
-.welcome-char:hover {
-    transform: translateY(-8px) scale(1.18) !important;
-    filter: drop-shadow(0 0 25px #00F3FF) drop-shadow(0 0 40px #FFD700) !important;
-}
+            100% {
+                top: 105%;
+                opacity: 0;
+            }
+        }
 
-/* مساحة تحت البار الثابت — الموبايل والتابلت */
-@media (max-width: 768px) {
-    .site-content {
-        margin-top: 0;
-        padding-top: calc(7.2rem + env(safe-area-inset-top, 0px));
-        padding-left: max(16px, 2vw);
-        padding-right: max(16px, 2vw);
-        padding-bottom: 0;
-    }
-    .welcome-wrapper {
-        padding: 16px 24px 14px;
-    }
-    .WELCOME-word {
-        font-size: clamp(2.3rem, 9.8vw, 4.8rem);
-        letter-spacing: clamp(0.1em, 1.6vw, 0.18em);
-    }
-}
+        /* هالة ضوئية تقنية بالخلفية */
+        .welcome-aura {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 125%;
+            height: 140%;
+            background: radial-gradient(ellipse 65% 55% at 50% 50%,
+                    rgba(0, 243, 255, 0.22) 0%,
+                    rgba(255, 215, 0, 0.16) 35%,
+                    rgba(10, 25, 60, 0.1) 60%,
+                    transparent 75%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+            animation: cyberAuraPulse 5s ease-in-out infinite alternate;
+        }
 
-@media (max-width: 480px) {
-    .site-content {
-        padding-top: calc(9rem + env(safe-area-inset-top, 0px));
-        padding-left: max(12px, 3vw);
-        padding-right: max(12px, 3vw);
-    }
-    .welcome-wrapper {
-        padding: 14px 16px 12px;
-        width: 96%;
-        max-width: 400px;
-    }
-    .tech-badge {
-        font-size: 0.65rem;
-        letter-spacing: 0.18em;
-        padding: 2px 10px;
-    }
-    .WELCOME-word {
-        font-size: clamp(1.9rem, 11.2vw, 3.2rem);
-        letter-spacing: clamp(0.06em, 1.2vw, 0.12em);
-    }
-}
+        .site-content.show .welcome-aura {
+            opacity: 1;
+        }
+
+        @keyframes cyberAuraPulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.92);
+                opacity: 0.55;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.08);
+                opacity: 0.9;
+            }
+        }
+
+        /* كلمة WELCOME بخط تقني سيبراني */
+        .WELCOME-word {
+            margin: 0;
+            line-height: 1.1;
+            font-family: 'Orbitron', -apple-system, sans-serif;
+            font-size: clamp(2.8rem, 8.2vw, 6.2rem);
+            font-weight: 900;
+            direction: ltr;
+            unicode-bidi: isolate;
+            letter-spacing: clamp(0.14em, 2vw, 0.26em);
+            text-transform: uppercase;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.7)) drop-shadow(0 0 35px rgba(0, 243, 255, 0.35));
+            position: relative;
+            z-index: 2;
+        }
+
+        /* الأحرف وتأثير النيون المشبع */
+        .welcome-char {
+            display: inline-block;
+            min-width: 0.72em;
+            text-align: center;
+            color: transparent;
+            background: linear-gradient(180deg,
+                    #FFFFFF 0%,
+                    #E0F9FF 32%,
+                    #00F3FF 65%,
+                    #FFD700 95%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            transition: transform 0.25s ease, filter 0.25s ease;
+            animation: cyberFlicker 6s infinite alternate;
+            animation-delay: calc(var(--i, 0) * 80ms);
+        }
+
+        /* وميض طاقة كهربائية خفيف يمر بين الأحرف */
+        @keyframes cyberFlicker {
+
+            0%,
+            94%,
+            96%,
+            100% {
+                opacity: 1;
+                filter: drop-shadow(0 0 12px rgba(0, 243, 255, 0.8));
+            }
+
+            95% {
+                opacity: 0.82;
+                filter: drop-shadow(0 0 4px rgba(0, 243, 255, 0.4));
+            }
+        }
+
+        /* تفاعل عند تمرير الماوس */
+        .WELCOME-word:hover .welcome-char {
+            filter: drop-shadow(0 0 20px #00F3FF) drop-shadow(0 0 30px #FFD700);
+        }
+
+        .welcome-char:hover {
+            transform: translateY(-8px) scale(1.18) !important;
+            filter: drop-shadow(0 0 25px #00F3FF) drop-shadow(0 0 40px #FFD700) !important;
+        }
+
+        /* مساحة تحت البار الثابت — الموبايل والتابلت */
+        @media (max-width: 768px) {
+            .site-content {
+                margin-top: 0;
+                padding-top: calc(7.2rem + env(safe-area-inset-top, 0px));
+                padding-left: max(16px, 2vw);
+                padding-right: max(16px, 2vw);
+                padding-bottom: 0;
+            }
+
+            .welcome-wrapper {
+                padding: 16px 24px 14px;
+            }
+
+            .WELCOME-word {
+                font-size: clamp(2.3rem, 9.8vw, 4.8rem);
+                letter-spacing: clamp(0.1em, 1.6vw, 0.18em);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-content {
+                padding-top: calc(9rem + env(safe-area-inset-top, 0px));
+                padding-left: max(12px, 3vw);
+                padding-right: max(12px, 3vw);
+            }
+
+            .welcome-wrapper {
+                padding: 14px 16px 12px;
+                width: 96%;
+                max-width: 400px;
+            }
+
+            .tech-badge {
+                font-size: 0.65rem;
+                letter-spacing: 0.18em;
+                padding: 2px 10px;
+            }
+
+            .WELCOME-word {
+                font-size: clamp(1.9rem, 11.2vw, 3.2rem);
+                letter-spacing: clamp(0.06em, 1.2vw, 0.12em);
+            }
+        }
+
         /* أنماط الاستجابة الإضافية  */
         @media (max-width: 400px) {
             .logo-frame img {
@@ -385,43 +460,45 @@ img { max-width: 100%; height: auto; }
                 height: auto !important;
                 max-width: 350px;
             }
-            
+
             .gallery-item {
                 flex: 0 1 calc(50% - 10px) !important;
             }
-            
+
             .gallery-item img {
                 height: 150px !important;
             }
-            
-            .modal-content, .contact-modal-content {
+
+            .modal-content,
+            .contact-modal-content {
                 width: 95% !important;
                 padding: 15px !important;
             }
         }
-        
+
         @media (max-width: 340px) {
             .social-icons {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
+
             .top-bar {
                 padding: 8px 10px !important;
             }
-            
+
             .gallery-item {
                 flex: 0 1 100% !important;
             }
         }
-        
+
         /* تحسين الأداء للهواتف  */
         .gallery-item img {
             transition: transform 0.5s ease;
         }
-        
+
         /* منع تأثيرات الhover على الأجهزة التي لا تدعمها  */
         @media (hover: none) {
+
             .logo-frame:hover,
             .content-box:hover,
             .about-section:hover,
@@ -429,7 +506,7 @@ img { max-width: 100%; height: auto; }
             .gallery-item:hover {
                 transform: none !important;
             }
-            
+
             .start-button:hover,
             .top-bar .start-button:hover,
             .social-icon:hover {
@@ -437,16 +514,17 @@ img { max-width: 100%; height: auto; }
                 background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%) !important;
             }
         }
+
         /* استيراد خط عربي من جوجل فونتس  */
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
-        
+
         /* إعادة تعيين الهوامش والحشوات الافتراضية  */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         /* تنسيق عام للصفحة مع خلفية متدرجة  */
         body {
             font-family: 'Tajawal', Arial, sans-serif;
@@ -455,7 +533,7 @@ img { max-width: 100%; height: auto; }
             position: relative;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        
+
         /* خلفية الصفحة الرئيسية مع صورة مشوشة وتغطية شبه شفافة  */
         .background {
             position: fixed;
@@ -470,7 +548,7 @@ img { max-width: 100%; height: auto; }
             filter: blur(2px);
             z-index: -2;
         }
-        
+
         /* طبقة شبه شفافة فوق الخلفية لتخفيف الإضاءة  */
         .background::before {
             content: '';
@@ -482,7 +560,7 @@ img { max-width: 100%; height: auto; }
             background: rgba(0, 0, 0, 0.3);
             z-index: 1;
         }
-        
+
         /* البار العلوي الجديد  */
         .top-bar {
             position: fixed;
@@ -499,13 +577,13 @@ img { max-width: 100%; height: auto; }
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* أيقونات وسائل التواصل الاجتماعي في البار العلوي  */
         .social-icons {
             display: flex;
             gap: 15px;
         }
-        
+
         /* زر ابدأ رحلتك في البار العلوي  */
         .top-bar .start-button {
             background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
@@ -524,7 +602,7 @@ img { max-width: 100%; height: auto; }
             position: relative;
             overflow: hidden;
         }
-        
+
         /* تأثير لمعان عند المرور على زر البدء في البار  */
         .top-bar .start-button::before {
             content: '';
@@ -536,18 +614,18 @@ img { max-width: 100%; height: auto; }
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             transition: left 0.5s ease;
         }
-        
+
         /* تأثيرات عند المرور على زر البدء في البار  */
         .top-bar .start-button:hover {
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
             background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
         }
-        
+
         .top-bar .start-button:hover::before {
             left: 100%;
         }
-        
+
         /* تصميم كل أيقونة اجتماعية  */
         .social-icon {
             width: 50px;
@@ -562,21 +640,21 @@ img { max-width: 100%; height: auto; }
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         /* تأثير عند المرور على الأيقونات  */
         .social-icon:hover {
             transform: scale(1.2);
             background: rgba(255, 255, 255, 0.25);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
-        
+
         /* تنسيق أيقونات SVG داخل الأزرار  */
         .social-icon svg {
             width: 24px;
             height: 24px;
             fill: white;
         }
-        
+
         /* نافذة عرض الموقع - مخفية بشكل افتراضي  */
         .location-modal {
             display: none;
@@ -590,7 +668,7 @@ img { max-width: 100%; height: auto; }
             align-items: center;
             justify-content: center;
         }
-        
+
         /* محتوى النافذة المنبثقة  */
         .modal-content {
             background: rgba(255, 255, 255, 0.95);
@@ -602,7 +680,7 @@ img { max-width: 100%; height: auto; }
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             animation: modalFadeIn 0.3s ease-out;
         }
-        
+
         /* عنوان النافذة المنبثقة  */
         .modal-title {
             font-size: 1.5rem;
@@ -610,7 +688,7 @@ img { max-width: 100%; height: auto; }
             margin-bottom: 20px;
             font-weight: 600;
         }
-        
+
         /* عنوان الشركة داخل النافذة المنبثقة  */
         .modal-address {
             font-size: 1.1rem;
@@ -622,7 +700,7 @@ img { max-width: 100%; height: auto; }
             border-radius: 8px;
             border-right: 4px solid #ffd700;
         }
-        
+
         /* زر إغلاق النافذة المنبثقة  */
         .modal-close {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -635,25 +713,26 @@ img { max-width: 100%; height: auto; }
             transition: all 0.3s ease;
             font-weight: 500;
         }
-        
+
         /* تأثير عند المرور على زر الإغلاق  */
         .modal-close:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-        
+
         /* رسوم متحركة لظهور النافذة المنبثقة  */
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
                 transform: translateY(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         /* الحاوية الرئيسية للمحتوى  */
         .container {
             display: flex;
@@ -668,15 +747,15 @@ img { max-width: 100%; height: auto; }
         }
 
         /* توحيد عرض البراويز أسفل WELCOME */
-        .container > .logo-frame,
-        .container > .content-box,
-        .container > .about-section,
-        .container > .image-gallery {
+        .container>.logo-frame,
+        .container>.content-box,
+        .container>.about-section,
+        .container>.image-gallery {
             width: min(900px, calc(100% - 40px));
             box-sizing: border-box;
             height: auto;
         }
-        
+
         /* إطار الشعار  */
         .logo-frame {
             background: rgba(255, 255, 255, 0.15);
@@ -689,43 +768,43 @@ img { max-width: 100%; height: auto; }
             transition: all 0.3s ease;
             animation: fadeInUp 1s ease-out;
         }
-        
+
         /* تأثير عند المرور على إطار الشعار  */
         .logo-frame:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
-        
+
         /* تصميم الشعار  */
- .logo-frame img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-    transition: all 0.3s ease;
-}
+        .logo-frame img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
 
-/* في الكمبيوتر  */
-.logo-frame img {
-    width: 100%;
-    height: auto;
-}
+        /* في الكمبيوتر  */
+        .logo-frame img {
+            width: 100%;
+            height: auto;
+        }
 
-/* في الشاشات الصغيرة (الموبايل)  */
-@media (max-width: 768px) {
-    .logo-frame img {
-        max-width: 100%;
-        height: auto;
-    }
-}
-        
+        /* في الشاشات الصغيرة (الموبايل)  */
+        @media (max-width: 768px) {
+            .logo-frame img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
         /* تأثير عند المرور على الشعار  */
         .logo-frame:hover img {
             transform: rotateZ('angle');
             box-shadow: 0 6px 20px rgba(255, 215, 0, 1.4);
         }
-        
+
         /* صندوق المحتوى الرئيسي  */
         .content-box {
             background: rgba(180, 196, 8, 0.15);
@@ -740,13 +819,13 @@ img { max-width: 100%; height: auto; }
             max-width: 500px;
             margin: 0;
         }
-        
+
         /* تأثير عند المرور على صندوق المحتوى  */
         .content-box:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
-        
+
         /* النص الرئيسي في الصفحة  */
         .main-text {
             font-size: 1.8rem;
@@ -756,7 +835,7 @@ img { max-width: 100%; height: auto; }
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             line-height: 1.4;
         }
-        
+
         /* زر بدء الرحلة  */
         .start-button {
             background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
@@ -775,7 +854,7 @@ img { max-width: 100%; height: auto; }
             position: relative;
             overflow: hidden;
         }
-        
+
         /* تأثير لمعان عند المرور على الزر  */
         .start-button::before {
             content: '';
@@ -787,22 +866,22 @@ img { max-width: 100%; height: auto; }
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             transition: left 0.5s ease;
         }
-        
+
         /* تأثيرات عند المرور على زر البدء  */
         .start-button:hover {
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
             background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
         }
-        
+
         .start-button:hover::before {
             left: 100%;
         }
-        
+
         .start-button:active {
             transform: translateY(-1px) scale(1.02);
         }
-        
+
         /* قسم عن الشركة  */
         .about-section {
             background: rgba(255, 255, 255, 0.15);
@@ -817,13 +896,13 @@ img { max-width: 100%; height: auto; }
             max-width: 900px;
             margin: 0;
         }
-        
+
         /* تأثير عند المرور على قسم عن الشركة  */
         .about-section:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 5.15);
         }
-        
+
         /* عنوان قسم عن الشركة  */
         .about-title {
             font-size: 3.6rem;
@@ -832,7 +911,7 @@ img { max-width: 100%; height: auto; }
             margin-bottom: 20px;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* نص قسم عن الشركة  */
         .about-text {
             font-size: 1.5rem;
@@ -841,19 +920,20 @@ img { max-width: 100%; height: auto; }
             text-align: justify;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* رسوم متحركة للعناصر تظهر من الأسفل  */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         /* جسيمات عائمة للتأثير البصري  */
         .particle {
             position: absolute;
@@ -862,90 +942,131 @@ img { max-width: 100%; height: auto; }
             pointer-events: none;
             animation: float 6s ease-in-out infinite;
         }
-        
+
         /* تحديد مواقع وأحجام وتأخيرات الجسيمات العائمة  */
-        .particle:nth-child(1) { width: 10px; height: 10px; top: 20%; left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { width: 15px; height: 15px; top: 60%; left: 85%; animation-delay: 1s; }
-        .particle:nth-child(3) { width: 8px; height: 8px; top: 80%; left: 20%; animation-delay: 2s; }
-        .particle:nth-child(4) { width: 12px; height: 12px; top: 40%; left: 90%; animation-delay: 3s; }
-        .particle:nth-child(5) { width: 6px; height: 6px; top: 70%; left: 60%; animation-delay: 4s; }
-        
+        .particle:nth-child(1) {
+            width: 10px;
+            height: 10px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 15px;
+            height: 15px;
+            top: 60%;
+            left: 85%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            width: 8px;
+            height: 8px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            width: 12px;
+            height: 12px;
+            top: 40%;
+            left: 90%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(5) {
+            width: 6px;
+            height: 6px;
+            top: 70%;
+            left: 60%;
+            animation-delay: 4s;
+        }
+
         /* رسوم متحركة للجسيمات العائمة  */
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
         }
-        
+
         /* تصميم متجاوب للشاشات المتوسطة (أجهزة لوحية)  */
         @media (max-width: 768px) {
             .top-bar {
                 padding: 10px 20px;
             }
-            
+
             .top-bar .start-button {
                 padding: 10px 20px;
                 font-size: 1rem;
             }
-            
+
             .content-box {
                 padding: 30px 25px;
                 margin: 0;
             }
-            
+
             .main-text:not(.highlight-headline) {
                 font-size: 1.4rem;
                 margin-bottom: 25px;
             }
-            
+
             .start-button {
                 padding: 12px 28px;
                 font-size: 1.1rem;
             }
-            
+
             .logo-frame img {
                 width: 100%;
                 height: auto;
             }
-            
+
             .logo-frame {
                 padding: 25px;
             }
-            
+
             .social-icon {
                 width: 40px;
                 height: 40px;
             }
-            
+
             .social-icon svg {
                 width: 18px;
                 height: 18px;
             }
-            
+
             .about-section {
                 padding: 25px 30px;
             }
-            
+
             .about-title {
                 font-size: 1.4rem;
             }
-            
+
             .about-text {
                 font-size: 1rem;
             }
-            
+
             .modal-content {
                 padding: 20px;
             }
-            
+
             .modal-title {
                 font-size: 1.3rem;
             }
-            
+
             .modal-address {
                 font-size: 1rem;
             }
         }
-        
+
         /* تصميم متجاوب للشاشات الصغيرة (هواتف)  */
         @media (max-width: 480px) {
             .top-bar {
@@ -953,66 +1074,66 @@ img { max-width: 100%; height: auto; }
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .top-bar .start-button {
                 padding: 8px 16px;
                 font-size: 0.9rem;
             }
-            
+
             .social-icons {
                 gap: 10px;
             }
-            
+
             .social-icon {
                 width: 35px;
                 height: 35px;
             }
-            
+
             .social-icon svg {
                 width: 16px;
                 height: 16px;
             }
-            
+
             .main-text:not(.highlight-headline) {
                 font-size: 1.2rem;
             }
-            
+
             .start-button {
                 padding: 10px 25px;
                 font-size: 1rem;
             }
-            
+
             .content-box {
                 padding: 25px 20px;
             }
-            
+
             .about-section {
                 padding: 20px 25px;
             }
-            
+
             .about-title {
                 font-size: 1.2rem;
                 margin-bottom: 15px;
             }
-            
+
             .about-text {
                 font-size: 0.9rem;
                 line-height: 1.6;
             }
-            
+
             .logo-frame img {
                 width: 100%;
                 height: auto;
             }
-            
+
             .modal-content {
                 padding: 15px;
             }
-            
+
             .modal-title {
                 font-size: 1.1rem;
             }
-            
+
             .modal-address {
                 font-size: 0.9rem;
                 padding: 10px;
@@ -1027,8 +1148,15 @@ img { max-width: 100%; height: auto; }
         }
 
         @keyframes glass-panel-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
         }
 
         /* برواز زجاجي موحّد: شعار الرسالة + عنوان المعرض — نفس الشكل بالعربي والإنجليزي */
@@ -1066,6 +1194,7 @@ img { max-width: 100%; height: auto; }
             border-radius: 50%;
             pointer-events: none;
         }
+
         .glass-sparkle--a {
             top: 15px;
             right: 15px;
@@ -1074,6 +1203,7 @@ img { max-width: 100%; height: auto; }
             opacity: 0.7;
             animation: glass-panel-float 2s ease-in-out infinite reverse;
         }
+
         .glass-sparkle--b {
             bottom: 15px;
             left: 15px;
@@ -1082,6 +1212,7 @@ img { max-width: 100%; height: auto; }
             opacity: 0.5;
             animation: glass-panel-float 2.5s ease-in-out infinite;
         }
+
         .glass-sparkle--c {
             top: 50%;
             left: 10px;
@@ -1091,6 +1222,7 @@ img { max-width: 100%; height: auto; }
             opacity: 0.4;
             animation: glass-panel-float 3s ease-in-out infinite reverse;
         }
+
         .glass-sparkle--d {
             top: 50%;
             right: 10px;
@@ -1128,12 +1260,13 @@ img { max-width: 100%; height: auto; }
                 padding: 30px 25px;
             }
         }
+
         @media (max-width: 480px) {
             .glass-highlight-box {
                 padding: 25px 20px;
             }
         }
-        
+
         /* حاوية الصور - تنسيق التخطيط  */
         .gallery-container {
             /* عرض مرن  */
@@ -1147,7 +1280,7 @@ img { max-width: 100%; height: auto; }
             /* توسيط العناصر عمودياً  */
             align-items: center;
         }
-        
+
         /* كل عنصر صورة فردي  */
         .gallery-item {
             /* عرض مرن: 16.666% (6 صور في الصف) مع خصم المسافة  */
@@ -1164,7 +1297,7 @@ img { max-width: 100%; height: auto; }
             /* موضع نسبي للطبقات  */
             position: relative;
         }
-        
+
         /* تنسيق الصور داخل العناصر  */
         .gallery-item img {
             /* عرض كامل للعنصر  */
@@ -1184,7 +1317,7 @@ img { max-width: 100%; height: auto; }
             /* سطوع أقل قليلاً في الحالة العادية  */
             filter: brightness(0.9);
         }
-        
+
         /* تأثير عند المرور على عنصر الصورة  */
         .gallery-item:hover {
             /* رفع العنصر 10 بكسل للأعلى  */
@@ -1192,7 +1325,7 @@ img { max-width: 100%; height: auto; }
             /* جعل العنصر يظهر فوق العناصر الأخرى  */
             z-index: 10;
         }
-        
+
         /* تأثير على الصورة عند المرور على العنصر  */
         .gallery-item:hover img {
             /* تكبير الصورة 1.25 مرة  */
@@ -1202,7 +1335,7 @@ img { max-width: 100%; height: auto; }
             /* زيادة السطوع  */
             filter: brightness(1.1);
         }
-        
+
         /* طبقة ذهبية شفافة تظهر عند المرور  */
         .gallery-item::before {
             /* محتوى فارغ  */
@@ -1227,7 +1360,7 @@ img { max-width: 100%; height: auto; }
             /* لا تستجيب للنقر  */
             pointer-events: none;
         }
-        
+
         /* إظهار الطبقة الذهبية عند المرور  */
         .gallery-item:hover::before {
             /* شفافية كاملة  */
@@ -1247,7 +1380,7 @@ img { max-width: 100%; height: auto; }
             align-items: center;
             justify-content: center;
         }
-        
+
         .contact-modal-content {
             background: white;
             border-radius: 15px;
@@ -1257,21 +1390,21 @@ img { max-width: 100%; height: auto; }
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             animation: modalFadeIn 0.4s ease-out;
         }
-        
+
         .contact-modal-header {
             background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
             padding: 20px;
             text-align: center;
             position: relative;
         }
-        
+
         .contact-modal-title {
             font-size: 1.5rem;
             color: #333;
             font-weight: 700;
             margin: 0;
         }
-        
+
         .contact-modal-close {
             position: absolute;
             top: 15px;
@@ -1282,16 +1415,16 @@ img { max-width: 100%; height: auto; }
             color: #333;
             cursor: pointer;
         }
-        
+
         .contact-modal-body {
             padding: 25px;
             text-align: right;
         }
-        
+
         .contact-info {
             margin-bottom: 20px;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
@@ -1301,20 +1434,20 @@ img { max-width: 100%; height: auto; }
             border-radius: 10px;
             border-right: 4px solid #ffd700;
         }
-        
+
         .contact-item i {
             margin-left: 10px;
             color: #667eea;
             font-size: 1.2rem;
         }
-        
+
         .contact-actions {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 25px;
         }
-        
+
         .contact-btn {
             padding: 12px 25px;
             border-radius: 50px;
@@ -1326,134 +1459,947 @@ img { max-width: 100%; height: auto; }
             gap: 8px;
             transition: all 0.3s ease;
         }
-        
+
         .contact-btn.call {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
-        
+
         .contact-btn.whatsapp {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
         }
-        
+
         .contact-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-    
-/* ==============================
+
+        /* ==============================
    تحسينات التوافق مع الموبايل
    ==============================  */
 
-/* شاشات التابلت والموبايل  */
-@media (max-width: 768px) {
-    .logo-frame img {
-        width: 90%;
-        height: auto;
-    }
-    .content-box:not(.glass-highlight-box) {
-        padding: 20px;
-        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-    }
-}
+        /* شاشات التابلت والموبايل  */
+        @media (max-width: 768px) {
+            .logo-frame img {
+                width: 90%;
+                height: auto;
+            }
 
-/* الشاشات الصغيرة جداً (موبايل صغير)  */
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: clamp(2rem, 10vw, 3rem);
-    }
-    .hero-subtitle {
-        font-size: clamp(0.9rem, 4vw, 1.2rem);
-    }
-    .container {
-        padding: 60px 10px 10px 10px;
-    }
-}
-/* تصميم البار السفلي */
-.bottom-bar {
-    width: 100%;
-    background-color: #333; /* نفس لون البار العلوي */
-    padding: 15px 20px;
-    margin-top: 50px; /* مسافة بسيطة من المحتوى فوقه */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+            .content-box:not(.glass-highlight-box) {
+                padding: 20px;
+                font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            }
+        }
 
-/* نص حقوق النشر */
-.copyright-text {
-    color: white;
-    font-size: 14px;
-    text-align: left;
-}
+        /* الشاشات الصغيرة جداً (موبايل صغير)  */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
 
-/* زر تغيير اللغة */
-#bottom-lang-btn {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-    color: #333;
-    border: none;
-    padding: 10px 22px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    border-radius: 50px;
-    display: inline-block;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
-    transition: 0.3s;
-    font-family: inherit;
-}
+            .hero-subtitle {
+                font-size: clamp(0.9rem, 4vw, 1.2rem);
+            }
 
-#bottom-lang-btn:hover {
-    background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
-}
+            .container {
+                padding: 60px 10px 10px 10px;
+            }
+        }
 
-/* انيميشن للمربع المميز */
-@keyframes glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2); }
-    50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3); }
-}
+        /* تصميم البار السفلي */
+        .bottom-bar {
+            width: 100%;
+            background-color: #333;
+            /* نفس لون البار العلوي */
+            padding: 15px 20px;
+            margin-top: 50px;
+            /* مسافة بسيطة من المحتوى فوقه */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-}
+        /* نص حقوق النشر */
+        .copyright-text {
+            color: white;
+            font-size: 14px;
+            text-align: left;
+        }
 
-@keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-}
+        /* زر تغيير اللغة */
+        #bottom-lang-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #333;
+            border: none;
+            padding: 10px 22px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            transition: 0.3s;
+            font-family: inherit;
+        }
 
-        </style>
+        #bottom-lang-btn:hover {
+            background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        /* انيميشن للمربع المميز */
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 215, 0, 0.3);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+    </style>
     <style id="fastuplink-modern-v1">
-:root{
- --fu-bg:#05070b;--fu-panel:rgba(12,17,27,.68);--fu-panel2:rgba(255,255,255,.055);
- --fu-line:rgba(255,255,255,.12);--fu-text:#f5f7fa;--fu-muted:#9ca7b7;
- --fu-cyan:#19e7ff;--fu-gold:#f6c945;--fu-max:1180px;
-}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{font-family:'Outfit','Tajawal',Arial,sans-serif!important;background:#05070b!important;color:var(--fu-text)!important}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 15% 15%,rgba(25,231,255,.09),transparent 28%),radial-gradient(circle at 85% 55%,rgba(246,201,69,.06),transparent 25%)}
-.background{background-image:linear-gradient(180deg,rgba(5,7,11,.58),rgba(5,7,11,.92)),url('100.webp')!important;filter:blur(0)!important;opacity:.55;transform:scale(1.04);z-index:-3!important}
-.background::before{background:linear-gradient(180deg,rgba(5,7,11,.2),rgba(5,7,11,.78))!important}
-.particle{background:rgba(25,231,255,.18)!important;box-shadow:0 0 14px rgba(25,231,255,.25)}
-.top-bar{height:78px;padding:0 max(24px,4vw)!important;background:rgba(5,7,11,.72)!important;border-bottom:1px solid rgba(255,255,255,.08)!important;backdrop-filter:blur(22px)!important;box-shadow:0 10px 40px rgba(0,0,0,.25)!important}
-.nav-brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:'Orbitron',sans-serif;font-weight:800;letter-spacing:.06em;font-size:15px;white-space:nowrap}.nav-brand img{width:34px;height:34px;object-fit:contain}.nav-brand span span{color:var(--fu-cyan)}
-.main-nav{display:flex;align-items:center;gap:30px;margin-left:auto;margin-right:30px}.main-nav a{color:#aeb7c5;text-decoration:none;font-size:14px;transition:.25s}.main-nav a:hover{color:#fff}.nav-actions{display:flex;align-items:center;gap:10px}.social-icons{gap:7px!important}.social-icon{width:34px!important;height:34px!important;background:rgba(255,255,255,.045)!important;border-color:rgba(255,255,255,.09)!important;box-shadow:none!important}.social-icon svg{width:15px!important;height:15px!important}.social-icon:hover{background:rgba(25,231,255,.12)!important;border-color:rgba(25,231,255,.35)!important;transform:translateY(-2px)!important}.lang-button{background:transparent!important;color:#cbd4df!important;border:1px solid rgba(255,255,255,.12)!important;box-shadow:none!important;padding:9px 13px!important;font-size:13px!important}.nav-contact{border:1px solid rgba(25,231,255,.35);background:var(--fu-cyan);color:#031014;border-radius:999px;padding:10px 16px;font-weight:800;cursor:pointer;transition:.25s}.nav-contact:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(25,231,255,.2)}
-.site-content{padding:78px 0 0!important;margin:0!important;opacity:0}.hero-modern{min-height:calc(100svh - 78px);max-width:var(--fu-max);margin:0 auto;position:relative;display:grid;place-items:center;padding:80px 30px 70px;overflow:hidden}.hero-grid{position:absolute;inset:0;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(circle at center,#000,transparent 75%)}.hero-glow{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none}.hero-glow-a{width:380px;height:380px;background:rgba(25,231,255,.12);left:-120px;top:10%}.hero-glow-b{width:330px;height:330px;background:rgba(246,201,69,.09);right:-100px;bottom:0}.hero-content{text-align:center;position:relative;z-index:2;max-width:950px}.hero-status{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(25,231,255,.22);background:rgba(25,231,255,.055);border-radius:999px;padding:8px 14px;color:#9cecf5;font:600 11px 'Orbitron',sans-serif;letter-spacing:.14em}.status-dot{width:7px;height:7px;border-radius:50%;background:var(--fu-cyan);box-shadow:0 0 14px var(--fu-cyan);animation:pulseDot 1.7s infinite}.status-separator{color:#546272}.hero-logo-wrap{margin:34px auto 22px;display:flex;justify-content:center}.hero-logo{width:min(430px,75vw);max-height:150px;object-fit:contain;filter:drop-shadow(0 0 25px rgba(25,231,255,.12))}.hero-kicker{font:600 11px 'Orbitron',sans-serif;letter-spacing:.25em;color:#788596;margin-bottom:20px}.hero-title{font-family:'Outfit',sans-serif;font-size:clamp(52px,8vw,108px);line-height:.88;letter-spacing:-.055em;margin:0;font-weight:900;color:#fff}.hero-title span{display:block;background:linear-gradient(100deg,#fff 5%,#19e7ff 48%,#f6c945 92%);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-subtitle{font-size:clamp(20px,2.4vw,30px);font-weight:600;color:#dce3eb;margin:28px 0 0}.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}.hero-btn{border-radius:999px;padding:14px 22px;text-decoration:none;font:700 14px 'Outfit',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:20px;transition:.25s}.hero-btn b{font-size:18px}.hero-btn-primary{border:0;background:#fff;color:#05070b}.hero-btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(255,255,255,.13)}.hero-btn-ghost{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035);color:#e8edf3;backdrop-filter:blur(12px)}.hero-btn-ghost:hover{border-color:rgba(25,231,255,.35);transform:translateY(-3px)}.hero-metrics{display:flex;justify-content:center;gap:60px;margin-top:54px}.hero-metrics div{text-align:left;display:flex;flex-direction:column}.hero-metrics strong{font:800 22px 'Orbitron',sans-serif;color:#fff}.hero-metrics span{font-size:11px;color:#758193;margin-top:4px}.hero-hud{position:absolute;top:50%;transform:translateY(-50%);font:600 9px 'Orbitron',sans-serif;color:#596777;letter-spacing:.2em;display:flex;flex-direction:column;gap:8px}.hero-hud i{display:block;width:100px;height:1px;background:linear-gradient(90deg,transparent,var(--fu-cyan))}.hero-hud-right{right:15px;text-align:right;align-items:flex-end}.hero-hud-right i{background:linear-gradient(90deg,var(--fu-gold),transparent)}.hero-hud-left{left:15px}.hero-scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:#596777;font:600 9px 'Orbitron',sans-serif;letter-spacing:.18em}.hero-scroll i{height:38px;width:1px;background:linear-gradient(var(--fu-cyan),transparent);animation:scrollLine 1.8s infinite}
-.container{max-width:var(--fu-max)!important;margin:0 auto!important;padding:0 30px 90px!important;gap:30px!important}.container>.logo-frame,.container>.content-box,.container>.about-section,.container>.image-gallery{width:100%!important;max-width:none!important}.logo-frame{display:none!important}.content-box,.about-section,.image-gallery,.glass-highlight-box{background:var(--fu-panel)!important;border:1px solid var(--fu-line)!important;border-radius:28px!important;box-shadow:0 25px 80px rgba(0,0,0,.22)!important}.content-box{padding:34px!important}.content-box{display:none}.about-section{padding:55px clamp(24px,6vw,80px)!important;text-align:left!important}.about-title{font-size:clamp(36px,5vw,62px)!important;color:#fff!important;line-height:1!important;margin-bottom:24px!important}.about-title::before{content:'ABOUT FASTUPLINK';display:block;font:600 11px 'Orbitron',sans-serif;letter-spacing:.22em;color:var(--fu-cyan);margin-bottom:16px}.about-text{font-size:clamp(17px,2vw,22px)!important;color:#aeb8c6!important;line-height:1.9!important;text-align:left!important;white-space:pre-line}.image-gallery{padding:28px!important}.highlight-headline{color:#fff!important;text-shadow:none!important}.gallery-title{font-size:clamp(26px,4vw,42px)!important}.gallery-title::before{content:'WHY FASTUPLINK';display:block;font:600 10px 'Orbitron',sans-serif;letter-spacing:.22em;color:var(--fu-gold);margin-bottom:12px}.glass-sparkle{background:var(--fu-cyan)!important;filter:blur(1px)}
-.cards-stack-wrapper{max-width:var(--fu-max);margin:0 auto;padding:0 30px 100px!important;gap:24px!important}.slide{height:min(760px,90vh)!important;border:1px solid rgba(255,255,255,.08);border-radius:30px!important;box-shadow:0 30px 90px rgba(0,0,0,.28);isolation:isolate}.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,6,10,.82) 0%,rgba(3,6,10,.48) 55%,rgba(3,6,10,.25));z-index:1}.slide-image img{filter:brightness(.55)!important;transition:transform 1s ease!important}.slide:hover .slide-image img{transform:scale(1.04)}.slide-content{width:min(720px,calc(100% - 60px))!important;margin:0 0 55px 55px!important;align-self:flex-end;text-align:left!important;background:rgba(7,11,17,.62)!important;border:1px solid rgba(255,255,255,.12)!important;border-left:2px solid var(--fu-cyan)!important;border-radius:22px!important;padding:34px!important;box-shadow:0 20px 60px rgba(0,0,0,.3)!important}.title{font-size:clamp(28px,4vw,52px)!important;color:#fff!important;text-shadow:none!important;line-height:1.08}.desc{color:#b7c0cd!important;font-size:clamp(15px,1.5vw,19px)!important;line-height:1.8!important;text-shadow:none!important}
-.partners-section{max-width:100%;padding-bottom:50px}.partners-section>.glass-highlight-box{width:min(var(--fu-max),calc(100% - 60px))!important;margin:0 auto 30px!important}.partners-carousel{background:rgba(255,255,255,.025)!important;border-color:rgba(255,255,255,.07)!important}.partner-logo{width:260px;height:130px;background:rgba(255,255,255,.035)!important;border-color:rgba(255,255,255,.08)!important}.partner-logo:hover{border-color:rgba(25,231,255,.4)!important;box-shadow:0 10px 30px rgba(25,231,255,.08)!important}.bottom-bar{max-width:var(--fu-max);width:calc(100% - 60px)!important;margin:0 auto 30px!important;border:1px solid rgba(255,255,255,.08);border-radius:20px;background:rgba(255,255,255,.035)!important;backdrop-filter:blur(18px);padding:18px 22px!important}.copyright-text{color:#687487!important}.bottom-bar #bottom-lang-btn{background:#fff!important;color:#05070b!important;box-shadow:none!important}
-.location-modal,.contact-modal{background:rgba(0,0,0,.78)!important;backdrop-filter:blur(10px)}.modal-content,.contact-modal-content{background:#0c1119!important;color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:22px!important}.modal-title,.contact-modal-title{color:#fff!important}.modal-address,.contact-item{background:rgba(255,255,255,.045)!important;color:#b8c2cf!important;border-color:var(--fu-cyan)!important}.contact-modal-header{background:linear-gradient(135deg,rgba(25,231,255,.14),rgba(246,201,69,.08))!important}.contact-btn.call{background:#fff!important;color:#05070b!important}.contact-btn.whatsapp{background:#1fca68!important}
-@keyframes pulseDot{50%{opacity:.45;transform:scale(.8)}}@keyframes scrollLine{50%{opacity:.25;transform:translateY(8px)}}
-@media(max-width:900px){.main-nav{display:none}.hero-modern{padding-top:70px}.hero-hud{display:none}.hero-metrics{gap:28px}.nav-contact{display:none}}
-@media(max-width:600px){.top-bar{height:66px;padding:0 14px!important}.nav-brand span{font-size:12px}.nav-brand img{width:30px;height:30px}.social-icons{display:none}.lang-button{padding:8px 10px!important}.site-content{padding-top:66px!important}.hero-modern{min-height:calc(100svh - 66px);padding:60px 18px 70px}.hero-logo{width:min(330px,85vw)}.hero-kicker{font-size:8px;letter-spacing:.16em}.hero-title{font-size:clamp(45px,15vw,70px)}.hero-subtitle{font-size:18px}.hero-metrics{gap:18px;margin-top:40px}.hero-metrics strong{font-size:17px}.hero-metrics span{font-size:9px}.container,.cards-stack-wrapper{padding-left:14px!important;padding-right:14px!important}.about-section{padding:36px 24px!important}.about-title{font-size:36px!important}.about-text{text-align:left!important;font-size:16px!important}.slide{height:78vh!important;min-height:540px}.slide-content{width:calc(100% - 30px)!important;margin:0 15px 22px!important;padding:24px!important}.title{font-size:30px!important}.desc{font-size:14px!important}.partners-section>.glass-highlight-box{width:calc(100% - 28px)!important}.bottom-bar{width:calc(100% - 28px)!important;gap:15px}.copyright-text{font-size:11px}.bottom-bar #bottom-lang-btn{padding:9px 14px;font-size:12px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
-</style>
+        :root {
+            --fu-bg: #05070b;
+            --fu-panel: rgba(12, 17, 27, .68);
+            --fu-panel2: rgba(255, 255, 255, .055);
+            --fu-line: rgba(255, 255, 255, .12);
+            --fu-text: #f5f7fa;
+            --fu-muted: #9ca7b7;
+            --fu-cyan: #19e7ff;
+            --fu-gold: #f6c945;
+            --fu-max: 1180px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px
+        }
+
+        body {
+            font-family: 'Outfit', 'Tajawal', Arial, sans-serif !important;
+            background: #05070b !important;
+            color: var(--fu-text) !important
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at 15% 15%, rgba(25, 231, 255, .09), transparent 28%), radial-gradient(circle at 85% 55%, rgba(246, 201, 69, .06), transparent 25%)
+        }
+
+        .background {
+            background-image: linear-gradient(180deg, rgba(5, 7, 11, .58), rgba(5, 7, 11, .92)), url('100.webp') !important;
+            filter: blur(0) !important;
+            opacity: .55;
+            transform: scale(1.04);
+            z-index: -3 !important
+        }
+
+        .background::before {
+            background: linear-gradient(180deg, rgba(5, 7, 11, .2), rgba(5, 7, 11, .78)) !important
+        }
+
+        .particle {
+            background: rgba(25, 231, 255, .18) !important;
+            box-shadow: 0 0 14px rgba(25, 231, 255, .25)
+        }
+
+        .top-bar {
+            height: 78px;
+            padding: 0 max(24px, 4vw) !important;
+            background: rgba(5, 7, 11, .72) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, .08) !important;
+            backdrop-filter: blur(22px) !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .25) !important
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            letter-spacing: .06em;
+            font-size: 15px;
+            white-space: nowrap
+        }
+
+        .nav-brand img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain
+        }
+
+        .nav-brand span span {
+            color: var(--fu-cyan)
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-left: auto;
+            margin-right: 30px
+        }
+
+        .main-nav a {
+            color: #aeb7c5;
+            text-decoration: none;
+            font-size: 14px;
+            transition: .25s
+        }
+
+        .main-nav a:hover {
+            color: #fff
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .social-icons {
+            gap: 7px !important
+        }
+
+        .social-icon {
+            width: 34px !important;
+            height: 34px !important;
+            background: rgba(255, 255, 255, .045) !important;
+            border-color: rgba(255, 255, 255, .09) !important;
+            box-shadow: none !important
+        }
+
+        .social-icon svg {
+            width: 15px !important;
+            height: 15px !important
+        }
+
+        .social-icon:hover {
+            background: rgba(25, 231, 255, .12) !important;
+            border-color: rgba(25, 231, 255, .35) !important;
+            transform: translateY(-2px) !important
+        }
+
+        .lang-button {
+            background: transparent !important;
+            color: #cbd4df !important;
+            border: 1px solid rgba(255, 255, 255, .12) !important;
+            box-shadow: none !important;
+            padding: 9px 13px !important;
+            font-size: 13px !important
+        }
+
+        .nav-contact {
+            border: 1px solid rgba(25, 231, 255, .35);
+            background: var(--fu-cyan);
+            color: #031014;
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: .25s
+        }
+
+        .nav-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(25, 231, 255, .2)
+        }
+
+        .site-content {
+            padding: 78px 0 0 !important;
+            margin: 0 !important;
+            opacity: 0
+        }
+
+        .hero-modern {
+            min-height: calc(100svh - 78px);
+            max-width: var(--fu-max);
+            margin: 0 auto;
+            position: relative;
+            display: grid;
+            place-items: center;
+            padding: 80px 30px 70px;
+            overflow: hidden
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: .22;
+            background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+            background-size: 70px 70px;
+            mask-image: radial-gradient(circle at center, #000, transparent 75%)
+        }
+
+        .hero-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none
+        }
+
+        .hero-glow-a {
+            width: 380px;
+            height: 380px;
+            background: rgba(25, 231, 255, .12);
+            left: -120px;
+            top: 10%
+        }
+
+        .hero-glow-b {
+            width: 330px;
+            height: 330px;
+            background: rgba(246, 201, 69, .09);
+            right: -100px;
+            bottom: 0
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 950px
+        }
+
+        .hero-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid rgba(25, 231, 255, .22);
+            background: rgba(25, 231, 255, .055);
+            border-radius: 999px;
+            padding: 8px 14px;
+            color: #9cecf5;
+            font: 600 11px 'Orbitron', sans-serif;
+            letter-spacing: .14em
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--fu-cyan);
+            box-shadow: 0 0 14px var(--fu-cyan);
+            animation: pulseDot 1.7s infinite
+        }
+
+        .status-separator {
+            color: #546272
+        }
+
+        .hero-logo-wrap {
+            margin: 34px auto 22px;
+            display: flex;
+            justify-content: center
+        }
+
+        .hero-logo {
+            width: min(430px, 75vw);
+            max-height: 150px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 25px rgba(25, 231, 255, .12))
+        }
+
+        .hero-kicker {
+            font: 600 11px 'Orbitron', sans-serif;
+            letter-spacing: .25em;
+            color: #788596;
+            margin-bottom: 20px
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(52px, 8vw, 108px);
+            line-height: .88;
+            letter-spacing: -.055em;
+            margin: 0;
+            font-weight: 900;
+            color: #fff
+        }
+
+        .hero-title span {
+            display: block;
+            background: linear-gradient(100deg, #fff 5%, #19e7ff 48%, #f6c945 92%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .hero-subtitle {
+            font-size: clamp(20px, 2.4vw, 30px);
+            font-weight: 600;
+            color: #dce3eb;
+            margin: 28px 0 0
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 34px
+        }
+
+        .hero-btn {
+            border-radius: 999px;
+            padding: 14px 22px;
+            text-decoration: none;
+            font: 700 14px 'Outfit', sans-serif;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            transition: .25s
+        }
+
+        .hero-btn b {
+            font-size: 18px
+        }
+
+        .hero-btn-primary {
+            border: 0;
+            background: #fff;
+            color: #05070b
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, .13)
+        }
+
+        .hero-btn-ghost {
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .035);
+            color: #e8edf3;
+            backdrop-filter: blur(12px)
+        }
+
+        .hero-btn-ghost:hover {
+            border-color: rgba(25, 231, 255, .35);
+            transform: translateY(-3px)
+        }
+
+        .hero-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 54px
+        }
+
+        .hero-metrics div {
+            text-align: left;
+            display: flex;
+            flex-direction: column
+        }
+
+        .hero-metrics strong {
+            font: 800 22px 'Orbitron', sans-serif;
+            color: #fff
+        }
+
+        .hero-metrics span {
+            font-size: 11px;
+            color: #758193;
+            margin-top: 4px
+        }
+
+        .hero-hud {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font: 600 9px 'Orbitron', sans-serif;
+            color: #596777;
+            letter-spacing: .2em;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .hero-hud i {
+            display: block;
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--fu-cyan))
+        }
+
+        .hero-hud-right {
+            right: 15px;
+            text-align: right;
+            align-items: flex-end
+        }
+
+        .hero-hud-right i {
+            background: linear-gradient(90deg, var(--fu-gold), transparent)
+        }
+
+        .hero-hud-left {
+            left: 15px
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            color: #596777;
+            font: 600 9px 'Orbitron', sans-serif;
+            letter-spacing: .18em
+        }
+
+        .hero-scroll i {
+            height: 38px;
+            width: 1px;
+            background: linear-gradient(var(--fu-cyan), transparent);
+            animation: scrollLine 1.8s infinite
+        }
+
+        .container {
+            max-width: var(--fu-max) !important;
+            margin: 0 auto !important;
+            padding: 0 30px 90px !important;
+            gap: 30px !important
+        }
+
+        .container>.logo-frame,
+        .container>.content-box,
+        .container>.about-section,
+        .container>.image-gallery {
+            width: 100% !important;
+            max-width: none !important
+        }
+
+        .logo-frame {
+            display: none !important
+        }
+
+        .content-box,
+        .about-section,
+        .image-gallery,
+        .glass-highlight-box {
+            background: var(--fu-panel) !important;
+            border: 1px solid var(--fu-line) !important;
+            border-radius: 28px !important;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, .22) !important
+        }
+
+        .content-box {
+            padding: 34px !important
+        }
+
+        .content-box {
+            display: none
+        }
+
+        .about-section {
+            padding: 55px clamp(24px, 6vw, 80px) !important;
+            text-align: left !important
+        }
+
+        .about-title {
+            font-size: clamp(36px, 5vw, 62px) !important;
+            color: #ffd700 !important;
+            line-height: 1 !important;
+            margin-bottom: 24px !important
+        }
+
+        .about-title::before {
+            content: 'ABOUT FASTUPLINK';
+            display: block;
+            font: 600 11px 'Orbitron', sans-serif;
+            letter-spacing: .22em;
+            color: var(--fu-cyan);
+            margin-bottom: 16px
+        }
+
+        .about-text {
+            font-size: clamp(17px, 2vw, 22px) !important;
+            color: #aeb8c6 !important;
+            line-height: 1.9 !important;
+            text-align: left !important;
+            white-space: pre-line
+        }
+
+        .image-gallery {
+            padding: 28px !important
+        }
+
+        .highlight-headline {
+            color: #fff !important;
+            text-shadow: none !important
+        }
+
+        .gallery-title {
+            font-size: clamp(26px, 4vw, 42px) !important
+        }
+
+        .gallery-title::before {
+            content: 'WHY FASTUPLINK';
+            display: block;
+            font: 600 10px 'Orbitron', sans-serif;
+            letter-spacing: .22em;
+            color: var(--fu-gold);
+            margin-bottom: 12px
+        }
+
+        .glass-sparkle {
+            background: var(--fu-cyan) !important;
+            filter: blur(1px)
+        }
+
+        .cards-stack-wrapper {
+            max-width: var(--fu-max);
+            margin: 0 auto;
+            padding: 0 30px 100px !important;
+            gap: 24px !important
+        }
+
+        .slide {
+            height: min(760px, 90vh) !important;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 30px !important;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, .28);
+            isolation: isolate
+        }
+
+        .slide::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(3, 6, 10, .82) 0%, rgba(3, 6, 10, .48) 55%, rgba(3, 6, 10, .25));
+            z-index: 1
+        }
+
+        .slide-image img {
+            filter: brightness(.55) !important;
+            transition: transform 1s ease !important
+        }
+
+        .slide:hover .slide-image img {
+            transform: scale(1.04)
+        }
+
+        .slide-content {
+            width: min(720px, calc(100% - 60px)) !important;
+            margin: 0 0 55px 55px !important;
+            align-self: flex-end;
+            text-align: left !important;
+            background: rgba(7, 11, 17, .62) !important;
+            border: 1px solid rgba(255, 255, 255, .12) !important;
+            border-left: 2px solid var(--fu-cyan) !important;
+            border-radius: 22px !important;
+            padding: 34px !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .3) !important
+        }
+
+        .title {
+            font-size: clamp(28px, 4vw, 52px) !important;
+            color: #ffd700 !important;
+            text-shadow: none !important;
+            line-height: 1.08
+        }
+
+        .desc {
+            color: #b7c0cd !important;
+            font-size: clamp(15px, 1.5vw, 19px) !important;
+            line-height: 1.8 !important;
+            text-shadow: none !important
+        }
+
+        .partners-section {
+            max-width: 100%;
+            padding-bottom: 50px
+        }
+
+        .partners-section>.glass-highlight-box {
+            width: min(var(--fu-max), calc(100% - 60px)) !important;
+            margin: 0 auto 30px !important
+        }
+
+        .partners-carousel {
+            background: rgba(255, 255, 255, .025) !important;
+            border-color: rgba(255, 255, 255, .07) !important
+        }
+
+        .partner-logo {
+            width: 260px;
+            height: 130px;
+            background: rgba(255, 255, 255, .035) !important;
+            border-color: rgba(255, 255, 255, .08) !important
+        }
+
+        .partner-logo:hover {
+            border-color: rgba(25, 231, 255, .4) !important;
+            box-shadow: 0 10px 30px rgba(25, 231, 255, .08) !important
+        }
+
+        .bottom-bar {
+            max-width: var(--fu-max);
+            width: calc(100% - 60px) !important;
+            margin: 0 auto 30px !important;
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, .035) !important;
+            backdrop-filter: blur(18px);
+            padding: 18px 22px !important
+        }
+
+        .copyright-text {
+            color: #687487 !important
+        }
+
+        .bottom-bar #bottom-lang-btn {
+            background: #fff !important;
+            color: #05070b !important;
+            box-shadow: none !important
+        }
+
+        .location-modal,
+        .contact-modal {
+            background: rgba(0, 0, 0, .78) !important;
+            backdrop-filter: blur(10px)
+        }
+
+        .modal-content,
+        .contact-modal-content {
+            background: #0c1119 !important;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 22px !important
+        }
+
+        .modal-title,
+        .contact-modal-title {
+            color: #ffd700 !important
+        }
+
+        .modal-address,
+        .contact-item {
+            background: rgba(255, 255, 255, .045) !important;
+            color: #b8c2cf !important;
+            border-color: var(--fu-cyan) !important
+        }
+
+        .contact-modal-header {
+            background: linear-gradient(135deg, rgba(25, 231, 255, .14), rgba(246, 201, 69, .08)) !important
+        }
+
+        .contact-btn.call {
+            background: #fff !important;
+            color: #05070b !important
+        }
+
+        .contact-btn.whatsapp {
+            background: #1fca68 !important
+        }
+
+        @keyframes pulseDot {
+            50% {
+                opacity: .45;
+                transform: scale(.8)
+            }
+        }
+
+        @keyframes scrollLine {
+            50% {
+                opacity: .25;
+                transform: translateY(8px)
+            }
+        }
+
+        @media(max-width:900px) {
+            .main-nav {
+                display: none
+            }
+
+            .hero-modern {
+                padding-top: 70px
+            }
+
+            .hero-hud {
+                display: none
+            }
+
+            .hero-metrics {
+                gap: 28px
+            }
+
+            .nav-contact {
+                display: none
+            }
+        }
+
+        @media(max-width:600px) {
+            .top-bar {
+                height: 66px;
+                padding: 0 14px !important
+            }
+
+            .nav-brand span {
+                font-size: 12px
+            }
+
+            .nav-brand img {
+                width: 30px;
+                height: 30px
+            }
+
+            .social-icons {
+                display: none
+            }
+
+            .lang-button {
+                padding: 8px 10px !important
+            }
+
+            .site-content {
+                padding-top: 66px !important
+            }
+
+            .hero-modern {
+                min-height: calc(100svh - 66px);
+                padding: 60px 18px 70px
+            }
+
+            .hero-logo {
+                width: min(330px, 85vw)
+            }
+
+            .hero-kicker {
+                font-size: 8px;
+                letter-spacing: .16em
+            }
+
+            .hero-title {
+                font-size: clamp(45px, 15vw, 70px)
+            }
+
+            .hero-subtitle {
+                font-size: 18px
+            }
+
+            .hero-metrics {
+                gap: 18px;
+                margin-top: 40px
+            }
+
+            .hero-metrics strong {
+                font-size: 17px
+            }
+
+            .hero-metrics span {
+                font-size: 9px
+            }
+
+            .container,
+            .cards-stack-wrapper {
+                padding-left: 14px !important;
+                padding-right: 14px !important
+            }
+
+            .about-section {
+                padding: 36px 24px !important
+            }
+
+            .about-title {
+                font-size: 36px !important
+            }
+
+            .about-text {
+                text-align: left !important;
+                font-size: 16px !important
+            }
+
+            .slide {
+                height: 78vh !important;
+                min-height: 540px
+            }
+
+            .slide-content {
+                width: calc(100% - 30px) !important;
+                margin: 0 15px 22px !important;
+                padding: 24px !important
+            }
+
+            .title {
+                font-size: 30px !important
+            }
+
+            .desc {
+                font-size: 14px !important
+            }
+
+            .partners-section>.glass-highlight-box {
+                width: calc(100% - 28px) !important
+            }
+
+            .bottom-bar {
+                width: calc(100% - 28px) !important;
+                gap: 15px
+            }
+
+            .copyright-text {
+                font-size: 11px
+            }
+
+            .bottom-bar #bottom-lang-btn {
+                padding: 9px 14px;
+                font-size: 12px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: .001ms !important
+            }
+        }
+    </style>
 </head>
-    <body>
+
+<body>
 
     <div id="preloader">
         <div class="preloader-logo-wrap">
@@ -1479,7 +2425,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
                 <h1 class="hero-title">IT THAT <span>JUST WORKS.</span></h1>
                 <p class="hero-subtitle" id="hero-subtitle">ذكاء في الحلول .. سرعة في التنفيذ</p>
                 <div class="hero-actions">
-                    <button class="hero-btn hero-btn-primary" onclick="startJourney()"><span>Let's Work Together</span><b>↗</b></button>
+                    <button class="hero-btn hero-btn-primary" onclick="startJourney()"><span>Let's Work
+                            Together</span><b>↗</b></button>
                     <a class="hero-btn hero-btn-ghost" href="#about">Explore FastUplink <b>↓</b></a>
                 </div>
                 <div class="hero-metrics">
@@ -1488,133 +2435,162 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
                     <div><strong>IT</strong><span>Infrastructure</span></div>
                 </div>
             </div>
-            <div class="hero-hud hero-hud-left" aria-hidden="true"><span>NETWORK</span><i></i><small>SECURE</small></div>
-            <div class="hero-hud hero-hud-right" aria-hidden="true"><span>UPLINK</span><i></i><small>ONLINE</small></div>
+            <div class="hero-hud hero-hud-left" aria-hidden="true"><span>NETWORK</span><i></i><small>SECURE</small>
+            </div>
+            <div class="hero-hud hero-hud-right" aria-hidden="true"><span>UPLINK</span><i></i><small>ONLINE</small>
+            </div>
             <div class="hero-scroll" aria-hidden="true"><span>SCROLL</span><i></i></div>
         </section>
     </div>
-        <div class="background"></div>
-        
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        
-        <div class="top-bar">
-            <a class="nav-brand" href="#home" aria-label="FastUplink home">
-                <img src="slogo.png" alt="FastUplink">
-                <span>FAST<span>UPLINK</span></span>
-            </a>
-            <nav class="main-nav" aria-label="Main navigation">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#partners">Partners</a>
-            </nav>
-            <div class="nav-actions">
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/fastuplink/" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg></a>
-                    <a href="https://m.me/fastuplink/" target="_blank" rel="noopener" class="social-icon" aria-label="Messenger"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256.3 32C132.2 32 32 124.6 32 238.1c0 63.1 31.7 119.1 81.3 156.6V480l85.7-47.2c18.1 5 37.3 7.7 57.3 7.7 124.1 0 224.3-92.6 224.3-206.1S380.4 32 256.3 32zm24.3 270.5-62.1-66.3-121.4 66.3 133.3-141.9 62.1 66.3 121.4-66.3-133.3 141.9z"/></svg></a>
-                    <a href="https://wa.me/201039501190" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg></a>
-                    <a href="#" class="social-icon" onclick="showLocation(event)" aria-label="Location"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"></path></svg></a>
-                </div>
-                <button class="start-button lang-button" id="top-start-button" onclick="toggleLanguage()">🌐 عربي</button>
-                <button class="nav-contact" onclick="startJourney()">Contact <span>↗</span></button>
-            </div>
-        </div>
-        
-        <div class="location-modal" id="locationModal">
-            <div class="modal-content">
-                <h2 class="modal-title" id="location-modal-title">موقع شركة فاست أب لينك</h2>
-                <p class="modal-address" id="location-modal-address">
-                    العنوان: 📍القاهرة : ٦٢ ش يوسف عباس -شقه ١٠٣ -الدور العاشر منطقه السينما -مدينه نصر اول-القاهره
-                    <br>📍 الجيزة : سان جيوفاني -ش عبدالعزيز ال سعود -المنيل -الجيزه
-                    <br>📍 انشاء نظام سحابي خاص بشركتك بـ اقل التكاليف وبدون أشتراك شهري : جنينه سيتي محلات ارقام ٣٠٩١/٣٠٩٢/٣٠٧ <br>
+    <div class="background"></div>
 
-                </p>
-                <button class="modal-close" id="location-modal-close" onclick="closeLocation()">إغلاق</button>
-            </div>
-        </div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
 
-        <div class="contact-modal" id="contactModal">
-            <div class="contact-modal-content">
-                <div class="contact-modal-header">
-                    <button class="contact-modal-close" onclick="closeContactModal()">×</button>
-                    <h2 class="contact-modal-title" id="contact-modal-title">تواصل معنا</h2>
-                </div>
-                <div class="contact-modal-body">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span id="contact-address-cairo">العنوان : الاسكدرية - الجمرك - شارع ابو وردة</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span id="contact-address-giza"> </span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span id="contact-address-sharm"> </span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span id="contact-phone">الهاتف: 01039501190 -   </span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span id="contact-email">البريد الإلكتروني: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a03040c052a0c0b191e1f1a0603040144090507">[email&#160;protected]</a></span>
-                        </div>
+    <div class="top-bar">
+        <a class="nav-brand" href="#home" aria-label="FastUplink home">
+            <img src="slogo.png" alt="FastUplink">
+            <span>FAST<span>UPLINK</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#partners">Partners</a>
+        </nav>
+        <div class="nav-actions">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/fastuplink/" target="_blank" rel="noopener" class="social-icon"
+                    aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path
+                            d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                        </path>
+                    </svg></a>
+                <a href="https://m.me/fastuplink/" target="_blank" rel="noopener" class="social-icon"
+                    aria-label="Messenger"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path
+                            d="M256.3 32C132.2 32 32 124.6 32 238.1c0 63.1 31.7 119.1 81.3 156.6V480l85.7-47.2c18.1 5 37.3 7.7 57.3 7.7 124.1 0 224.3-92.6 224.3-206.1S380.4 32 256.3 32zm24.3 270.5-62.1-66.3-121.4 66.3 133.3-141.9 62.1 66.3 121.4-66.3-133.3 141.9z" />
+                    </svg></a>
+                <a href="https://wa.me/201039501190" target="_blank" rel="noopener" class="social-icon"
+                    aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
+                        </path>
+                    </svg></a>
+                <a href="#" class="social-icon" onclick="showLocation(event)" aria-label="Location"><svg
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path
+                            d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z">
+                        </path>
+                    </svg></a>
+            </div>
+            <button class="start-button lang-button" id="top-start-button" onclick="toggleLanguage()">🌐 عربي</button>
+            <button class="nav-contact" onclick="startJourney()">Contact <span>↗</span></button>
+        </div>
+    </div>
+
+    <div class="location-modal" id="locationModal">
+        <div class="modal-content">
+            <h2 class="modal-title" id="location-modal-title">موقع شركة فاست أب لينك</h2>
+            <p class="modal-address" id="location-modal-address">
+                العنوان: 📍القاهرة : ٦٢ ش يوسف عباس -شقه ١٠٣ -الدور العاشر منطقه السينما -مدينه نصر اول-القاهره
+                <br>📍 الجيزة : سان جيوفاني -ش عبدالعزيز ال سعود -المنيل -الجيزه
+                <br>📍 انشاء نظام سحابي خاص بشركتك بـ اقل التكاليف وبدون أشتراك شهري : جنينه سيتي محلات ارقام
+                ٣٠٩١/٣٠٩٢/٣٠٧ <br>
+
+            </p>
+            <button class="modal-close" id="location-modal-close" onclick="closeLocation()">إغلاق</button>
+        </div>
+    </div>
+
+    <div class="contact-modal" id="contactModal">
+        <div class="contact-modal-content">
+            <div class="contact-modal-header">
+                <button class="contact-modal-close" onclick="closeContactModal()">×</button>
+                <h2 class="contact-modal-title" id="contact-modal-title">تواصل معنا</h2>
+            </div>
+            <div class="contact-modal-body">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="contact-address-cairo">العنوان : الاسكدرية - الجمرك - شارع ابو وردة</span>
                     </div>
-                    
-                    <div class="contact-actions">
-                        <button class="contact-btn call" onclick="makeCall()">
-                            <i class="fas fa-phone"></i> <span id="contact-call-btn">اتصل بنا</span>
-                        </button>
-                        <button class="contact-btn whatsapp" onclick="openWhatsApp()">
-                            <i class="fab fa-whatsapp"></i> <span id="contact-whatsapp-btn">واتساب</span>
-                        </button>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="contact-address-giza"> </span>
                     </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="contact-address-sharm"> </span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span id="contact-phone">الهاتف: 01039501190 - </span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span id="contact-email">البريد الإلكتروني: <a href="/cdn-cgi/l/email-protection"
+                                class="__cf_email__"
+                                data-cfemail="6a03040c052a0c0b191e1f1a0603040144090507">[email&#160;protected]</a></span>
+                    </div>
+                </div>
+
+                <div class="contact-actions">
+                    <button class="contact-btn call" onclick="makeCall()">
+                        <i class="fas fa-phone"></i> <span id="contact-call-btn">اتصل بنا</span>
+                    </button>
+                    <button class="contact-btn whatsapp" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> <span id="contact-whatsapp-btn">واتساب</span>
+                    </button>
                 </div>
             </div>
         </div>
-        
-        <div class="container" id="about">
-            <div class="logo-frame">
-                <img src="logo.png" alt="Sunnydays Logo">
-            </div>
-            
+    </div>
 
-            
-            <div class="content-box glass-highlight-box">
-                <div class="glass-shimmer-layer" aria-hidden="true"></div>
-                <p class="main-text highlight-headline" id="main-text">ذكاء في الحلول .. سرعة في التنفيذ</p>
-                <span class="glass-sparkle glass-sparkle--a" aria-hidden="true"></span>
-                <span class="glass-sparkle glass-sparkle--b" aria-hidden="true"></span>
-                <span class="glass-sparkle glass-sparkle--c" aria-hidden="true"></span>
-                <span class="glass-sparkle glass-sparkle--d" aria-hidden="true"></span>
-            </div>
-            
-            <div class="about-section">
-                <h1 class="about-title" id="about-title">عن شركة فاست أب لينك</h1>
-                <h2 class="about-text" id="about-text">
-                    هي شركة متخصصة في تقديم حلول تكنولوجيا المعلومات، بخبرة تمتد لأكثر من 15 عامًا في مجال الشبكات والدعم الفني وخدمات البنية التحتية الرقمية. نهدف إلى تمكين عملائنا من الاعتماد على أنظمة تقنية مستقرة وآمنة تساعدهم على تطوير أعمالهم بكفاءة.
-
-                    نقدم مجموعة متكاملة من الخدمات تشمل تصميم وتركيب الشبكات، أنظمة كاميرات المراقبة، الصيانة والدعم الفني، بالإضافة إلى توريد وتركيب الأجهزة والحلول التقنية المختلفة. نعتمد على أحدث التقنيات وأفضل الممارسات لضمان تقديم خدمات عالية الجودة تلبي احتياجات الشركات والمنشآت بمختلف أحجامها.
-                    
-                    في FastUpLink نؤمن أن السرعة في الاستجابة والدقة في التنفيذ هما أساس نجاح أي نظام تقني، لذلك نحرص على تقديم دعم فني سريع وفعال، مع متابعة مستمرة لضمان استقرار الأنظمة وتقليل الأعطال إلى الحد الأدنى.
-                </h2>
-            </div>
-
-            <div class="image-gallery glass-highlight-box">
-                <div class="glass-shimmer-layer" aria-hidden="true"></div>
-                <h2 class="gallery-title highlight-headline" id="gallery-title"> مميزات التعاون مع Fast Uplink</h2>
-                <span class="glass-sparkle glass-sparkle--a" aria-hidden="true"></span>
-                <span class="glass-sparkle glass-sparkle--b" aria-hidden="true"></span>
-                <span class="glass-sparkle glass-sparkle--c" aria-hidden="true"></span>
-                <span class="glass-sparkle glass-sparkle--d" aria-hidden="true"></span>
-            </div>
+    <div class="container" id="about">
+        <div class="logo-frame">
+            <img src="logo.png" alt="Sunnydays Logo">
         </div>
+
+
+
+        <div class="content-box glass-highlight-box">
+            <div class="glass-shimmer-layer" aria-hidden="true"></div>
+            <p class="main-text highlight-headline" id="main-text">ذكاء في الحلول .. سرعة في التنفيذ</p>
+            <span class="glass-sparkle glass-sparkle--a" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--b" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--c" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--d" aria-hidden="true"></span>
+        </div>
+
+        <div class="about-section">
+            <h1 class="about-title" id="about-title">عن شركة فاست أب لينك</h1>
+            <h2 class="about-text" id="about-text">
+                هي شركة متخصصة في تقديم حلول تكنولوجيا المعلومات، بخبرة تمتد لأكثر من 15 عامًا في مجال الشبكات والدعم
+                الفني وخدمات البنية التحتية الرقمية. نهدف إلى تمكين عملائنا من الاعتماد على أنظمة تقنية مستقرة وآمنة
+                تساعدهم على تطوير أعمالهم بكفاءة.
+
+                نقدم مجموعة متكاملة من الخدمات تشمل تصميم وتركيب الشبكات، أنظمة كاميرات المراقبة، الصيانة والدعم الفني،
+                بالإضافة إلى توريد وتركيب الأجهزة والحلول التقنية المختلفة. نعتمد على أحدث التقنيات وأفضل الممارسات
+                لضمان تقديم خدمات عالية الجودة تلبي احتياجات الشركات والمنشآت بمختلف أحجامها.
+
+                في FastUpLink نؤمن أن السرعة في الاستجابة والدقة في التنفيذ هما أساس نجاح أي نظام تقني، لذلك نحرص على
+                تقديم دعم فني سريع وفعال، مع متابعة مستمرة لضمان استقرار الأنظمة وتقليل الأعطال إلى الحد الأدنى.
+            </h2>
+        </div>
+
+        <div class="image-gallery glass-highlight-box">
+            <div class="glass-shimmer-layer" aria-hidden="true"></div>
+            <h2 class="gallery-title highlight-headline" id="gallery-title"> مميزات التعاون مع Fast Uplink</h2>
+            <span class="glass-sparkle glass-sparkle--a" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--b" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--c" aria-hidden="true"></span>
+            <span class="glass-sparkle glass-sparkle--d" aria-hidden="true"></span>
+        </div>
+    </div>
     </div>
 
     <!-- Stacked Cards Section -->
@@ -1624,7 +2600,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             <div class="slide-image"><img src="01.webp" alt="حلول مصممة خصيصًا لشركتك"></div>
             <div class="slide-content">
                 <h1 class="title" id="card-title-0">حلول مصممة خصيصًا لشركتك</h1>
-                <p class="desc" id="card-desc-0">لا نؤمن بمفهوم الحلول الجاهزة للجميع. كل حل نقوم بتطويره مخصص لتلبية احتياجات شركتك</p>
+                <p class="desc" id="card-desc-0">لا نؤمن بمفهوم الحلول الجاهزة للجميع. كل حل نقوم بتطويره مخصص لتلبية
+                    احتياجات شركتك</p>
             </div>
         </div>
 
@@ -1632,7 +2609,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             <div class="slide-image"><img src="02.webp" alt="دعم فني سريع على مدار الساعة"></div>
             <div class="slide-content">
                 <h1 class="title" id="card-title-1">دعم فني سريع على مدار الساعة</h1>
-                <p class="desc" id="card-desc-1">فريقنا جاهز دائمًا لحل أي مشكلة تقنية تواجهك في أسرع وقت. نضمن استمرارية عملك بدون توقف</p>
+                <p class="desc" id="card-desc-1">فريقنا جاهز دائمًا لحل أي مشكلة تقنية تواجهك في أسرع وقت. نضمن
+                    استمرارية عملك بدون توقف</p>
             </div>
         </div>
 
@@ -1640,7 +2618,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             <div class="slide-image"><img src="03.webp" alt="أمان معلوماتك هو أولويتنا"></div>
             <div class="slide-content">
                 <h1 class="title" id="card-title-2">أمان معلوماتك هو أولويتنا</h1>
-                <p class="desc" id="card-desc-2">نطبق أحدث معايير الحماية لضمان أمان بياناتك من أي تهديدات. لأن حماية أعمالك تبدأ من حماية معلوماتك</p>
+                <p class="desc" id="card-desc-2">نطبق أحدث معايير الحماية لضمان أمان بياناتك من أي تهديدات. لأن حماية
+                    أعمالك تبدأ من حماية معلوماتك</p>
             </div>
         </div>
 
@@ -1648,15 +2627,18 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             <div class="slide-image"><img src="04.webp" alt="بنية تحتية قوية وموثوقة"></div>
             <div class="slide-content">
                 <h1 class="title" id="card-title-3">بنية تحتية قوية وموثوقة</h1>
-                <p class="desc" id="card-desc-3">نصمم وننفذ شبكات وأنظمة IT عالية الأداء لضمان استقرار العمل. بنية قوية تعني إنتاجية أعلى</p>
+                <p class="desc" id="card-desc-3">نصمم وننفذ شبكات وأنظمة IT عالية الأداء لضمان استقرار العمل. بنية قوية
+                    تعني إنتاجية أعلى</p>
             </div>
         </div>
 
         <div class="slide" id="slide-4">
-            <div class="slide-image"><img src="05.webp" alt="انشاء نظام سحابي خاص بشركتك بـ اقل التكاليف وبدون أشتراك شهري"></div>
+            <div class="slide-image"><img src="05.webp"
+                    alt="انشاء نظام سحابي خاص بشركتك بـ اقل التكاليف وبدون أشتراك شهري"></div>
             <div class="slide-content">
                 <h1 class="title" id="card-title-4">انشاء نظام سحابي خاص بشركتك بـ اقل التكاليف وبدون أشتراك شهري</h1>
-                <p class="desc" id="card-desc-4">أنشئ سحابتك الخاصة بأمان كامل وتحكم كامل في بياناتك، مع تقليل التكاليف التشغيلية والاستغناء عن الاشتراكات الشهرية المتكررة..</p>
+                <p class="desc" id="card-desc-4">أنشئ سحابتك الخاصة بأمان كامل وتحكم كامل في بياناتك، مع تقليل التكاليف
+                    التشغيلية والاستغناء عن الاشتراكات الشهرية المتكررة..</p>
             </div>
         </div>
 
@@ -1664,7 +2646,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             <div class="slide-image"><img src="06.webp" alt="خبرة تمتد لأكثر من 15 عامًا "></div>
             <div class="slide-content">
                 <h1 class="title" id="card-title-5">خبرة تمتد لأكثر من 15 عامًا </h1>
-                <p class="desc" id="card-desc-5">نعتمد على خبرة طويلة في تنفيذ مشاريع ناجحة بمختلف القطاعات. نضمن لك حلول مجربة ونتائج موثوقة.</p>
+                <p class="desc" id="card-desc-5">نعتمد على خبرة طويلة في تنفيذ مشاريع ناجحة بمختلف القطاعات. نضمن لك
+                    حلول مجربة ونتائج موثوقة.</p>
             </div>
         </div>
 
@@ -1672,13 +2655,15 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             <div class="slide-image"><img src="07.webp" alt="نقدم لك التحكم في تفاصيل شركتك"></div>
             <div class="slide-content">
                 <h1 class="title" id="card-title-6">نقدم لك التحكم في تفاصيل شركتك</h1>
-                <p class="desc" id="card-desc-6">نوفر لك حلولًا ذكية تمنحك السيطرة الكاملة على بيانات شركتك وصلاحيات المستخدمين، مع إدارة مرنة للإنترنت، وأنظمة الحضور والانصراف (البصمة)، والمراقبة بالكاميرات — ألخ .. لتدير عملك بطريقتك كما تشاء</p>
+                <p class="desc" id="card-desc-6">نوفر لك حلولًا ذكية تمنحك السيطرة الكاملة على بيانات شركتك وصلاحيات
+                    المستخدمين، مع إدارة مرنة للإنترنت، وأنظمة الحضور والانصراف (البصمة)، والمراقبة بالكاميرات — ألخ ..
+                    لتدير عملك بطريقتك كما تشاء</p>
             </div>
         </div>
 
     </div>
 
-        </div>
+    </div>
     </div>
 
     <style>
@@ -1690,6 +2675,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             gap: 30px;
             padding: 30px 0;
         }
+
         .slide {
             width: 100%;
             height: 100vh;
@@ -1700,17 +2686,20 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             overflow: hidden;
             border-radius: 20px;
         }
+
         .slide-image {
             position: absolute;
             inset: 0;
             z-index: 0;
         }
+
         .slide-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             filter: brightness(0.45);
         }
+
         .slide-content {
             position: relative;
             z-index: 2;
@@ -1723,25 +2712,36 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             backdrop-filter: blur(18px);
             border: 1px solid rgba(255, 215, 0, 0.35);
             border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
         }
+
         .title {
             font-size: clamp(22px, 4vw, 42px);
             font-weight: 700;
             margin: 0 0 16px;
             color: #ffd700;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
         }
+
         .desc {
             margin: 0;
             line-height: 1.8;
             font-size: clamp(14px, 2.2vw, 22px);
             color: white;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
         }
+
         @media (max-width: 600px) {
-            .cards-stack-wrapper { gap: 18px; padding: 18px 0; }
-            .slide-content { padding: 25px 18px; margin-bottom: 30px; width: 88%; }
+            .cards-stack-wrapper {
+                gap: 18px;
+                padding: 18px 0;
+            }
+
+            .slide-content {
+                padding: 25px 18px;
+                margin-bottom: 30px;
+                width: 88%;
+            }
         }
 
         /* ===== Partners Section ===== */
@@ -1756,7 +2756,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .partners-carousel::before,
         .partners-carousel::after {
             content: '';
@@ -1767,28 +2767,28 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             z-index: 2;
             pointer-events: none;
         }
-        
+
         .partners-carousel::before {
             left: 0;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
         }
-        
+
         .partners-carousel::after {
             right: 0;
             background: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
         }
-        
+
         .partners-carousel:hover .partners-track {
             animation-play-state: paused;
         }
-        
+
         .partners-track {
             display: flex;
             width: max-content;
             gap: 80px;
             animation: scrollTrack 25s linear infinite;
         }
-        
+
         .partner-logo {
             display: flex;
             align-items: center;
@@ -1802,14 +2802,14 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             backdrop-filter: blur(5px);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-        
+
         .partner-logo:hover {
             transform: translateY(-5px) scale(1.08);
             background: rgba(255, 255, 255, 0.18);
             border-color: rgba(255, 215, 0, 0.7);
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
         }
-        
+
         .partner-logo img {
             max-width: 100%;
             max-height: 100%;
@@ -1817,15 +2817,16 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             filter: grayscale(1) opacity(0.7);
             transition: all 0.3s ease;
         }
-        
+
         .partner-logo:hover img {
             filter: grayscale(0) opacity(1) drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
         }
-        
+
         @keyframes scrollTrack {
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -1842,38 +2843,55 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;ba
             <span class="glass-sparkle glass-sparkle--c" aria-hidden="true"></span>
             <span class="glass-sparkle glass-sparkle--d" aria-hidden="true"></span>
         </div>
-        
+
         <div class="partners-carousel" dir="ltr">
             <div class="partners-track">
                 <!-- Set 1 -->
-                <div class="partner-logo"><img src="101.webp" alt="Partner 101" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="102.webp" alt="Partner 102" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="103.webp" alt="Partner 103" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="104.webp" alt="Partner 104" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="105.webp" alt="Partner 105" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="106.webp" alt="Partner 106" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="107.webp" alt="Partner 107" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="108.webp" alt="Partner 108" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="101.webp" alt="Partner 101"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="102.webp" alt="Partner 102"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="103.webp" alt="Partner 103"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="104.webp" alt="Partner 104"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="105.webp" alt="Partner 105"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="106.webp" alt="Partner 106"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="107.webp" alt="Partner 107"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="108.webp" alt="Partner 108"
+                        onerror="this.parentElement.style.display='none';"></div>
 
                 <!-- Set 2 (Duplicate for Infinite Scroll) -->
-                <div class="partner-logo"><img src="101.webp" alt="Partner 101" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="102.webp" alt="Partner 102" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="103.webp" alt="Partner 103" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="104.webp" alt="Partner 104" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="105.webp" alt="Partner 105" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="106.webp" alt="Partner 106" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="107.webp" alt="Partner 107" onerror="this.parentElement.style.display='none';"></div>
-                <div class="partner-logo"><img src="108.webp" alt="Partner 108" onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="101.webp" alt="Partner 101"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="102.webp" alt="Partner 102"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="103.webp" alt="Partner 103"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="104.webp" alt="Partner 104"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="105.webp" alt="Partner 105"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="106.webp" alt="Partner 106"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="107.webp" alt="Partner 107"
+                        onerror="this.parentElement.style.display='none';"></div>
+                <div class="partner-logo"><img src="108.webp" alt="Partner 108"
+                        onerror="this.parentElement.style.display='none';"></div>
             </div>
         </div>
     </div>
 
-<div class="bottom-bar">
-    <div class="copyright-text" id="copyright-text">جميع الحقوق محفوظة ©  شركة فاست أب لينك.</div>
-    <button id="bottom-lang-btn" onclick="startJourney()">تواصل معنا</button>
-</div>
+    <div class="bottom-bar">
+        <div class="copyright-text" id="copyright-text">جميع الحقوق محفوظة © شركة فاست أب لينك.</div>
+        <button id="bottom-lang-btn" onclick="startJourney()">تواصل معنا</button>
+    </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         // --- START LANGUAGE SWITCHER CODE ---
 
         let currentLang = 'en';
@@ -2034,20 +3052,20 @@ At FastUpLink, we believe that fast response and precise execution are the key t
         function updateCardsLanguage() {
             const cardTitles = document.querySelectorAll('.title');
             const cardDescs = document.querySelectorAll('.desc');
-            
+
             cardTitles.forEach((title, index) => {
                 if (translations[currentLang].cardTitles[index]) {
                     title.innerHTML = translations[currentLang].cardTitles[index];
                 }
             });
-            
+
             cardDescs.forEach((desc, index) => {
                 if (translations[currentLang].cardDescriptions[index]) {
                     desc.innerHTML = translations[currentLang].cardDescriptions[index];
                 }
             });
         }
-        
+
         // ... existing code ...
 
         // وظيفة بدء الرحلة - تنفذ عند الضغط على الزر
@@ -2061,51 +3079,51 @@ At FastUpLink, we believe that fast response and precise execution are the key t
                 document.getElementById('contactModal').style.display = 'flex';
             }, 100);
         }
-        
+
         // إغلاق نافذة الرسالة المنبثقة
         function closeContactModal() {
             document.getElementById('contactModal').style.display = 'none';
         }
-        
+
         // وظائف النافذة المنبثقة للموقع
         function showLocation(event) {
             event.preventDefault();
             document.getElementById('locationModal').style.display = 'flex';
         }
-        
+
         function closeLocation() {
             document.getElementById('locationModal').style.display = 'none';
         }
-        
+
         // وظائف الاتصال
         function makeCall() {
             window.location.href = 'tel:+2 01039501190';
         }
-        
+
         function openWhatsApp() {
             window.open('https://wa.me/201039501190', '_blank');
         }
-        
+
         // إغلاق النوافذ المنبثقة عند النقر خارج المحتوى
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('locationModal');
             if (event.target == modal) {
                 closeLocation();
             }
-            
+
             const contactModal = document.getElementById('contactModal');
             if (event.target == contactModal) {
                 closeContactModal();
             }
         }
-        
+
         // إضافة تأثيرات بصرية عند حركة الماوس
         document.addEventListener('mousemove', (e) => {
             if (Math.random() > 0.95) {
                 createSparkle(e.clientX, e.clientY);
             }
         });
-        
+
         // وظيفة إنشاء تأثير البريق
         function createSparkle(x, y) {
             const sparkle = document.createElement('div');
@@ -2119,14 +3137,14 @@ At FastUpLink, we believe that fast response and precise execution are the key t
             sparkle.style.pointerEvents = 'none';
             sparkle.style.zIndex = '9999';
             sparkle.style.animation = 'sparkleAnimation 1s ease-out forwards';
-            
+
             document.body.appendChild(sparkle);
-            
+
             setTimeout(() => {
                 sparkle.remove();
             }, 1000);
         }
-        
+
         // إضافة رسوم متحركة لتأثير البريق
         const style = document.createElement('style');
         style.textContent = `
@@ -2149,94 +3167,95 @@ At FastUpLink, we believe that fast response and precise execution are the key t
 
         applyLanguage('en');
 
-    // إخفاء شاشة التحميل بتأثير curtain من تحت لفوق
-    setTimeout(() => {
-        let preloader = document.getElementById("preloader");
-        preloader.classList.add("hide");
-
+        // إخفاء شاشة التحميل بتأثير curtain من تحت لفوق
         setTimeout(() => {
-            preloader.style.display = "none";
-            document.querySelector(".site-content").classList.add("show");
-            initCyberDecryption();
-        }, 1000);
-    }, 3000);
+            let preloader = document.getElementById("preloader");
+            preloader.classList.add("hide");
 
-    // تأثير فك التشفير السيبراني التكنولوجي للترحيب (Matrix Cyber Decryption)
-    function initCyberDecryption() {
-        const welcomeTitle = document.getElementById("WELCOME-title");
-        if (!welcomeTitle) return;
-        const spans = welcomeTitle.querySelectorAll(".welcome-char");
-        const chars = "0101#$@%&<>_/*+XZ!";
-        const targetText = "WELCOME";
-        let iteration = 0;
-        
-        clearInterval(welcomeTitle._scrambleInterval);
-        welcomeTitle._scrambleInterval = setInterval(() => {
-            spans.forEach((span, index) => {
-                if (index < iteration) {
-                    span.textContent = targetText[index];
-                    span.style.color = "transparent";
-                } else {
-                    span.textContent = chars[Math.floor(Math.random() * chars.length)];
-                    span.style.color = "#00F3FF";
-                }
-            });
+            setTimeout(() => {
+                preloader.style.display = "none";
+                document.querySelector(".site-content").classList.add("show");
+                initCyberDecryption();
+            }, 1000);
+        }, 3000);
 
-            if (iteration >= targetText.length) {
-                clearInterval(welcomeTitle._scrambleInterval);
+        // تأثير فك التشفير السيبراني التكنولوجي للترحيب (Matrix Cyber Decryption)
+        function initCyberDecryption() {
+            const welcomeTitle = document.getElementById("WELCOME-title");
+            if (!welcomeTitle) return;
+            const spans = welcomeTitle.querySelectorAll(".welcome-char");
+            const chars = "0101#$@%&<>_/*+XZ!";
+            const targetText = "WELCOME";
+            let iteration = 0;
+
+            clearInterval(welcomeTitle._scrambleInterval);
+            welcomeTitle._scrambleInterval = setInterval(() => {
                 spans.forEach((span, index) => {
-                    span.textContent = targetText[index];
-                    span.style.color = "transparent";
+                    if (index < iteration) {
+                        span.textContent = targetText[index];
+                        span.style.color = "transparent";
+                    } else {
+                        span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                        span.style.color = "#00F3FF";
+                    }
                 });
-            }
-            iteration += 1 / 3;
-        }, 32);
-    }
 
-    const welcomeWrap = document.querySelector(".welcome-wrapper");
-    if (welcomeWrap) {
-        welcomeWrap.addEventListener("mouseenter", () => {
-            initCyberDecryption();
-        });
-    }
+                if (iteration >= targetText.length) {
+                    clearInterval(welcomeTitle._scrambleInterval);
+                    spans.forEach((span, index) => {
+                        span.textContent = targetText[index];
+                        span.style.color = "transparent";
+                    });
+                }
+                iteration += 1 / 3;
+            }, 32);
+        }
+
+        const welcomeWrap = document.querySelector(".welcome-wrapper");
+        if (welcomeWrap) {
+            welcomeWrap.addEventListener("mouseenter", () => {
+                initCyberDecryption();
+            });
+        }
 
 
     </script>
 
-    
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  function openInNewTab(url) {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  }
 
-  // Facebook
-  const fbIcon = document.querySelector('.social-icons a[href*="facebook.com"]');
-  if (fbIcon) {
-    fbIcon.addEventListener('click', function (e) {
-      e.preventDefault();
-      openInNewTab(this.href);
-    });
-  }
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function openInNewTab(url) {
+                window.open(url, '_blank', 'noopener,noreferrer');
+            }
 
-  // messenger
-  const igIcon = document.querySelector('.social-icons a[href*="messenger.com"]');
-  if (igIcon) {
-    igIcon.addEventListener('click', function (e) {
-      e.preventDefault();
-      openInNewTab(this.href);
-    });
-  }
+            // Facebook
+            const fbIcon = document.querySelector('.social-icons a[href*="facebook.com"]');
+            if (fbIcon) {
+                fbIcon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openInNewTab(this.href);
+                });
+            }
 
-  // WhatsApp
-  const waIcon = document.querySelector('.social-icons a[href*="wa.me"]');
-  if (waIcon) {
-    waIcon.addEventListener('click', function (e) {
-      e.preventDefault();
-      openInNewTab(this.href);
-    });
-  }
-});
-</script>
+            // messenger
+            const igIcon = document.querySelector('.social-icons a[href*="messenger.com"]');
+            if (igIcon) {
+                igIcon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openInNewTab(this.href);
+                });
+            }
+
+            // WhatsApp
+            const waIcon = document.querySelector('.social-icons a[href*="wa.me"]');
+            if (waIcon) {
+                waIcon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openInNewTab(this.href);
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
