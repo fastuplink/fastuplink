@@ -200,7 +200,7 @@
       directEmailLabel: 'Official Correspondence',
       directEmailVal: 'info@fastuplink.com',
       directLocLabel: 'Office Headquarters',
-      directLocVal: 'Alexandria, Egypt',
+      directLocVal: 'El-Sayed Mohamed Karim St. - In front of National Bank of Egypt, Alexandria',
 
       // Footer
       footerAbout: 'FastUplink provides enterprise-grade IT solutions, managed technical support, network engineering, and infrastructure consulting for small and medium businesses.',
@@ -216,6 +216,7 @@
       modalDesc: 'Choose your preferred channel for immediate technical consultation or contract support.',
       modalCallBtn: 'Call Now',
       modalWhatsAppBtn: 'Open WhatsApp',
+      modalWhatsAppLabel: 'WhatsApp Support',
       modalEmailBtn: 'Send Email'
     },
     ar: {
@@ -410,7 +411,7 @@
       directEmailLabel: 'البريد الإلكتروني الرسمي',
       directEmailVal: 'info@fastuplink.com',
       directLocLabel: 'مقر الشركة',
-      directLocVal: 'الإسكندرية - الجمرك - شارع أبو وردة',
+      directLocVal: 'شارع السيد محمد كريم - امام البنك الاهلي',
 
       // Footer
       footerAbout: 'شركة FastUplink متخصصة في تقديم حلول تكنولوجيا المعلومات، الدعم الفني المدار، تأسيس الشبكات، وتأمين البنية التحتية للشركات والمنشآت التجارية.',
@@ -426,21 +427,40 @@
       modalDesc: 'اختر الطريقة الأنسب لك للتواصل الفوري مع مهندسينا للاستشارة أو الدعم الفني.',
       modalCallBtn: 'اتصال هاتفي',
       modalWhatsAppBtn: 'محادثة واتساب',
+      modalWhatsAppLabel: 'دعم واتساب الفوري',
       modalEmailBtn: 'إرسال بريد إلكتروني'
     }
   };
 
-  let currentLanguage = 'en';
+  let currentLanguage = 'ar';
 
   // --- Initialize App ---
   function init() {
-    // Check saved language or default to 'en'
-    const savedLang = localStorage.getItem('fastuplink_lang');
-    if (savedLang && (savedLang === 'ar' || savedLang === 'en')) {
-      currentLanguage = savedLang;
+    // 1. Check URL parameter (?lang=en or ?lang=ar)
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramLang = urlParams.get('lang');
+
+    // 2. Check explicitly chosen user language from localStorage
+    const savedUserLang = localStorage.getItem('fastuplink_user_lang');
+
+    if (paramLang && (paramLang === 'ar' || paramLang === 'en')) {
+      currentLanguage = paramLang;
+    } else if (savedUserLang && (savedUserLang === 'ar' || savedUserLang === 'en')) {
+      currentLanguage = savedUserLang;
+    } else {
+      currentLanguage = 'ar'; // Arabic is the primary and default language
     }
 
-    applyLanguage(currentLanguage);
+    applyLanguage(currentLanguage, false);
+
+    // Listen for browser forward/back history navigation
+    window.addEventListener('popstate', function () {
+      const p = new URLSearchParams(window.location.search).get('lang');
+      const targetLang = (p === 'ar' || p === 'en') ? p : 'ar';
+      if (targetLang !== currentLanguage) {
+        applyLanguage(targetLang, false);
+      }
+    });
 
     setupPreloader();
     setupHeaderScroll();
@@ -473,8 +493,10 @@
   }
 
   // --- Language Switching ---
-  function applyLanguage(lang) {
+  function applyLanguage(lang, syncUrl) {
+    if (syncUrl === undefined) syncUrl = true;
     currentLanguage = lang;
+    localStorage.setItem('fastuplink_user_lang', lang);
     localStorage.setItem('fastuplink_lang', lang);
 
     document.documentElement.lang = lang;
@@ -482,12 +504,22 @@
 
     const t = translations[lang];
 
-    // Language button text
+    // Language button text and aria-labels
+    const btnAria = lang === 'ar'
+      ? 'Switch to English / التبديل إلى الإنجليزية'
+      : 'Switch to Arabic / التبديل إلى العربية';
+
     const langBtn = document.getElementById('lang-toggle-btn');
-    if (langBtn) langBtn.textContent = t.langBtn;
+    if (langBtn) {
+      langBtn.textContent = t.langBtn;
+      langBtn.setAttribute('aria-label', btnAria);
+    }
 
     const mobileLangBtn = document.getElementById('mobile-lang-toggle-btn');
-    if (mobileLangBtn) mobileLangBtn.textContent = t.langBtn;
+    if (mobileLangBtn) {
+      mobileLangBtn.textContent = t.langBtn;
+      mobileLangBtn.setAttribute('aria-label', btnAria);
+    }
 
     // Translate all elements with data-i18n
     const elements = document.querySelectorAll('[data-i18n]');
@@ -507,16 +539,43 @@
       }
     });
 
-    // Update title
-    document.title = lang === 'ar'
-      ? 'فاست أب لينك | حلول تكنولوجيا المعلومات والدعم الفني السريع'
-      : 'FastUplink | Enterprise IT Solutions & Quick Support';
+    // Update document title, meta description, and open graph locale
+    if (lang === 'ar') {
+      document.title = 'فاست أب لينك | حلول تكنولوجيا المعلومات والدعم الفني السريع';
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', 'تقدم شركة فاست أب لينك (FastUplink) حلول تكنولوجيا المعلومات المتكاملة، الدعم الفني المدار 24/7، تأسيس شبكات الشركات، الأمن السيبراني، السحابة الخاصة، وكاميرات المراقبة.');
+      }
+      const ogLocale = document.querySelector('meta[property="og:locale"]');
+      if (ogLocale) ogLocale.setAttribute('content', 'ar_EG');
+    } else {
+      document.title = 'FastUplink | Enterprise IT Solutions & Quick Support';
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', 'FastUplink provides professional managed IT support, enterprise network infrastructure, cybersecurity, server administration, CCTV surveillance, and IT consulting for businesses.');
+      }
+      const ogLocale = document.querySelector('meta[property="og:locale"]');
+      if (ogLocale) ogLocale.setAttribute('content', 'en_US');
+    }
+
+    // Sync URL query param while preserving anchor hash (#services, #about, etc.)
+    if (syncUrl && window.history && window.history.replaceState) {
+      const currentUrl = new URL(window.location.href);
+      if (lang === 'en') {
+        currentUrl.searchParams.set('lang', 'en');
+      } else {
+        currentUrl.searchParams.delete('lang');
+      }
+      const newQuery = currentUrl.searchParams.toString();
+      const targetUrl = currentUrl.pathname + (newQuery ? '?' + newQuery : '') + currentUrl.hash;
+      window.history.replaceState({ lang: lang }, '', targetUrl);
+    }
   }
 
   // Expose toggle language globally for click handler
   window.toggleLanguage = function () {
     const nextLang = currentLanguage === 'en' ? 'ar' : 'en';
-    applyLanguage(nextLang);
+    applyLanguage(nextLang, true);
   };
 
   // --- Sticky Header on Scroll ---

@@ -186,6 +186,13 @@ body {
   font-family: var(--font-ar);
 }
 
+[dir="rtl"] button,
+[dir="rtl"] input,
+[dir="rtl"] select,
+[dir="rtl"] textarea {
+  font-family: var(--font-ar);
+}
+
 img, svg {
   display: block;
   max-width: 100%;
@@ -280,9 +287,55 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
 }
 
-[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+[dir="rtl"] .hero-headline,
+[dir="rtl"] .section-title,
+[dir="rtl"] .service-title,
+[dir="rtl"] .why-card-title,
+[dir="rtl"] .cloud-title,
+[dir="rtl"] .about-title,
+[dir="rtl"] .infra-item-title,
+[dir="rtl"] .closing-brand-title,
+[dir="rtl"] .modal-title {
   font-family: var(--font-ar);
   font-weight: 800;
+  letter-spacing: normal;
+}
+
+[dir="rtl"] .section-tag,
+[dir="rtl"] .brand-tagline,
+[dir="rtl"] .stat-label,
+[dir="rtl"] .direct-contact-info-title,
+[dir="rtl"] .modal-tag,
+[dir="rtl"] .modal-badge,
+[dir="rtl"] .telemetry-title,
+[dir="rtl"] .modal-item-label {
+  letter-spacing: normal;
+  text-transform: none;
+  font-family: var(--font-ar);
+}
+
+[dir="rtl"] .hero-headline {
+  line-height: 1.25;
+}
+
+[dir="rtl"] .hero-subtitle {
+  line-height: 1.8;
+}
+
+[dir="rtl"] .service-desc,
+[dir="rtl"] .why-card-desc,
+[dir="rtl"] .about-paragraph,
+[dir="rtl"] .cloud-desc,
+[dir="rtl"] .infra-item-desc,
+[dir="rtl"] .closing-brand-desc {
+  line-height: 1.75;
+}
+
+/* Directional Action/Forward Arrows flip in RTL */
+[dir="rtl"] .btn-header-contact svg,
+[dir="rtl"] .arrow-forward {
+  transform: scaleX(-1);
 }
 
 .text-gradient {
@@ -588,6 +641,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 12px;
   padding-top: 12px;
   border-top: 1px solid var(--border-subtle);
+}
+
+.mobile-drawer-actions .lang-switch-btn {
+  justify-content: center;
 }
 
 /* ==========================================================================
