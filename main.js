@@ -11,13 +11,14 @@
     en: {
       langBtn: '🌐 عربي',
       navHome: 'Home',
-      navServices: 'Services',
-      navCloud: 'Private Cloud',
+      navIndustries: 'Industries',
       navWhy: 'Why FastUplink',
       navAbout: 'About Us',
+      navServices: 'Services',
+      navArchive: 'Archive System',
       navInfra: 'Infrastructure',
-      navIndustries: 'Industries',
-      navClients: 'Clients',
+      navCloud: 'Private Cloud',
+      navClients: 'Partners',
       navContactBtn: 'Quick Contact',
 
       // Hero
@@ -156,6 +157,34 @@
       aboutCheck3: 'Rapid emergency response and continuous system health checks',
       aboutCheck4: 'Zero fake bloatware — practical, high-impact business IT',
 
+      // Digital Archive System
+      archiveTag: 'Zero Monthly Subscriptions',
+      archiveTitle: 'Own Your Enterprise Archiving System',
+      archiveSubheadline: 'Your Electronic Archive.. Fully Yours, With Zero Monthly Subscriptions.',
+      archiveDesc: 'We provide an integrated, turnkey Electronic Document Management System (EDMS) tailored to the unique operational needs of any business or institution. Replace vulnerable physical paperwork with an organized, secure, and searchable digital archive that you own completely on your premises.',
+
+      archive1Title: 'Tailored for All Sectors & Businesses',
+      archive1Desc: 'Custom-engineered for corporate firms, factories, hotels, medical centers, and administrative offices of any size.',
+
+      archive2Title: 'Protecting Documents from Loss & Damage',
+      archive2Desc: 'Eliminate the hazards of physical paper archiving — fire, moisture, deterioration, and misplaced records — with lifelong organized digital preservation.',
+
+      archive3Title: 'On-Premises Dedicated Server',
+      archive3Desc: 'Deployed on a dedicated server inside your company premises. Your confidential data stays 100% in your physical possession, free from third-party hosts.',
+
+      archive4Title: 'Granular Permissions & High Privacy',
+      archive4Desc: 'Full control over employee access privileges. Define precisely who can upload, view, edit, or delete records, backed by detailed audit logging.',
+
+      archive5Title: 'Zero Monthly Recurring Subscriptions',
+      archive5Desc: 'Stop paying costly recurring monthly SaaS fees to cloud giants. You own your core infrastructure and pay only the agreed setup cost.',
+
+      archive6Title: 'Complete Data Independence & Offline LAN',
+      archive6Desc: 'Fast, uninterrupted document access across your local network (LAN), ensuring full business continuity even during internet outages or cloud downtime.',
+
+      archiveCalloutTag: '100% Independence & Security',
+      archiveCalloutTitle: '"Even under the most critical conditions, your data remains inside your premises and fully under your control."',
+      archiveCalloutDesc: 'Never leave your business at the mercy of third-party cloud hosts. During internet blackouts or external service failures, your archives remain instantly accessible over your local network as long as local power and servers are running.',
+
       // Tech & Infrastructure
       infraTag: 'Hardware & Standards',
       infraTitle: 'Enterprise Technology & Infrastructure',
@@ -222,12 +251,13 @@
     ar: {
       langBtn: '🌐 English',
       navHome: 'الرئيسية',
-      navServices: 'خدماتنا',
-      navCloud: 'السحابة الخاصة',
+      navIndustries: 'القطاعات',
       navWhy: 'لماذا فاست أب لينك',
       navAbout: 'من نحن',
+      navServices: 'خدماتنا',
+      navArchive: 'سيستم الأرشيف',
       navInfra: 'البنية التحتية',
-      navIndustries: 'القطاعات',
+      navCloud: 'السحابة الخاصة',
       navClients: 'شركاؤنا',
       navContactBtn: 'تواصل سريع',
 
@@ -366,6 +396,34 @@
       aboutCheck2: 'إدارة متكاملة للبنية التحتية، الأمان، ومعدات المكاتب',
       aboutCheck3: 'استجابة سريعة للأعطال الطارئة ومتابعة دورية لحالة الأنظمة',
       aboutCheck4: 'حلول واقعية وعملية تعطي أعلى عائد على استثمارك التقني',
+
+      // Digital Archive System
+      archiveTag: 'أرشيفك الإلكتروني.. بدون اشتراكات شهرية',
+      archiveTitle: 'امتلك سيستم الأرشيف الخاص بك',
+      archiveSubheadline: 'أرشيفك الإلكتروني.. ملكك بالكامل، بدون اشتراكات شهرية.',
+      archiveDesc: 'نقدم نظام أرشيف إلكتروني متكامل يمكن تصميمه ليناسب احتياجات أي شركة أو مؤسسة مهما كان مجال عملها أو حجمها. بدلًا من الاعتماد على الأرشيف الورقي المعرض للتلف أو الضياع، احتفظ بنسخة إلكترونية منظمة من جميع ملفات ومستندات مؤسستك، مع سهولة البحث والوصول والإدارة بأعلى درجات الأمان.',
+
+      archive1Title: 'مناسب لجميع الأنشطة والمؤسسات',
+      archive1Desc: 'مهيأ بمرونة للشركات التجارية، المصانع، الفنادق، المراكز الطبية، والمكاتب الإدارية باختلاف حجمها وطبيعة أعمالها.',
+
+      archive2Title: 'حماية مستنداتك من التلف والضياع',
+      archive2Desc: 'ودّع مخاطر الأوراق المعرضة للحرائق، الرطوبة، التلف أو الفقدان، واحتفظ بنسخ إلكترونية منظمة تدوم مدى الحياة.',
+
+      archive3Title: 'سيرفر خاص داخل مؤسستك',
+      archive3Desc: 'تثبيت النظام على سيرفر داخل مقرك، لتظل بياناتك في حوزتك وتحت سيطرتك المباشرة دون اعتماد على استضافة خارجية.',
+
+      archive4Title: 'خصوصية وأمان وصلاحيات دقيقة',
+      archive4Desc: 'تحكم دقيق في صلاحيات الموظفين، مع تحديد من يمكنه الرفع، الاطلاع، التعديل أو الحذف، وسجل تدقيق تفصيلي.',
+
+      archive5Title: 'بدون اشتراكات شهرية متكررة',
+      archive5Desc: 'وفّر تكاليف السحابة الباهظة؛ أنت تمتلك البنية الأساسية لنظامك بالكامل وتدفع فقط تكلفة التجهيز لمرة واحدة.',
+
+      archive6Title: 'استقلالية البيانات والعمل دون إنترنت',
+      archive6Desc: 'تصل لملفاتك وتديرها بسرعة فائقة عبر الشبكة الداخلية (LAN)، حتى في حال انقطاع الإنترنت أو تعطل السحابة الخارجية.',
+
+      archiveCalloutTag: 'استقلالية وأمان 100%',
+      archiveCalloutTitle: '"حتى في أصعب الظروف، تظل بياناتك داخل مؤسستك وتحت سيطرتك."',
+      archiveCalloutDesc: 'لا تجعل أعمالك رهينة لشركات الاستضافة الخارجية أو تقلبات السحابة العامة. في أوقات الأزمات أو انقطاع الإنترنت، تظل ملفات ومستندات مؤسستك متاحة فوراً لفرق عملك عبر الشبكة الداخلية طالما السيرفر والطاقة يعملان بكفاءة.',
 
       // Tech & Infrastructure
       infraTag: 'العتاد والمعايير',

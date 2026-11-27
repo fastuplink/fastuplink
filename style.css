@@ -477,17 +477,18 @@ h1, h2, h3, h4, h5, h6 {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .nav-link {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-secondary);
-  padding: 8px 14px;
+  padding: 7px 11px;
   border-radius: var(--radius-sm);
   transition: color var(--transition-fast), background-color var(--transition-fast);
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -824,13 +825,13 @@ h1, h2, h3, h4, h5, h6 {
 .hero-main-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  transition: transform var(--transition-smooth);
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .hero-image-frame:hover .hero-main-img {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .hero-img-gradient-overlay {
@@ -1221,10 +1222,9 @@ h1, h2, h3, h4, h5, h6 {
 .cloud-main-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .cloud-image-wrapper:hover .cloud-main-img {
@@ -1555,6 +1555,115 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   Digital Archive System (Section E2)
+   ========================================================================== */
+
+.archive-section {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid rgba(0, 210, 255, 0.08);
+}
+
+.archive-layout {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.archive-subheadline {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-top: 8px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.archive-visual-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.archive-independence-card {
+  background: linear-gradient(135deg, rgba(13, 22, 45, 0.95) 0%, rgba(9, 16, 34, 0.98) 100%);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-md), 0 0 25px rgba(0, 210, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.archive-independence-card:hover {
+  border-color: rgba(0, 210, 255, 0.6);
+  box-shadow: var(--shadow-lg), 0 0 35px rgba(0, 210, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+.archive-independence-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--grad-cyan-blue);
+}
+
+html[dir="ltr"] .archive-independence-card::before {
+  right: auto;
+  left: 0;
+}
+
+.independence-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.independence-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 210, 255, 0.12);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.independence-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.independence-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.independence-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
    Technology & Infrastructure (Section F)
    ========================================================================== */
 
@@ -1583,9 +1692,13 @@ h1, h2, h3, h4, h5, h6 {
 .infra-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 11;
-  object-fit: cover;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.infra-image-container:hover .infra-img {
+  transform: scale(1.03);
 }
 
 .infra-grid-cards {
@@ -1715,8 +1828,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .client-logo-card {
-  width: 220px;
-  height: 100px;
+  width: 260px;
+  height: 130px;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -1725,15 +1838,20 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
   transition: all var(--transition-fast);
 }
 
 .client-logo-card img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  max-width: 215px;
+  max-height: 92px;
   object-fit: contain;
-  filter: grayscale(1) opacity(0.7);
-  transition: all var(--transition-fast);
+  filter: grayscale(1) opacity(0.75);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter var(--transition-fast), opacity var(--transition-fast);
+  will-change: transform;
 }
 
 .client-logo-card:hover {
@@ -1744,6 +1862,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .client-logo-card:hover img {
   filter: grayscale(0) opacity(1);
+  transform: scale(1.03);
 }
 
 @keyframes scrollMarquee {
@@ -2228,9 +2347,14 @@ h1, h2, h3, h4, h5, h6 {
 
   .about-grid-layout,
   .infra-layout,
+  .archive-layout,
   .cloud-layout {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+
+  .archive-visual-col {
+    order: -1;
   }
 
   .industries-bar {
@@ -2337,4 +2461,58 @@ h1, h2, h3, h4, h5, h6 {
 :focus-visible {
   outline: 2px solid var(--accent-cyan);
   outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Unified Image Zoom Effect (Standardized Across All Website Images)
+   Reference: Private Cloud Solution Section (.cloud-image-wrapper)
+   ========================================================================== */
+
+/* Reusable Image Zoom Container / Frame */
+.img-zoom-frame,
+.hero-image-frame,
+.infra-image-container,
+.cloud-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reusable Image Target */
+.img-zoom-target,
+.hero-main-img,
+.infra-img,
+.cloud-main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Unified Hover Zoom (Scale 1.03) */
+.img-zoom-frame:hover .img-zoom-target,
+.hero-image-frame:hover .hero-main-img,
+.infra-image-container:hover .infra-img,
+.cloud-image-wrapper:hover .cloud-main-img {
+  transform: scale(1.03);
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .img-zoom-target,
+  .hero-main-img,
+  .infra-img,
+  .cloud-main-img,
+  .client-logo-card img {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .img-zoom-frame:hover .img-zoom-target,
+  .hero-image-frame:hover .hero-main-img,
+  .infra-image-container:hover .infra-img,
+  .cloud-image-wrapper:hover .cloud-main-img,
+  .client-logo-card:hover img {
+    transform: none !important;
+  }
 }
